@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://fadiman-atlas.vercel.app/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Ctext%20y%3D%2728%27%20font-size%3D%2728%27%3EF%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="A searchable knowledge infrastructure cataloguing 34 years of James Fadiman's recorded public output. 132 entries, 1992-2026. Live semantic search, annotation demo, full corpus explorer." />
+  <meta name="description" content="A searchable knowledge infrastructure cataloguing 34 years of James Fadiman's recorded public output. 132 entries, 1992-2026. Local corpus search, transparent annotation aid, full corpus explorer." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fadiman-atlas.vercel.app/" />
   <meta property="og:title" content="The Fadiman Knowledge Atlas" />
@@ -71,7 +71,7 @@
     .bm{background:var(--warn-bg);color:var(--warn);}
     .bb{background:var(--tag);color:var(--muted);}
 
-    /* ── LIVE DEMO SECTIONS ── */
+    /* ── INTERACTIVE CORPUS SECTIONS ── */
     .demo-section{background:var(--ink);color:var(--bg);padding:32px 36px;margin:32px 0;}
     .demo-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-light);margin-bottom:6px;}
     .demo-section h2{color:var(--bg);margin-top:0;font-size:1.2rem;font-weight:300;margin-bottom:8px;scroll-margin-top:52px;}
@@ -1156,144 +1156,68 @@ function filterTable(){
 filterTable();
 
 // ═══════════════════════════════════════
-// SEARCH DEMO (Anthropic API)
+// GROUNDED LOCAL CORPUS SEARCH
 // ═══════════════════════════════════════
 function setQuery(q){document.getElementById('search-input').value=q;}
 
+function atlasText(e){return [e.date,e.type,e.host,e.show,e.guest,e.status].join(' ').toLowerCase();}
+function atlasId(e){return 'FKA-'+String(e.n).padStart(3,'0');}
+function safeText(v){return String(v||'').replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+function tokenize(q){return [...new Set(q.toLowerCase().match(/[a-z0-9µ-]+/g)||[])].filter(function(x){return x.length>2;});}
+function rankEntries(q){
+  var terms=tokenize(q);
+  return entries.map(function(e){
+    var hay=atlasText(e),score=terms.reduce(function(n,t){return n+(hay.includes(t)?1:0);},0);
+    if(e.status==='live')score+=.1;
+    return {e:e,score:score};
+  }).filter(function(x){return x.score>0;}).sort(function(a,b){return b.score-a.score||a.e.n-b.e.n;}).slice(0,8);
+}
+function renderSource(x){
+  var e=x.e,link=e.url?'<a href="'+safeText(e.url)+'" target="_blank" rel="noopener">Open source ↗</a>':'No current public URL';
+  return '<article style="padding:12px 0;border-bottom:1px solid #333"><strong style="color:#E8D5B0">'+atlasId(e)+' · '+safeText(e.show)+'</strong><br><span>'+safeText(e.date)+' · '+safeText(e.type)+' · '+safeText(e.host)+' · '+safeText(e.runtime)+'</span><br><span style="font-family:DM Mono,monospace;font-size:.62rem;color:#888">'+safeText(e.status)+' · relevance '+Math.floor(x.score)+'</span><br>'+link+'</article>';
+}
 async function runSearch(){
-  const q=document.getElementById('search-input').value.trim();
+  var q=document.getElementById('search-input').value.trim(),btn=document.getElementById('search-btn'),result=document.getElementById('search-result');
   if(!q)return;
-  const btn=document.getElementById('search-btn');
-  const result=document.getElementById('search-result');
-  btn.disabled=true;btn.textContent='Searching...';
-  result.style.display='block';
-  result.innerHTML='<span class="streaming-cursor"></span>';
-
-  const corpusContext=`You are an AI assistant for the Fadiman Knowledge Atlas — a proposed searchable knowledge infrastructure for James Fadiman's complete public corpus.
-
-CORPUS SUMMARY: 132 catalogued entries spanning August 1992 to April 2026. ~107 hours of listed audio/video. 3 trade books. Key works: The Psychedelic Explorer's Guide (2011), Your Symphony of Selves (2020), Microdosing for Health, Healing, and Enhanced Performance (2025). Co-author on recent books: Jordan Gruber JD. Research collaborator: Sophia Korb. The 1966 creativity study (Harman, McKim, Mogar, Fadiman, Stolaroff) involved 27 subjects, mescaline 200mg or LSD 100µg, 48 problems, 48 satisfactory solutions.
-
-NOTABLE APPEARANCES IN CORPUS: Tim Ferriss Show Ep. 66 (Mar 2015, 1hr39m), Sam Harris Making Sense #242 (Mar 2021, 1hr3m), Harvard Law Petrie-Flom keynote Apr 2022, Netflix How to Change Your Mind Chapter 1 LSD (Jul 2022), Psychedelics Today PT353 creativity symposium (Sep 2022), Mayim Bialik Breakdown (Mar 2025), Jim Rutt Show (May 2021), and 100+ more entries spanning terrestrial radio, podcasts, YouTube, Vimeo, webinars.
-
-FADIMAN'S KEY POSITIONS (from published books and interviews):
-- Fadiman Protocol: 1 day on, 2 days off, ~10µg LSD (or 0.1-0.3g psilocybin)
-- Dose framework: microdose → museum/concert (~50µg) → creative problem-solving (~100µg) → psychotherapeutic (~200µg) → transcendental (~400µg+)
-- Mechanism: frequently disclaims ("we have no idea how it works") while noting consistency of reports
-- Antidepressants: notes that SSRIs may blunt psychedelic effect; advises caution; not a medical recommendation
-- Evidence: citizen science self-report corpus from thousands across 51 countries; 2019 Journal of Psychoactive Drugs paper with Sophia Korb
-- Contraindications: personal or family history of psychosis or schizophrenia; certain medications; individual judgment required
-- LSD vs psilocybin: different character — LSD more energizing/cognitive, psilocybin more visual/emotional; both used in the protocol
-- Creativity: foundational 1966 study + consistent reports across decades; mechanism unclear
-- Long COVID: emerging in citizen science reports in 2025 book
-- His intellectual position: "I don't do research, I do search" — emphasizes citizen science over controlled trials
-
-Answer the user's question about Fadiman's body of work. Be specific. Cite the approximate year and context of statements where possible. Distinguish between positions he holds with certainty vs. those he expresses as observations or speculation. If the question is about how his thinking evolved, note the trajectory. Keep responses to 3-4 paragraphs maximum.`;
-
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-6',max_tokens:600,
-        system:corpusContext,
-        messages:[{role:'user',content:q}]
-      })
-    });
-    const data=await resp.json();
-    const text=data.content?.[0]?.text||'No response generated.';
-    result.innerHTML='';
-    // Stream text character by character for effect
-    let i=0;
-    const interval=setInterval(()=>{
-      result.textContent=text.slice(0,i);
-      i+=3;
-      if(i>text.length){result.textContent=text;clearInterval(interval);}
-    },8);
-  }catch(err){
-    result.textContent='Search error. The demo requires the Anthropic API key to be configured.';
-  }
+  btn.disabled=true;btn.textContent='Searching...';result.classList.add('visible');
+  var ranked=rankEntries(q);
+  result.innerHTML=ranked.length
+    ?'<div style="font-family:DM Mono,monospace;font-size:.64rem;color:#B8842A;margin-bottom:8px">LOCAL CATALOG MATCHES · '+ranked.length+' · no external AI call</div>'+ranked.map(renderSource).join('')
+    :'<div>No catalog records matched those terms. Try a title, host, year, format, or named guest. A zero-result is not evidence that the topic is absent from the underlying work.</div>';
   btn.disabled=false;btn.textContent='Search';
 }
-
-document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
+document.getElementById('search-input').addEventListener('keydown',function(e){if(e.key==='Enter')runSearch();});
 
 // ═══════════════════════════════════════
-// ANNOTATION DEMO (Anthropic API)
+// TRANSPARENT LOCAL ANNOTATION AID
 // ═══════════════════════════════════════
 function setAnno(text){document.getElementById('anno-input').value=text;}
 
-async function runAnnotation(){
-  const input=document.getElementById('anno-input').value.trim();
-  if(!input)return;
-  const btn=document.getElementById('anno-btn');
-  const result=document.getElementById('anno-result');
-  btn.disabled=true;btn.textContent='Annotating...';
-  result.innerHTML='<div class="anno-loading">Applying 12-field annotation schema...</div>';
-
-  const system=`You are the annotation engine for the Fadiman Knowledge Atlas. Apply the 12-field annotation schema to the provided Fadiman statement. Return ONLY valid JSON with these exact fields:
-{
-  "substance": "one of: LSD|psilocybin|MDMA|ibogaine|cannabis|ketamine|DMT|5-MeO-DMT|mescaline|multiple|general_unspecified",
-  "substance_conf": 0.0-1.0,
-  "dose_category": "one of: microdose|museum_concert|creative_problem_solving|psychotherapeutic|transcendental|unspecified",
-  "dose_conf": 0.0-1.0,
-  "mechanism_claim": "one of: 5HT2A|neuroplasticity|DMN_suppression|HPA_axis_modulation|anti_inflammatory|mitochondrial|information_flow|placebo_expectancy|none_stated|other",
-  "mechanism_conf": 0.0-1.0,
-  "mechanism_note": "brief neuroscience reasoning",
-  "condition": "comma-separated from: depression|anxiety|ADHD|chronic_pain|cluster_headache|PTSD|addiction|long_COVID|autism|creativity|performance|spiritual|general|none",
-  "condition_conf": 0.0-1.0,
-  "evidence_quality": "one of: peer_reviewed|fadiman_citizen_science|anecdote|personal_experience|expert_opinion|speculation|historical",
-  "evidence_conf": 0.0-1.0,
-  "claim_type": "one of: empirical|recommendation|definition|historical|anecdote|philosophical|hedge|opinion",
-  "claim_conf": 0.0-1.0,
-  "confidence_flag": "one of: high_certainty|moderate|low_speculative|explicit_uncertainty|disclaimed",
-  "speaker_conf": 0.0-1.0,
-  "protocol_specificity": "one of: specific_protocol|general_observation|comparative",
-  "citation_present": true or false,
-  "citation_note": "what is cited or null",
-  "temporal_note": "which era of Fadiman's work this likely represents",
-  "neuroscience_note": "1-2 sentences explaining the mechanism_claim assignment from a neuroscience perspective"
+function annotationValue(name,value,note){
+  return '<div class="anno-field"><div class="anno-field-name">'+safeText(name)+'</div><div class="anno-field-value">'+safeText(value||'—')+'</div>'+(note?'<div class="anno-conf" style="color:#888">'+safeText(note)+'</div>':'')+'</div>';
 }
-Return ONLY the JSON object. No preamble, no markdown fences.`;
-
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:500,system,messages:[{role:'user',content:`Annotate this Fadiman statement: "${input}"`}]})
-    });
-    const data=await resp.json();
-    const raw=data.content?.[0]?.text||'{}';
-    const json=JSON.parse(raw.replace(/```json|```/g,'').trim());
-
-    const conf=v=>`<span class="anno-conf">confidence: ${(v*100).toFixed(0)}%</span>`;
-    const fieldHtml=(name,value,confidence,note)=>`
-      <div class="anno-field">
-        <div class="anno-field-name">${name}</div>
-        <div class="anno-field-value">${value||'—'}</div>
-        ${confidence!==undefined?conf(confidence):''}
-        ${note?`<div class="anno-conf" style="color:#888;margin-top:3px;">${note}</div>`:''}
-      </div>`;
-
-    result.innerHTML=`
-      <div class="anno-grid">
-        ${fieldHtml('substance',json.substance,json.substance_conf)}
-        ${fieldHtml('dose_category',json.dose_category,json.dose_conf)}
-        ${fieldHtml('mechanism_claim',json.mechanism_claim,json.mechanism_conf,json.mechanism_note)}
-        ${fieldHtml('condition',json.condition,json.condition_conf)}
-        ${fieldHtml('evidence_quality',json.evidence_quality,json.evidence_conf)}
-        ${fieldHtml('claim_type',json.claim_type,json.claim_conf)}
-        ${fieldHtml('speaker_certainty',json.confidence_flag,json.speaker_conf)}
-        ${fieldHtml('protocol_specificity',json.protocol_specificity)}
-        ${fieldHtml('citation_present',json.citation_present+''+(json.citation_note?': '+json.citation_note:''))}
-        ${fieldHtml('temporal_marker',json.temporal_note)}
-      </div>
-      <div class="anno-field" style="margin-top:12px;">
-        <div class="anno-field-name">Neuroscience annotation note</div>
-        <div class="anno-field-value" style="font-size:.82rem;font-weight:400;line-height:1.6;">${json.neuroscience_note||'—'}</div>
-      </div>`;
-  }catch(err){
-    result.innerHTML='<div class="anno-loading">Annotation error. Requires Anthropic API access.</div>';
-  }
+function detectTerms(text,map,fallback){
+  var lower=text.toLowerCase(),hits=Object.keys(map).filter(function(k){return lower.includes(k);}).map(function(k){return map[k];});
+  return [...new Set(hits)].join(', ')||fallback;
+}
+async function runAnnotation(){
+  var input=document.getElementById('anno-input').value.trim(),btn=document.getElementById('anno-btn'),result=document.getElementById('anno-result');
+  if(!input)return;
+  btn.disabled=true;btn.textContent='Annotating...';
+  var substances=detectTerms(input,{lsd:'LSD',psilocybin:'psilocybin',mushroom:'psilocybin',mdma:'MDMA',ibogaine:'ibogaine',cannabis:'cannabis',ketamine:'ketamine',dmt:'DMT',mescaline:'mescaline'},'general / unspecified');
+  var conditions=detectTerms(input,{depression:'depression',anxiety:'anxiety',adhd:'ADHD',pain:'chronic pain',ptsd:'PTSD',addiction:'addiction','long covid':'long COVID',autism:'autism',creative:'creativity',performance:'performance'},'none identified');
+  var claim=/\b(should|recommend|protocol|take|dose|use)\b/i.test(input)?'recommendation-like statement':/\b(study|participants|results|found)\b/i.test(input)?'empirical-like statement':/\b(may|might|perhaps|unclear|unknown)\b/i.test(input)?'hedged / uncertain statement':'descriptive statement';
+  var evidence=/\b(study|journal|doi|trial|participants)\b/i.test(input)?'citation cues present; verify source':'no verifiable citation supplied';
+  var ranked=rankEntries(input).slice(0,5);
+  var refs=ranked.map(function(x){return atlasId(x.e);});
+  result.innerHTML='<div style="font-family:DM Mono,monospace;font-size:.62rem;color:#B8842A;margin-bottom:10px">HEURISTIC AID · deterministic · not medical analysis · no external AI call</div><div class="anno-grid">'+
+    annotationValue('substance terms',substances,'literal term detection')+
+    annotationValue('condition / topic terms',conditions,'literal term detection')+
+    annotationValue('claim form',claim,'language-pattern flag; human review required')+
+    annotationValue('evidence signal',evidence,'does not verify a citation')+
+    annotationValue('matched Atlas source IDs',refs.join(', ')||'no catalog match','IDs point to the catalog records below')+
+    annotationValue('confidence boundary','not scored','heuristics do not establish scientific or clinical confidence')+
+    '</div><div style="margin-top:12px">'+(ranked.length?ranked.map(renderSource).join(''):'No catalog record matched the supplied wording.')+'</div>';
   btn.disabled=false;btn.textContent='Annotate this statement';
 }
 </script>
