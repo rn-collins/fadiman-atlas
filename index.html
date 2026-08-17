@@ -281,10 +281,10 @@
 <hr id="problem" />
 <h2>The problem this exists to solve</h2>
 <p>James Fadiman has been thinking, speaking, writing, and teaching about psychedelics since 1961. He was a graduate student at Stanford when his former Harvard undergraduate adviser — Richard Alpert, who later became Ram Dass — introduced him to psilocybin in Paris. He guided Stewart Brand's first LSD trip in 1962. He participated in some of the last legal psychedelic research sessions before the government shut the field down. He was there at the beginning. He watched the entire field get buried. And he lived long enough to watch it come back.</p>
-<p>His 2011 book <em>The Psychedelic Explorer's Guide</em> mentioned microdosing almost as a footnote. That footnote became a global movement. His 2025 book <em>Microdosing for Health, Healing, and Enhanced Performance</em> is the first attempt to synthesize everything that movement has produced — self-reports from thousands of participants across 51 countries.</p>
+<p>The catalog includes Fadiman's 2011 and 2025 books and his 2019 paper with Sophia Korb. The paper describes an uncontrolled, self-selected reporting project involving more than 1,000 people in 59 countries. It does not establish efficacy, safety, or suitability for any person. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">Primary record: PubMed 30925850 ↗</a></p>
 <p>He is 87 years old. He is doing two to three recorded interviews per month. He is still explaining the same foundational ideas to new audiences, because there is no other mechanism for those audiences to find what he has already said.</p>
 <blockquote>The oldest entry in his archive is a 31-minute audio recording from the APA Centennial Conference, August 1992. The newest is a 61-minute YouTube interview published April 25, 2026. That is 34 years of recorded thought on a single manually maintained page with no search, no topic index, no transcripts, and 17 dead or missing URLs.</blockquote>
-<p>A researcher who wants to know what Fadiman has said about microdosing and antidepressant tapering has to either read all three books or listen to hundreds of hours of audio by hand. A clinician cannot find a consolidated, cited answer. A founder building a microdosing product cannot find in thirty seconds what the father of the protocol has actually said about their specific use case across a decade of interviews.</p>
+<p>The public prototype helps people locate where historical topics appear in a catalog of recordings. It does not consolidate clinical answers, evaluate an individual's circumstances, or recommend a substance, dose, schedule, taper, interaction, or treatment. A catalog match is a discovery aid—not evidence that a statement is accurate.</p>
 
 <hr id="status" />
 <h2>What has been done — and what has been deliberately held</h2>
@@ -303,9 +303,9 @@
   <h2>Corpus search demo</h2>
   <p>This demonstrates how the Atlas will answer questions about Fadiman's body of work — grounding every answer in the catalogued corpus with source citations. The full build uses transcribed audio and embedded text; this demo uses Claude's knowledge of Fadiman's published statements and the catalogued corpus metadata.</p>
   <div class="search-chips" id="search-chips">
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What has Jim said about microdosing and antidepressants?')">Antidepressants</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('How has Jim\'s thinking on dose protocols changed over time?')">Dose evolution</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What does Jim say about contraindications for microdosing?')">Contraindications</span>
+    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('Tim Ferriss 2015 interview')">Host + year</span>
+    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('YouTube 2025')">Format + year</span>
+    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('Sophia Korb')">Named guest</span>
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What has Jim said about creativity and problem-solving with psychedelics?')">Creativity</span>
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What does Jim say about the difference between LSD and psilocybin for microdosing?')">LSD vs psilocybin</span>
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('How does Jim describe the Fadiman Protocol?')">The Protocol</span>
@@ -325,13 +325,12 @@
 <div class="demo-section" id="demo-annotate">
   <div class="demo-label">Live demonstration — 12-field annotation schema</div>
   <h2>Live annotation demo</h2>
-  <p>Paste any Fadiman quote or statement below. The AI will annotate it against the full 12-field schema — the same schema that will be applied to every chunk in the Atlas. The mechanism claim and evidence quality fields require neuroscience training to assign correctly; watch how those fields are handled differently from pattern-matching fields like substance and condition.</p>
+  <p>Paste an archival excerpt below. Local, deterministic heuristics flag literal terms and return matching catalog source IDs. This aid does not infer biological mechanisms, verify evidence, assess risk, or provide medical analysis.</p>
   <label for="anno-input" class="sr-only">Paste a Fadiman quote to annotate</label><textarea class="anno-textarea" id="anno-input" aria-label="Paste a Fadiman quote to annotate" placeholder='Paste a Fadiman quote here. Example: "We had 48 problems and 48 satisfactory solutions. The LSD had worked for every single one of them."'></textarea>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
     <button class="btn" id="anno-btn" onclick="runAnnotation()">Annotate this statement</button>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('Microdosing seems to reset something in the brain\'s stress response system — we don\'t know exactly how, but the reports are remarkably consistent across thousands of people.')">Load example 1</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('I suggest ten micrograms of LSD every third day — that\'s the Fadiman Protocol. Not every day. Every third day. The two days off matter as much as the day on.')">Load example 2</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('Albert Hofmann, the inventor of LSD, told me that he microdosed — he almost always took it when he was walking with the trees.')">Load example 3</span>
+    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('This interview discusses citizen-science reports, uncertainty, and the limits of the archive.')">Load archival example</span>
+    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('The recording was published in 2015 and hosted by Tim Ferriss.')">Load metadata example</span>
   </div>
   <div id="anno-result"></div>
 </div>
@@ -450,7 +449,7 @@
       <td>YouTube + Apple + Spotify</td>
       <td>Aug 26, 2025</td>
       <td>~1h</td>
-      <td>2025 book-launch deep dive: Fadiman vs. Stamets vs. intuitive dosing protocols, serotonin hypothesis debate, heart-risk data. Published four months after the book. YouTube URL confirmed live.</td>
+      <td>2025 book-launch interview. The linked source contains health-related discussion that the Atlas has not independently validated. Published four months after the book; URL confirmed live.</td>
     </tr>
     <tr>
       <td>G4</td>
@@ -459,7 +458,7 @@
       <td>Spotify / Podcast</td>
       <td>~2020–2021</td>
       <td>—</td>
-      <td>Flagship episode for a dedicated psychedelic entrepreneurship podcast. Covers the Fadiman Protocol fundamentals, citizen science data, and views on FDA clinical trials. Referenced in PsyMed Ventures Substack with episode detail.</td>
+      <td>Episode on a psychedelic-entrepreneurship podcast. Topic descriptions are catalog metadata, not validated health claims. Referenced in the linked episode material.</td>
     </tr>
     <tr>
       <td>G5</td>
@@ -468,7 +467,7 @@
       <td>Apple Podcasts + Spotify</td>
       <td>Aug 19, 2020</td>
       <td>~1h 32m</td>
-      <td>Listener Q&amp;A format — one of the most practically useful Fadiman recordings for people implementing the protocol. Covers dosing frequency, tolerance, antidepressant interactions, substance selection. Distinct from the Dec 2020 Morski/Bramlage episode (entry #41 on archive). Apple Podcasts URL confirmed.</td>
+      <td>Listener Q&amp;A format containing health-related historical discussion. The Atlas does not validate or operationalize that discussion. Distinct from the Dec 2020 Morski/Bramlage episode; linked source URL confirmed.</td>
     </tr>
     <tr>
       <td>G6</td>
@@ -520,15 +519,15 @@
 </table>
 
 <hr id="schema" />
-<h2>The annotation schema — 12-field production specification</h2>
-<p>Applied to every text chunk (~300–500 words) from the corpus. Every interpretive field carries a confidence score (0.0–1.0). The mechanism claim and evidence quality fields require neuroscience training — they cannot be assigned accurately by pattern-matching on vocabulary.</p>
+<h2>The annotation schema — evidence-boundary specification</h2>
+<p>This proposed schema records what a source explicitly says. It must preserve the source date, speaker, quotation span, and review status. Public tooling does not translate historical terminology into dosing guidance, infer biology, or convert a topic mention into an indication.</p>
 <table class="schema">
   <thead><tr><th>Field</th><th>Type</th><th>Controlled values</th><th>Key logic</th></tr></thead>
   <tbody>
     <tr><td>substance</td><td>enum</td><td class="vals">LSD · psilocybin · MDMA · ibogaine · cannabis · ketamine · DMT · 5-MeO-DMT · mescaline · multiple · general_unspecified</td><td>Match compound or unambiguous synonym. Lower confidence when discussed via quoted third party.</td></tr>
-    <tr><td>dose_category</td><td>enum (Fadiman's own framework)</td><td class="vals">microdose (~10µg LSD) · museum_concert (~50µg) · creative (~100µg) · psychotherapeutic (~200µg) · transcendental (~400µg+) · unspecified</td><td>Map stated µg/grams to bands, or descriptive language. Ambiguous "low dose" → microdose only if sub-perceptual is implied.</td></tr>
-    <tr><td>mechanism_claim</td><td>enum + free-text span</td><td class="vals">5HT2A · neuroplasticity · DMN · anti-inflammatory · mitochondrial · information_flow · placebo · none_stated · other</td><td class="vals"><strong>Requires neuroscience training.</strong> "Resets stress response" → HPA axis modulation, not neuroplasticity. Fadiman frequently disclaims mechanism ("we have no idea how it works") → none_stated with disclaimer captured.</td></tr>
-    <tr><td>condition_application</td><td>multi-enum</td><td class="vals">depression · anxiety · ADHD · chronic_pain · PMS · cluster_headache · PTSD · addiction · long_COVID · autism · bipolar · end_of_life · creativity · athletic · general_wellbeing · none</td><td>Tag each named condition. Cap at distinct items in list-heavy chunks.</td></tr>
+    <tr><td>historical_dose_language</td><td>verbatim text span</td><td class="vals">source wording only · unspecified</td><td>Preserve only the language present in the source. The public Atlas does not map amounts to bands, schedules, or recommendations.</td></tr>
+    <tr><td>mechanism_language</td><td>verbatim text span</td><td class="vals">explicit wording · none stated</td><td>Record explicit source language only. Do not infer a biological mechanism or scientific validity.</td></tr>
+    <tr><td>health_topic_mention</td><td>controlled topic + text span</td><td class="vals">topic named by source · none</td><td>A mention is not an application, indication, diagnosis, or treatment claim.</td></tr>
     <tr><td>evidence_quality</td><td>enum</td><td class="vals">peer_reviewed_study · fadiman_citizen_science · anecdote · personal_experience · expert_opinion · speculation · historical_account</td><td class="vals"><strong>Most important field for scientific credibility.</strong> fadiman_citizen_science is distinct from generic anecdote. Default to human review when confidence &lt;0.7.</td></tr>
     <tr><td>claim_type</td><td>enum</td><td class="vals">empirical_claim · recommendation · definition · historical_narrative · personal_anecdote · philosophical · hedge · opinion</td><td>Classify the speech act, not the content.</td></tr>
     <tr><td>confidence_flag</td><td>enum (speaker certainty)</td><td class="vals">high_certainty · moderate · low_speculative · explicit_uncertainty · disclaimed</td><td>Distinct from evidence_quality — this is Fadiman's expressed certainty. Lexical hedging detection. Critical for trajectory visualization.</td></tr>
@@ -551,344 +550,50 @@
 <h3>Layer 4 — Vector Database</h3>
 <p>OpenAI <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">text-embedding-3-large</code> (3072-dim, $0.13/1M tokens, &lt;$5 one-time for full corpus). Supabase pgvector — keeps vectors, annotation metadata, and auth in one Postgres instance, enabling SQL <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">WHERE</code> filters combined with vector search. HNSW index: <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">m=16, ef_construction=64</code>.</p>
 <h3>Layer 5 — Annotation Pipeline</h3>
-<p>Claude structured output enforcing JSON schema. Auto-accept at ≥0.80 confidence on all fields. Human review (RN Collins) for <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">mechanism_claim</code>, <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">evidence_quality</code>, and <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">contradiction_flag</code> at any confidence. Corrections feed as few-shot exemplars into prompt refinement.</p>
+<p>A future annotation pipeline may propose structured metadata, but no generated health or scientific interpretation may be auto-accepted. Source identity, date, quotation span, reviewer, limitations, and review status are required; health-related interpretation requires appropriately qualified independent review.</p>
 <h3>Layer 6 — Query Interface</h3>
-<p><strong>Semantic search:</strong> Next.js App Router → embed → pgvector ANN + metadata filters. <strong>Topic map:</strong> UMAP 2-D projection + HDBSCAN clustering → deck.gl. <strong>Ask Jim:</strong> top-20 retrieval → Cohere reranking to top 6–8 → answer prompt requiring inline citations to source_id+timestamp, returning "Fadiman doesn't appear to address this" when retrieval confidence is weak. Streaming via Vercel AI SDK. Upstash rate-limiting on inference endpoint.</p>
+<p><strong>Proposed retrieval:</strong> hybrid keyword and vector search with metadata filters, source IDs, timestamps, and an extractive-only result mode. Health-related queries return source passages and limitations—not generated answers. Topic maps may aid discovery but must expose source coverage, uncertainty, and review status. Rate limits, audit logs, and abuse monitoring are required before any inference endpoint ships.</p>
 <h3>Layer 7 — Evolution Layer</h3>
 <p>Every chunk carries a source date. "How has Jim's thinking on X changed from 2011 to 2025?" → filtered retrieval bucketed by year, structured timeline with inflection points and confidence trajectory. Topic emergence detection: first-occurrence by source_date per topic cluster. All driven by SQL aggregations over the same chunks table.</p>
 <h3>Layer 8 — Infrastructure & Deployment</h3>
 <p>Next.js on Vercel · Supabase pgvector · Upstash Redis (query caching TTL 24h, rate-limiting) · OpenAI · AssemblyAI · Modal (GPU transcription) · Cohere (reranking). Daily Vercel Cron re-scrapes watch-hear.html + runs yt-dlp --download-archive + checks RSS; new GUIDs auto-enqueue full pipeline.</p>
 
-<table class="cost-table">
-  <colgroup>
-    <col style="width:27%">
-    <col style="width:17%">
-    <col style="width:10%">
-    <col style="width:27%">
-    <col style="width:11%">
-    <col style="width:8%">
-  </colgroup>
-  <thead>
-    <tr>
-      <th>What it does in this build</th>
-      <th>Tool / Service</th>
-      <th>Cost type</th>
-      <th>Published rate — verified June 2026</th>
-      <th>This project estimate</th>
-      <th>Source</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="status-block" id="evidence">
+  <div class="sl">Evidence register · independently checked · reviewed August 17, 2026</div>
+  <p><strong>Fadiman &amp; Korb (2019).</strong> An uncontrolled, self-selected reporting project with more than 1,000 participants in 59 countries. It can describe reported experiences; it cannot determine efficacy, safety, causation, or individual suitability. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">PubMed 30925850 ↗</a></p>
+  <p><strong>Bershad et al. (2019).</strong> A placebo-controlled low-dose LSD study in healthy volunteers with a narrow experimental scope. It is not treatment evidence and does not support personalized use. <a href="https://pubmed.ncbi.nlm.nih.gov/31331617/" target="_blank" rel="noopener">PubMed 31331617 ↗</a></p>
+  <p><strong>Polito &amp; Stevenson (2019).</strong> An observational study of self-reported microdosing. Observational associations do not establish therapeutic benefit or safety. <a href="https://pubmed.ncbi.nlm.nih.gov/30726251/" target="_blank" rel="noopener">PubMed 30726251 ↗</a></p>
+  <p><strong>Scope rule.</strong> Atlas records and search results are historical discovery metadata. Health-related statements remain attributable to their original speakers and dates; they are not endorsed or converted into advice here.</p>
+</div>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 1: ONE-TIME TOOL COSTS
-    ════════════════════════════════════════════ -->
-    <tr><td colspan="6" style="background:var(--ink);color:var(--accent-light);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;padding:8px 12px;font-weight:600;">
-      Section 1 — One-Time Tool Costs &nbsp;·&nbsp; Paid once at initial build. Not recurring.
-    </td></tr>
-
-    <tr>
-      <td>Transcribes all 125+ hrs of the catalogued archive. Includes automatic speaker diarization — separates Fadiman's voice from interviewers at the word level before chunking. Diarization is required: chunks without speaker identity cannot be reliably annotated for audience_type or confidence_flag.</td>
-      <td>AssemblyAI<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Universal-2 model</span></td>
-      <td>Per audio hour</td>
-      <td class="amt">$0.15/hr transcription<br/>+ $0.02/hr diarization<br/>= <strong>$0.17/hr total</strong></td>
-      <td class="amt">~$21<br/><span style="font-size:.7rem;color:var(--faint);">(125 hrs × $0.17)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">assemblyai.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>GPU compute for Whisper large-v3 QA cross-check on degraded-audio entries only: 1992 APA Centennial Conference recording, 1997 transpersonal re-upload, Russian TV overdub (first 2.5 min in Russian), 2018 Toronto Psychedelic Society webinar with documented audio dropouts. Standard models degrade on these inputs; Whisper large-v3 is required. Model weights are free (MIT); compute is what is billed.</td>
-      <td>Modal<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">NVIDIA A10G — serverless, per-second billing</span></td>
-      <td>Per GPU-second</td>
-      <td class="amt"><strong>$1.10/hr</strong><br/>Billed per second — zero idle charges. Modal Starter plan includes $30/month in free compute credits, covering most or all of this line.</td>
-      <td class="amt">~$15–20<br/><span style="font-size:.7rem;color:var(--faint);">(~15 GPU-hrs; free credits offset)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">modal.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Annotation pipeline — applies the 12-field schema to all ~30,000 chunks. Strategy: Claude Haiku 4.5 via Batch API for all straightforward fields (substance, dose, condition, claim type, audience, protocol specificity, citation present, temporal marker); Claude Sonnet 4.6 via Batch API on the ~25% of chunks flagged for mechanism_claim and evidence_quality — the two fields that require neuroscience training to adjudicate and cannot be assigned by vocabulary pattern-matching. Prompt caching on the shared system prompt (schema definition + few-shot exemplars) cuts cached-read cost 90% across all 30,000 calls. Batch + caching stacked: up to 95% reduction vs. standard uncached rates. Per-chunk cost: ~$0.002 (Haiku) to ~$0.007 (Sonnet) batched and cached.</td>
-      <td>Anthropic API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Haiku 4.5 + Sonnet 4.6 via Batch API</span></td>
-      <td>Per token</td>
-      <td class="amt">Haiku 4.5 Batch: <strong>$0.50/$2.50</strong>/1M in/out<br/>Sonnet 4.6 Batch: <strong>$1.50/$7.50</strong>/1M in/out<br/>Cache reads: Haiku <strong>$0.10/MTok</strong>, Sonnet <strong>$0.30/MTok</strong> (90% off input)<br/><span style="font-size:.72rem;">Batch API = 50% off standard. Cache reads = 10% of input price. Non-real-time workload — no speed penalty for using Batch.</span></td>
-      <td class="amt">~$33<br/><span style="font-size:.7rem;color:var(--faint);">Haiku full pass ~$19<br/>Sonnet 25% review ~$14</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">anthropic.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Text embeddings — converts all ~35,000 transcript and book chunks into 3072-dimensional vectors stored in Supabase pgvector. Powers all three query modes: semantic search, topic map clustering, and Ask Jim retrieval. Embeddings are input-only — no output token charge.</td>
-      <td>OpenAI API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">text-embedding-3-large</span></td>
-      <td>Per input token</td>
-      <td class="amt">Standard: <strong>$0.13/1M tokens</strong><br/>Batch API: <strong>$0.065/1M tokens</strong><br/><span style="font-size:.72rem;">Input-only billing — zero output tokens. Batch API (50% off) used for initial corpus run.</span></td>
-      <td class="amt">&lt;$5<br/><span style="font-size:.7rem;color:var(--faint);">(~35M tokens at Batch rate ≈ $2.28)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">openai.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Custom domain — e.g. fadiman-atlas.com or knowledge.jamesfadiman.com. Optional: the Atlas runs on a Vercel-generated subdomain at no cost. Included here for completeness.</td>
-      <td>Cloudflare Registrar<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">or Namecheap</span></td>
-      <td>Annual</td>
-      <td class="amt"><strong>$8–15/year</strong> depending on TLD. Cloudflare charges at-cost with no markup.</td>
-      <td class="amt">~$1/month equiv.<br/><span style="font-size:.7rem;color:var(--faint);">(if purchased)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">cloudflare.com/registrar</td>
-    </tr>
-
-    <tr style="border-top:2px solid var(--ink);">
-      <td><strong>One-time tool cost total</strong></td>
-      <td colspan="3" style="color:var(--faint);font-size:.8rem;">AssemblyAI + Modal GPU + Anthropic annotation + OpenAI embeddings. Domain optional. All labor, annotation review time, and development time are excluded — this table covers software and API costs only.</td>
-      <td class="amt"><strong>~$69–80</strong></td>
-      <td></td>
-    </tr>
-
-    <!-- ═══════════════════════════════════════════
-         SECTION 2: OPEN-SOURCE / FREE TOOLS
-    ════════════════════════════════════════════ -->
-    <tr><td colspan="6" style="background:var(--ink);color:var(--accent-light);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;padding:8px 12px;font-weight:600;">
-      Section 2 — Open-Source Tools &nbsp;·&nbsp; $0. Listed for full technical transparency.
-    </td></tr>
-
-    <tr>
-      <td>Bulk audio/video download from YouTube and Vimeo with metadata, auto-thumbnails, and idempotent archive tracking. The --download-archive flag prevents re-downloading on every CI/CD run — essential for the daily ingestion cron job.</td>
-      <td>yt-dlp</td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — Unlicense / public domain</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">github.com/yt-dlp/yt-dlp</td>
-    </tr>
-
-    <tr>
-      <td>Self-hosted Whisper large-v3 model weights — run on Modal GPU (billed above). The model itself is free; the GPU compute is what costs money.</td>
-      <td>faster-whisper<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">OpenAI Whisper large-v3</span></td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — MIT license. Compute billed separately via Modal line above.</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">github.com/SYSTRAN/faster-whisper</td>
-    </tr>
-
-    <tr>
-      <td>Speaker diarization fallback and QA — identifies speaker segments where AssemblyAI mis-segments. Used on the 17 degraded or unclear entries in the archive.</td>
-      <td>pyannote/speaker-diarization-3.1<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">via HuggingFace free tier</span></td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — MIT license. HuggingFace free tier covers model access. No paid subscription required.</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">huggingface.co/pyannote</td>
-    </tr>
-
-    <tr>
-      <td>Podcast RSS parsing (pulls MP3 URLs and episode metadata for all podcast entries); book EPUB and PDF text extraction; transcript cleaning and Unicode normalization; near-duplicate detection — MinHash clusters Fadiman's repeated stories across interviews so the "48 problems, 48 solutions" session isn't treated as 40 independent claims.</td>
-      <td>feedparser · pdfplumber · ebooklib · spacy · ftfy · datasketch</td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — MIT / BSD-3 licensed Python libraries</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">PyPI</td>
-    </tr>
-
-    <tr>
-      <td>Topic map visualization — UMAP reduces 3072-dim embeddings to 2-D; HDBSCAN detects clusters; deck.gl renders the interactive map at 30k+ points in browser without performance degradation.</td>
-      <td>UMAP-learn · HDBSCAN · deck.gl</td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — BSD / MIT licensed</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">PyPI / npmjs</td>
-    </tr>
-
-    <tr>
-      <td>Streaming infrastructure for Ask Jim — server-sent events deliver answers token-by-token in browser without blocking the UI thread.</td>
-      <td>Vercel AI SDK</td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — Apache 2.0 license</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">sdk.vercel.ai</td>
-    </tr>
-
-    <tr>
-      <td>Application framework — Next.js App Router, TypeScript, Tailwind CSS. The full query interface, API routes, and CI/CD pipeline run on this stack.</td>
-      <td>Next.js · TypeScript · Tailwind CSS</td>
-      <td>Free</td>
-      <td class="amt"><strong>$0</strong> — MIT licensed</td>
-      <td class="amt">$0</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">nextjs.org / npmjs</td>
-    </tr>
-
-    <!-- ═══════════════════════════════════════════
-         SECTION 3: DEVELOPER TOOLS — BUILD PHASE
-    ════════════════════════════════════════════ -->
-    <tr><td colspan="6" style="background:var(--ink);color:var(--accent-light);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;padding:8px 12px;font-weight:600;">
-      Section 3 — Developer Tool Subscriptions &nbsp;·&nbsp; Personal software costs during active build. Separate from Atlas infrastructure.
-    </td></tr>
-
-    <tr>
-      <td>Claude.ai access plus Claude Code (terminal-based agentic coding) for the developer during the active build phase. The Max 20x tier provides 20× the per-session usage of Claude Pro — a capacity multiplier, not a smarter model; the underlying models are identical across Free, Pro, and Max. Claude Code is included at no additional charge. Monthly billing only — no annual discount exists for Max tiers. Two weekly usage caps apply (one across all models, one Sonnet-specific), effective August 28, 2025: roughly 240–480 hrs of Sonnet and 24–40 hrs of Opus per week within those caps.
-      <br/><br/>
-      <span style="color:var(--dead);font-size:.8rem;font-weight:600;">⚠ Critical billing boundary:</span> <span style="font-size:.82rem;">The Claude.ai subscription and the Anthropic API are two completely separate billing systems that share no credits. If an <code style="font-family:'DM Mono',monospace;font-size:.78rem;background:var(--tag);padding:1px 4px;">ANTHROPIC_API_KEY</code> environment variable is set, Claude Code bills against that API key at per-token rates — not against the subscription's included usage. Confirmed by Anthropic Help Center. A June 15, 2026 Anthropic billing change further split programmatic usage (Agent SDK, <code style="font-family:'DM Mono',monospace;font-size:.78rem;background:var(--tag);padding:1px 4px;">claude -p</code>, third-party tool calls) into a separate monthly credit pool billed at full API rates, distinct from interactive chat limits.</span>
-      </td>
-      <td>Claude.ai Max 20×<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Anthropic — web + desktop + Claude Code</span></td>
-      <td>Monthly flat<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--faint);">build phase only</span></td>
-      <td class="amt"><strong>$200/month</strong> — Max 20×<br/>Max 5×: $100/month (5× Pro usage)<br/>Pro: $20/month (baseline)<br/><span style="font-size:.72rem;">Monthly billing only — no annual discount on Max tiers. Converts to Pro ($20/month) or API-only post-launch when interactive usage drops.</span></td>
-      <td class="amt">$200/month<br/><span style="font-size:.7rem;color:var(--faint);">during active build; drops post-launch</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">anthropic.com/pricing · support.claude.com</td>
-    </tr>
-
-    <tr>
-      <td>Anthropic API spend for development and testing — separate from the subscription above and separate from production Atlas inference (which is billed under Section 4). Covers iterative prompt engineering, test-set annotation runs, RAG pipeline QA, schema refinement, and debugging. Strategy that keeps this low: Haiku 4.5 for bulk dev/test passes (~$0.002/item batched+cached), Sonnet 4.6 only for QA spot-checks (~$0.007/item). Per-item token math: ~3,500 input tokens (stable system prompt prefix + chunk text) + ~500 output tokens (annotation JSON or answer); Batch API on all non-real-time runs (50% off); prompt caching on stable system prompts (90% off cached reads). A typical active-iteration month running ~20,000 test items lands ~$45–130 depending on model mix. Light prototyping months (small fixed test set re-run repeatedly) stay in single digits because each re-run after the first reads the stable prefix from cache at 10% of input price. New API accounts receive ~$5 in free credits on activation (~14 days validity). Anthropic's own Claude Code <code style="font-family:'DM Mono',monospace;font-size:.78rem;background:rgba(255,255,255,.08);padding:1px 4px;">/cost</code> data shows ~$6/dev/day average, 90% of users under $12/day — annotation/RAG test batches are lighter than coding-agent workloads (intensive coding-agent profiles run $100–200/developer/month per IntuitionLabs benchmarks), so treat the lower end of that range as the relevant frame for this use case.</td>
-      <td>Anthropic API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">dev/test — billed separately from subscription and separately from production inference</span></td>
-      <td>Per token<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--faint);">build phase only</span></td>
-      <td class="amt">Same per-token rates as production (Haiku 4.5: $1/$5, Sonnet 4.6: $3/$15 per MTok; Batch: 50% off; cache reads: 10% of input).<br/><span style="font-size:.72rem;">Billing trap: do not set <code style="font-family:'DM Mono',monospace;font-size:.75rem;background:rgba(255,255,255,.08);padding:1px 4px;">ANTHROPIC_API_KEY</code> in the Claude Code environment unless intentionally routing to the API — this bypasses subscription usage and incurs per-token charges.</span></td>
-      <td class="amt">~$50/month baseline<br/><span style="font-size:.7rem;color:var(--faint);">$5–20 light months<br/>$100–250 heavy-iteration months</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">anthropic.com/pricing</td>
-    </tr>
-
-    <tr style="border-top:2px solid var(--ink);">
-      <td><strong>Developer tool subtotal (build phase)</strong></td>
-      <td colspan="3" style="color:var(--faint);font-size:.8rem;">Claude Max 20× subscription + dev/test API spend. These are personal software costs during active development — not Atlas infrastructure costs and not included in the Section 4 steady-state total. Both lines drop or disappear post-launch.</td>
-      <td class="amt"><strong>~$250/month</strong><br/><span style="font-size:.7rem;color:var(--faint);">build phase (~$200 sub + ~$50 API baseline)</span></td>
-      <td></td>
-    </tr>
-
-    <!-- ═══════════════════════════════════════════
-         SECTION 4: MONTHLY RECURRING INFRASTRUCTURE
-    ════════════════════════════════════════════ -->
-    <tr><td colspan="6" style="background:var(--ink);color:var(--accent-light);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;padding:8px 12px;font-weight:600;">
-      Section 4 — Monthly Recurring Infrastructure &nbsp;·&nbsp; Atlas hosting, database, and production API usage once deployed. Ongoing indefinitely.
-    </td></tr>
-
-    <tr>
-      <td>Hosting, deployment, and edge infrastructure. Runs the Next.js application, serverless API routes for semantic search and Ask Jim, CI/CD pipeline, and preview environments per branch. Single developer seat — one account, one project.</td>
-      <td>Vercel Pro</td>
-      <td>Monthly flat</td>
-      <td class="amt"><strong>$20/seat/month</strong><br/>Includes: $20 usage credit · 1TB Fast Data Transfer · 10M Edge Requests · unlimited deployments · priority support.<br/>Overage: $0.15/GB bandwidth above 1TB.</td>
-      <td class="amt">~$20/month</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">vercel.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Vector database, relational annotation metadata, and authentication. All 35,000 chunk embeddings, 12-field annotation metadata, and source records in one Postgres instance. pgvector is included on Pro at no extra charge — no separate vector database subscription needed.</td>
-      <td>Supabase Pro</td>
-      <td>Monthly flat</td>
-      <td class="amt"><strong>$25/month/project</strong><br/>Includes: 8GB database · 100GB storage · 500 realtime connections · daily backups · pgvector free.</td>
-      <td class="amt">~$25/month</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">supabase.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Query result cache (TTL 24h — identical searches return instantly without hitting the inference API) and rate-limiter on the Ask Jim endpoint to prevent runaway spend.</td>
-      <td>Upstash Redis<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Pay-as-you-go</span></td>
-      <td>Per command</td>
-      <td class="amt">Free tier: <strong>500K commands/month</strong> + 256MB storage (updated March 2025 — old daily cap removed).<br/>Beyond free: <strong>$0.20/100K commands</strong> + $0.25/GB storage. No bandwidth charge.</td>
-      <td class="amt">~$0–5/month<br/><span style="font-size:.7rem;color:var(--faint);">Free tier likely sufficient at low traffic</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">upstash.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Retrieval reranking — re-scores the top-20 vector results to the top-6 before Ask Jim generation. Meaningfully reduces hallucination rate vs. raw vector similarity alone.</td>
-      <td>Cohere Rerank API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Rerank 3.5 / Fast tier</span></td>
-      <td>Per search</td>
-      <td class="amt">Fast: <strong>$0.002/search</strong> ($2.00/1K)<br/>Pro: $0.0025/search<br/>v3.5: $0.001/search<br/>Free trial: rate-limited prototyping access.</td>
-      <td class="amt">~$0–8/month<br/><span style="font-size:.7rem;color:var(--faint);">(up to ~4K searches)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">cohere.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Ask Jim inference — streaming cited answers grounded in retrieved Fadiman chunks. Two-tier routing: Haiku 4.5 for simple factual queries; Sonnet 4.6 for complex synthesis and evolution-layer queries. Prompt caching on the system prompt and stable retrieved context cuts repeated-session cost 90%. Rate-limited per session to cap monthly spend. Note: this API billing is entirely separate from the developer's Claude.ai subscription (Section 3) — these are Atlas infrastructure costs paid at per-token rates regardless of what subscription the developer holds.</td>
-      <td>Anthropic API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Haiku 4.5 + Sonnet 4.6 — production inference</span></td>
-      <td>Per token</td>
-      <td class="amt">Haiku 4.5: <strong>$1.00/$5.00</strong>/1M in/out<br/>Sonnet 4.6: <strong>$3.00/$15.00</strong>/1M in/out<br/>Cache reads: Haiku <strong>$0.10/MTok</strong>, Sonnet <strong>$0.30/MTok</strong> (90% off input)<br/><span style="font-size:.72rem;">Completely separate billing from the Claude.ai subscription in Section 3.</span></td>
-      <td class="amt">~$10–50/month<br/><span style="font-size:.7rem;color:var(--faint);">(rate-limited; caching reduces effective cost)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">anthropic.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Ongoing ingestion — 2–3 new Fadiman appearances per month. Daily Vercel Cron re-scrapes the archive, runs yt-dlp against known channels, checks podcast RSS feeds. New entries auto-enqueue the full pipeline (transcription → chunking → annotation → embedding → upsert) within 24 hrs of publication.</td>
-      <td>AssemblyAI<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">(same rate, ongoing)</span></td>
-      <td>Per audio hour</td>
-      <td class="amt"><strong>$0.17/hr</strong> (transcription + diarization).<br/>2–3 new interviews ≈ 2–3 hrs audio/month.</td>
-      <td class="amt">&lt;$1/month</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">assemblyai.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Monthly embedding refresh — ~300 new chunks from new interviews embedded and upserted into Supabase pgvector each month.</td>
-      <td>OpenAI API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">text-embedding-3-large (ongoing)</span></td>
-      <td>Per input token</td>
-      <td class="amt">$0.13/1M standard; $0.065/1M Batch.<br/>300 chunks × 400 tokens = 120K tokens/month.</td>
-      <td class="amt">&lt;$0.02/month<br/><span style="font-size:.7rem;color:var(--faint);">(effectively negligible)</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">openai.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Monthly annotation of ~300 new chunks via Haiku 4.5 Batch, with Sonnet 4.6 review of any flagged fields. Same pipeline as the initial build, running continuously.</td>
-      <td>Anthropic API<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Haiku 4.5 Batch (ongoing)</span></td>
-      <td>Per token</td>
-      <td class="amt">Haiku 4.5 Batch: $0.50/$2.50/1M in/out.<br/>300 chunks ≈ 150K input + 45K output tokens/month.</td>
-      <td class="amt">&lt;$0.20/month</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">anthropic.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Source control and CI/CD automation — git repository, GitHub Actions triggers the Vercel Cron ingestion job on schedule, deployment pipeline.</td>
-      <td>GitHub<br/><span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);">Free for public / Pro for private</span></td>
-      <td>Monthly flat</td>
-      <td class="amt">Public repo: <strong>$0/month</strong><br/>Private repo (GitHub Pro): <strong>$4/month</strong></td>
-      <td class="amt">$0–4/month</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">github.com/pricing</td>
-    </tr>
-
-    <tr>
-      <td>Domain renewal (if purchased at build).</td>
-      <td>Cloudflare Registrar</td>
-      <td>Annual</td>
-      <td class="amt"><strong>$8–15/year</strong></td>
-      <td class="amt">~$1/month equiv.</td>
-      <td style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--faint);">cloudflare.com/registrar</td>
-    </tr>
-
-    <tr style="border-top:2px solid var(--ink);">
-      <td><strong>Section 4 monthly infrastructure total</strong></td>
-      <td colspan="3" style="color:var(--faint);font-size:.8rem;">All Atlas hosting, database, caching, production inference, and ongoing ingestion. Does not include developer tool costs (Section 3). All labor, annotation review time, and development time are excluded — this table covers software and API costs only.</td>
-      <td class="amt"><strong>~$56–115/month</strong><br/><span style="font-size:.72rem;color:var(--faint);">+ ~$250/month developer tools during build phase (Section 3)</span></td>
-      <td></td>
-    </tr>
-
-    <!-- FOOTNOTE -->
-    <tr>
-      <td colspan="6" style="color:var(--faint);font-size:.74rem;line-height:1.7;padding:14px 12px;border-top:1px solid var(--rule);">
-        <strong style="color:var(--ink);">All figures in this table are software, API, and infrastructure costs only.</strong> Labor, annotation review time, development time, and project management are not included anywhere in this table.<br/><br/>
-        <strong>Rates verified June 2026:</strong> AssemblyAI Universal-2 ($0.15/hr + $0.02/hr speaker diarization = $0.17/hr) · Modal A10G serverless ($1.10/hr, per-second billing, no idle) · Anthropic Claude Haiku 4.5 ($1.00/$5.00 per 1M tokens standard; $0.50/$2.50 Batch API; cache reads $0.10/MTok) · Anthropic Claude Sonnet 4.6 ($3.00/$15.00 standard; $1.50/$7.50 Batch; cache reads $0.30/MTok; same rate as Sonnet 4.5, confirmed at launch) · OpenAI text-embedding-3-large ($0.13/1M standard; $0.065/1M Batch — input-only, no output tokens) · Vercel Pro ($20/seat/month) · Supabase Pro ($25/month/project, pgvector included) · Upstash Redis (free tier 500K commands/month + 256MB storage, updated March 2025; pay-as-you-go $0.20/100K commands) · Cohere Rerank Fast ($0.002/search) · GitHub Pro ($4/month private repo) · Cloudflare Registrar ($8–15/year) · Claude.ai Max 20× ($200/month, monthly-only billing, no annual discount; includes Claude Code; 20× usage multiplier vs. Pro, not a different model) · Anthropic API dev/test (same per-token rates; estimated $50/month baseline, $5–250 range depending on iteration intensity).<br/><br/>
-        <strong>Billing structure notes:</strong> The Claude.ai subscription (Section 3) and the Anthropic API (Sections 1, 3, and 4) are two completely separate billing systems with no shared credits — confirmed by Anthropic Help Center. A June 15, 2026 Anthropic change split programmatic usage (Agent SDK, <code style="font-family:'DM Mono',monospace;background:var(--tag);padding:1px 3px;">claude -p</code>, third-party tool calls) into a separate credit pool ($20 Pro / $100 Max 5× / $200 Max 20×) billed at full API rates, distinct from interactive usage limits. Setting an <code style="font-family:'DM Mono',monospace;background:var(--tag);padding:1px 3px;">ANTHROPIC_API_KEY</code> environment variable causes Claude Code to bill against that API key at per-token rates instead of drawing from the subscription — confirmed billing trap. New Anthropic API accounts receive approximately $5 in free credits on activation, valid ~14 days.<br/><br/>
-        <strong>Open-source tools ($0):</strong> yt-dlp · faster-whisper · pyannote/speaker-diarization-3.1 · feedparser · pdfplumber · ebooklib · spacy · ftfy · datasketch · UMAP-learn · HDBSCAN · deck.gl · Vercel AI SDK · Next.js · TypeScript · Tailwind CSS.
-      </td>
-    </tr>
-
-  </tbody>
-</table>
+<div class="status-block" id="cost-boundary">
+  <div class="sl">Implementation-cost boundary · reviewed August 17, 2026</div>
+  <p>No current procurement budget or vendor-price estimate is represented on this page. Service prices, model availability, quotas, and terms change. Any future build must obtain dated quotes and complete security, privacy, accessibility, and legal review before procurement.</p>
+</div>
 
 <hr id="builder" />
-<h2>Who scoped this and why the combination of backgrounds is load-bearing</h2>
-<p>© 2026 Scoped by R.N. Collins — neuroscientist, JD candidate, AI workflow developer, and psychedelic law researcher based in Honolulu, Hawaii. Every credential below is load-bearing for this specific project.</p>
+<h2>Who scoped the prototype</h2>
+<p>© 2026 Scoped by R.N. Collins in Honolulu, Hawaii. An interdisciplinary background in neuroscience, law, science communication, and software helps identify where source attribution and professional review are required. Credentials do not make the Atlas a clinical authority, and no individual credential substitutes for independent medical, legal, privacy, security, or accessibility review.</p>
 
 <div class="cred">
-  <div class="cl">MS Anatomy &amp; Neurobiology — Boston University School of Medicine, 2024</div>
-  <p>Graduate training in the exact biological domain Fadiman's research touches. Master's thesis: racism, allostatic load, and medial temporal lobe volumes — the intersection of chronic stress physiology and the neural systems psychedelics are hypothesized to modulate. The annotation layer's mechanism claim and evidence quality fields are assigned by someone who can determine whether "microdosing resets the brain's stress response" maps to HPA axis modulation or neuroplasticity, and whether the claim is speculative or grounded in cited research. A general developer cannot make this distinction accurately.</p>
+  <div class="cl">Design principle — provenance before interpretation</div>
+  <p>Every future corpus statement should remain linked to its original recording, speaker, date, quotation span, and review status. The public prototype deliberately limits itself to catalog discovery and deterministic language flags.</p>
 </div>
+
 <div class="cred">
-  <div class="cl">JD Candidate — Northeastern University School of Law, FlexJD, Expected 2029</div>
-  <p>Fadiman's work exists in a legal landscape shifting rapidly — psilocybin licensed in Oregon and Colorado, more states moving, clinical integration frameworks emerging. This system is scoped by the only person who can look at what it contains and advise on how the information needs to be framed for use in licensed clinical contexts without creating liability for practitioners who rely on it.</p>
+  <div class="cl">Review principle — domain experts remain accountable</div>
+  <p>Health, scientific, legal, and safety claims require review by appropriately qualified independent professionals. The system must surface uncertainty and disagreement instead of generating a clinical conclusion.</p>
 </div>
-<div class="cred">
-  <div class="cl">Psychedelic Law Research — Tucker (30+ jurisdictions), Barnes (FDA pathways), Sergi, Antithesis Law, AISLE Project at Brown University</div>
-  <p>Legal research across 30+ jurisdictions on psychedelic-assisted therapy law, for practicing attorneys. FDA drug approval pathway research — IND, NDA, Expanded Access, Right to Try. Governance methodology for Psychedelic Alpha's global legalization tracker. AI legislative scoring at Brown University's Center for Technological Responsibility.</p>
-</div>
-<div class="cred">
-  <div class="cl">AI Workflow Development — Croke Fairchild Duarte &amp; Beres (Harvey platform), Aloha AI Consulting</div>
-  <p>Full-stack AI workflow development in production legal environments. Vercel infrastructure live across multiple deployed projects. RAG pipelines, vector databases, transcription pipelines, monitoring dashboards. The technical infrastructure this system requires is already running on other projects — this is an application of a live stack, not a proposal to build one from scratch.</p>
-</div>
-<div class="cred">
-  <div class="cl">Science Communication — Fat Nugs Magazine, Cannabis Law Report, Journal of Biophilic Design</div>
-  <p>Staff writer and contributor across three publications at the intersection of neuroscience, law, and drug policy. The person scoping this project understands Fadiman's field well enough to write about it publicly — which means the knowledge being organized will not be misrepresented or stripped of the nuance he has spent sixty years developing.</p>
+
+<div class="status-block" id="limitations">
+  <div class="sl">Safety and limitations · reviewed August 17, 2026</div>
+  <p><strong>This is an archival discovery tool, not medical guidance.</strong> It is not a dose calculator, contraindication screen, interaction checker, diagnosis tool, treatment tool, or emergency resource. It does not personalize output and must not be used to decide whether, when, or how to take, stop, combine, or change any substance or medication.</p>
+  <p>Catalog records and heuristic flags may be incomplete, outdated, or wrong. Follow source links, check publication dates, and seek appropriately licensed professional care for health decisions. In an emergency, contact local emergency services.</p>
 </div>
 
 <div class="offer" id="offer">
   <h2>Where things stand and what comes next</h2>
-  <p>The complete archive has been catalogued — 132 entries, August 1992 through April 2026. The gaps have been identified. The corpus has been mapped. The annotation schema has been fully specified. The technical architecture has been written in full, eight layers, with cost estimates and a CI/CD plan. The infrastructure is already running on other projects. The live demonstrations on this page are built on the same stack that will power the Atlas.</p>
+  <p>This public build is a catalog, filterable explorer, timeline, deterministic term flagger, and local source-ID search prototype. It does not contain the full transcript corpus, a production ingestion pipeline, verified semantic search, or a clinical knowledge system. The larger ingestion and review system remains unbuilt.</p>
   <p>The step that has not been taken is ingestion: downloading the audio, running transcription, putting his words into the system. That step has been deliberately withheld. The material is his. Beginning without his awareness felt like the wrong place to start something designed to honor sixty-plus years of work.</p>
   <p>To take this further — with his input on what he most wants it to do — the build is ready to begin. If the timing is not right, the scope work and infrastructure exist either way.</p>
   <p style="margin-top:22px;color:#9A9590;font-size:.84rem;">R.N. Collins &nbsp;·&nbsp; <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/rn-collins" target="_blank">linkedin.com/in/rn-collins</a> &nbsp;·&nbsp; Honolulu, HI</p>
