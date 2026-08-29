@@ -1,6 +1,6 @@
 # The Fadiman Knowledge Atlas — James Fadiman Archive & Knowledge Infrastructure
 
-A searchable knowledge infrastructure cataloguing 34 years of James Fadiman's recorded public output. 132 entries, 1992-2026. Local corpus search, transparent annotation aid, full corpus explorer.
+A catalogue of James Fadiman's recorded public output: 132 entries from 1968 to 2026, each carrying a verified link status. Local search, transparent annotation aid, full archive explorer.
 
 **Live:** https://fadiman-atlas.vercel.app
 

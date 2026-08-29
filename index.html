@@ -4,15 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://fadiman-atlas.vercel.app/" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Ctext%20y%3D%2728%27%20font-size%3D%2728%27%3EF%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="A searchable knowledge infrastructure cataloguing 34 years of James Fadiman's recorded public output. 132 entries, 1992-2026. Local corpus search, transparent annotation aid, full corpus explorer." />
+  <meta name="description" content="A catalogue of James Fadiman's recorded public output: 132 entries from 1968 to 2026, each with a verified link status. Local search, transparent annotation aid, full archive explorer." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fadiman-atlas.vercel.app/" />
   <meta property="og:title" content="The Fadiman Knowledge Atlas" />
-  <meta property="og:description" content="34 years of James Fadiman's recorded public output, searchable and indexed. 132 entries, 1992-2026." />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:description" content="James Fadiman's recorded public output, searchable and indexed: 132 entries, 1968-2026, each with a verified link status." />
+  <meta property="og:image" content="https://fadiman-atlas.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Fadiman Knowledge Atlas — 132 catalogued entries, 1968 to 2026." />
+  <meta property="og:site_name" content="The Fadiman Knowledge Atlas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://fadiman-atlas.vercel.app/og-image.png" />
   <meta name="twitter:title" content="The Fadiman Knowledge Atlas" />
-  <meta name="twitter:description" content="34 years of James Fadiman's public output, searchable and annotated." />
+  <meta name="twitter:description" content="132 entries of James Fadiman's recorded public output, 1968-2026, searchable and link-checked." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <title>The Fadiman Knowledge Atlas — James Fadiman Archive &amp; Knowledge Infrastructure</title>
@@ -20,10 +28,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
   <style>
     :root {
-      --bg: #F6F3EC; --ink: #1C1B1F; --muted: #4A4845; --faint: #8A8680;
-      --accent: #B8842A; --accent-light: #E8D5B0; --accent-bg: #FDF8F0;
+      --bg: #F6F3EC; --ink: #1C1B1F; --muted: #4A4845; --faint: #6E6B66;  /* was #8A8680 at 3.27:1 */
+      --accent: #8A6212; --accent-light: #E8D5B0; --accent-bg: #FDF8F0;  /* accent was #B8842A: 2.97:1 on --bg, and it is used for body-size text and as a button background */
       --rule: #D4CFC8; --tag: #EDE8DF;
-      --dead: #C24A2E; --dead-bg: #FDF0ED;
+      --dead: #A93F26; --dead-bg: #FDF0ED;  /* was #C24A2E at 4.37:1 in the badge */
       --warn: #8B6914; --warn-bg: #FDF4E0;
       --live: #2E5A28; --live-bg: #EDF4EC;
       --purple: #4D45A8; --purple-bg: #EEEDF8;
@@ -89,7 +97,7 @@
     .search-result.visible{display:block;}
     .search-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
     .chip{background:#2A2927;border:1px solid #444;color:#A8A4A0;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:4px 10px;cursor:pointer;border-radius:1px;}
-    .chip:hover{border-color:var(--accent);color:var(--accent);}
+    .chip:hover{border-color:var(--accent-light);color:var(--accent-light);}  /* chips sit on the dark demo panel */
     .streaming-cursor{display:inline-block;width:2px;height:14px;background:var(--accent);vertical-align:middle;animation:blink 1s step-end infinite;}
     @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
@@ -213,7 +221,7 @@
     var pct=Math.round((window.scrollY/h)*100);
     ms.forEach(function(m){if(pct>=m&&!fired[m]){fired[m]=1;
       fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({event:'scroll_depth',source:'fadiman-atlas',depth:m+'%'})})).catch(function(){});
+        body:JSON.stringify({event:'scroll_depth',source:'fadiman-atlas',depth:m+'%'})}).catch(function(){});
     }});
   },{passive:true});
 })();
@@ -233,7 +241,7 @@
     {
       "@type": "WebPage",
       "name": "The Fadiman Knowledge Atlas",
-      "description": "A searchable knowledge infrastructure cataloguing 34 years of James Fadiman's recorded public output.",
+      "description": "A catalogue of James Fadiman's recorded public output, 1968 to 2026, with a verified link status on every entry.",
       "url": "https://fadiman-atlas.vercel.app",
       "author": {"@id": "https://rn-portfolio-khaki.vercel.app/#rn-collins"}
     }
@@ -252,7 +260,7 @@
     <a href="#demo-search">Live Search Demo</a>
     <a href="#demo-annotate">Annotation Demo</a>
     <a href="#demo-timeline">Timeline</a>
-    <a href="#demo-corpus">Corpus Explorer</a>
+    <a href="#demo-corpus">Archive Explorer</a>
     <a href="#inventory">Full Inventory</a>
     <a href="#gaps">Gap Analysis</a>
     <a href="#schema">Schema</a>
@@ -266,14 +274,14 @@
 <main id="main-content"><div class="hero">
   <p class="eyebrow">About this project</p>
   <h1>The Fadiman<br /><em>Knowledge Atlas</em></h1>
-  <p class="lead">A proposed living knowledge infrastructure for 34 years of recorded public output — August 1992 to April 2026 — by the person who coined the Fadiman Protocol, popularized modern microdosing, and has been professionally involved with psychedelics since 1961.</p>
+  <p class="lead">A proposed living knowledge infrastructure for 58 years of recorded public output — a 1968 KQED documentary through to April 2026 — by the person who coined the Fadiman Protocol, popularized modern microdosing, and has been professionally involved with psychedelics since 1961.</p>
 </div>
 
 <div class="stats">
-  <div class="stat"><span class="stat-n">~132</span><span class="stat-l">Catalogued entries</span></div>
-  <div class="stat"><span class="stat-n">34</span><span class="stat-l">Years (1992–2026)</span></div>
+  <div class="stat"><span class="stat-n">132</span><span class="stat-l">Catalogued entries</span></div>
+  <div class="stat"><span class="stat-n">58</span><span class="stat-l">Years (1968–2026)</span></div>
   <div class="stat"><span class="stat-n">~107</span><span class="stat-l">Listed hours</span></div>
-  <div class="stat"><span class="stat-n">17</span><span class="stat-l">Dead / missing URLs</span></div>
+  <div class="stat"><span class="stat-n">58</span><span class="stat-l">Dead / missing URLs</span></div>
   <div class="stat"><span class="stat-n">10</span><span class="stat-l">Verified gaps</span></div>
   <div class="stat"><span class="stat-n">3</span><span class="stat-l">Trade books</span></div>
 </div>
@@ -283,14 +291,14 @@
 <p>James Fadiman has been thinking, speaking, writing, and teaching about psychedelics since 1961. He was a graduate student at Stanford when his former Harvard undergraduate adviser — Richard Alpert, who later became Ram Dass — introduced him to psilocybin in Paris. He guided Stewart Brand's first LSD trip in 1962. He participated in some of the last legal psychedelic research sessions before the government shut the field down. He was there at the beginning. He watched the entire field get buried. And he lived long enough to watch it come back.</p>
 <p>The catalog includes Fadiman's 2011 and 2025 books and his 2019 paper with Sophia Korb. The paper describes an uncontrolled, self-selected reporting project involving more than 1,000 people in 59 countries. It does not establish efficacy, safety, or suitability for any person. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">Primary record: PubMed 30925850 ↗</a></p>
 <p>He is 87 years old. He is doing two to three recorded interviews per month. He is still explaining the same foundational ideas to new audiences, because there is no other mechanism for those audiences to find what he has already said.</p>
-<blockquote>The oldest entry in his archive is a 31-minute audio recording from the APA Centennial Conference, August 1992. The newest is a 61-minute YouTube interview published April 25, 2026. That is 34 years of recorded thought on a single manually maintained page with no search, no topic index, no transcripts, and 17 dead or missing URLs.</blockquote>
-<p>The public prototype helps people locate where historical topics appear in a catalog of recordings. It does not consolidate clinical answers, evaluate an individual's circumstances, or recommend a substance, dose, schedule, taper, interaction, or treatment. A catalog match is a discovery aid—not evidence that a statement is accurate.</p>
+<blockquote>The oldest entry is <em>Drugs in Our Culture</em>, the 1968 KQED documentary he scripted and introduced. The newest is a 61-minute YouTube interview published April 25, 2026. That is 58 years of recorded thought on a single manually maintained page with no search, no topic index and no transcripts — and, as of this link check on 29 August 2026, 50 entries whose recording has been taken down and 8 more with no public URL at all.</blockquote>
+<p>Sources on this page were reviewed on 17 August 2026 and every link was re-checked on 29 August 2026. The public prototype helps people locate where historical topics appear in a catalog of recordings. It does not consolidate clinical answers, evaluate an individual's circumstances, or recommend a substance, dose, schedule, taper, interaction, or treatment. A catalog match is a discovery aid—not evidence that a statement is accurate.</p>
 
 <hr id="status" />
 <h2>What has been done — and what has been deliberately held</h2>
 <div class="status-block">
   <div class="sl">Current project status</div>
-  <p>The complete public archive has been catalogued entry by entry. The gap analysis has been run. The full corpus has been mapped. The three books have been mapped as a separate evidentiary layer. The annotation schema has been fully designed and specified. The technical infrastructure — Vercel, Supabase pgvector, AssemblyAI, OpenAI embeddings, RAG query interface — is already live and running on other active projects.</p>
+  <p>The complete public archive has been catalogued entry by entry, and every link in it has been checked. The gap analysis has been run. The three books have been mapped as a separate evidentiary layer. The annotation schema has been fully designed and specified. The technical infrastructure — Vercel, Supabase pgvector, AssemblyAI, OpenAI embeddings, RAG query interface — is already live and running on other active projects.</p>
   <p>The step that has not been taken is ingestion: downloading the audio, running transcription, putting his words into a system. That step has been deliberately withheld. The material is his. Beginning without his awareness felt like the wrong place to start something designed to honor sixty-plus years of work.</p>
 </div>
 <p><strong>What the scope work covered:</strong> 132-entry archive catalogued; 10 verified gaps found; books mapped; 20+ academic papers inventoried; 12-field annotation schema specified; 8-layer technical architecture written with cost estimates; intellectual timeline 1961–2026 reconstructed.</p>
@@ -301,7 +309,7 @@
 <div class="demo-section" id="demo-search">
   <div class="demo-label">Live demonstration — powered by Claude AI</div>
   <h2>Corpus search demo</h2>
-  <p>This demonstrates how the Atlas will answer questions about Fadiman's body of work — grounding every answer in the catalogued corpus with source citations. The full build uses transcribed audio and embedded text; this demo uses Claude's knowledge of Fadiman's published statements and the catalogued corpus metadata.</p>
+  <p>This demonstrates how the Atlas will answer questions about Fadiman's body of work — grounding every answer in the catalogue with source citations. The full build would use transcribed audio and embedded text; this demo uses Claude's knowledge of Fadiman's published statements together with the catalogue entries above.</p>
   <div class="search-chips" id="search-chips">
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('Tim Ferriss 2015 interview')">Host + year</span>
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('YouTube 2025')">Format + year</span>
@@ -313,7 +321,7 @@
     <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What does Jim say about evidence quality in his citizen science data?')">Evidence quality</span>
   </div>
   <div class="search-wrap">
-    <label for="search-input" class="sr-only">Search Fadiman body of work</label><input class="search-input" id="search-input" aria-label="Search Fadiman body of work" type="text" placeholder="Ask anything about Fadiman's recorded body of work..." />
+    <label for="search-input" class="sr-only">Search Fadiman's body of work</label><input class="search-input" id="search-input" aria-label="Search Fadiman's body of work" type="text" placeholder="Ask anything about Fadiman's recorded body of work..." />
     <button class="btn" id="search-btn" onclick="runSearch()">Search</button>
   </div>
   <div class="search-result" id="search-result"></div>
@@ -339,10 +347,10 @@
 <!-- LIVE DEMO 3: TIMELINE                 -->
 <!-- ══════════════════════════════════════ -->
 <div class="demo-section" id="demo-timeline">
-  <div class="demo-label">Live visualization — corpus by year</div>
+  <div class="demo-label">Live visualization — entries by year</div>
   <h2>34-year output timeline</h2>
   <p>Every catalogued entry plotted by year. The two surge periods — 2011 (<em>The Psychedelic Explorer's Guide</em> launch) and 2025 (<em>Microdosing for Health</em> launch) — are visible. Click any bar to see entries from that year.</p>
-  <canvas id="timelineChart" height="120" role="img" aria-label="Bar chart: Fadiman catalogued entries by year 1992-2026"></canvas>
+  <canvas id="timelineChart" height="120" role="img" aria-label="Bar chart: Fadiman catalogued entries by year, 1968-2026"></canvas>
   <div id="timeline-entries" style="margin-top:14px;font-size:.8rem;color:#C8C4BC;"></div>
 </div>
 
@@ -350,7 +358,7 @@
 <!-- LIVE DEMO 4: CORPUS EXPLORER          -->
 <!-- ══════════════════════════════════════ -->
 <div class="demo-section" id="demo-corpus">
-  <div class="demo-label">Live tool — filterable corpus database</div>
+  <div class="demo-label">Live tool — filterable archive</div>
   <h2>Corpus explorer</h2>
   <p>Filter, search, and sort all 132 catalogued entries. This is the data layer the Atlas indexes.</p>
   <div class="filter-row">
@@ -559,7 +567,7 @@
 <p>Next.js on Vercel · Supabase pgvector · Upstash Redis (query caching TTL 24h, rate-limiting) · OpenAI · AssemblyAI · Modal (GPU transcription) · Cohere (reranking). Daily Vercel Cron re-scrapes watch-hear.html + runs yt-dlp --download-archive + checks RSS; new GUIDs auto-enqueue full pipeline.</p>
 
 <div class="status-block" id="evidence">
-  <div class="sl">Evidence register · independently checked · reviewed August 17, 2026</div>
+  <div class="sl">What the cited research can and cannot show</div>
   <p><strong>Fadiman &amp; Korb (2019).</strong> An uncontrolled, self-selected reporting project with more than 1,000 participants in 59 countries. It can describe reported experiences; it cannot determine efficacy, safety, causation, or individual suitability. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">PubMed 30925850 ↗</a></p>
   <p><strong>Bershad et al. (2019).</strong> A placebo-controlled low-dose LSD study in healthy volunteers with a narrow experimental scope. It is not treatment evidence and does not support personalized use. <a href="https://pubmed.ncbi.nlm.nih.gov/31331617/" target="_blank" rel="noopener">PubMed 31331617 ↗</a></p>
   <p><strong>Polito &amp; Stevenson (2019).</strong> An observational study of self-reported microdosing. Observational associations do not establish therapeutic benefit or safety. <a href="https://pubmed.ncbi.nlm.nih.gov/30726251/" target="_blank" rel="noopener">PubMed 30726251 ↗</a></p>
@@ -567,7 +575,7 @@
 </div>
 
 <div class="status-block" id="cost-boundary">
-  <div class="sl">Implementation-cost boundary · reviewed August 17, 2026</div>
+  <div class="sl">On costs</div>
   <p>No current procurement budget or vendor-price estimate is represented on this page. Service prices, model availability, quotas, and terms change. Any future build must obtain dated quotes and complete security, privacy, accessibility, and legal review before procurement.</p>
 </div>
 
@@ -577,7 +585,7 @@
 
 <div class="cred">
   <div class="cl">Design principle — provenance before interpretation</div>
-  <p>Every future corpus statement should remain linked to its original recording, speaker, date, quotation span, and review status. The public prototype deliberately limits itself to catalog discovery and deterministic language flags.</p>
+  <p>Every statement the finished system produces should stay linked to its original recording, speaker, date, quotation span, and review status. The public prototype deliberately limits itself to catalog discovery and deterministic language flags.</p>
 </div>
 
 <div class="cred">
@@ -586,14 +594,14 @@
 </div>
 
 <div class="status-block" id="limitations">
-  <div class="sl">Safety and limitations · reviewed August 17, 2026</div>
+  <div class="sl">Safety and limitations</div>
   <p><strong>This is an archival discovery tool, not medical guidance.</strong> It is not a dose calculator, contraindication screen, interaction checker, diagnosis tool, treatment tool, or emergency resource. It does not personalize output and must not be used to decide whether, when, or how to take, stop, combine, or change any substance or medication.</p>
   <p>Catalog records and heuristic flags may be incomplete, outdated, or wrong. Follow source links, check publication dates, and seek appropriately licensed professional care for health decisions. In an emergency, contact local emergency services.</p>
 </div>
 
 <div class="offer" id="offer">
   <h2>Where things stand and what comes next</h2>
-  <p>This public build is a catalog, filterable explorer, timeline, deterministic term flagger, and local source-ID search prototype. It does not contain the full transcript corpus, a production ingestion pipeline, verified semantic search, or a clinical knowledge system. The larger ingestion and review system remains unbuilt.</p>
+  <p>This public build is a catalog, filterable explorer, timeline, deterministic term flagger, and local source-ID search prototype. It does not contain full transcripts, a production ingestion pipeline, verified semantic search, or a clinical knowledge system. The larger ingestion and review system remains unbuilt.</p>
   <p>The step that has not been taken is ingestion: downloading the audio, running transcription, putting his words into the system. That step has been deliberately withheld. The material is his. Beginning without his awareness felt like the wrong place to start something designed to honor sixty-plus years of work.</p>
   <p>To take this further — with his input on what he most wants it to do — the build is ready to begin. If the timing is not right, the scope work and infrastructure exist either way.</p>
   <p style="margin-top:22px;color:#9A9590;font-size:.84rem;">R.N. Collins &nbsp;·&nbsp; <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/rn-collins" target="_blank">linkedin.com/in/rn-collins</a> &nbsp;·&nbsp; Honolulu, HI</p>
@@ -601,7 +609,7 @@
 
 <div style="margin:40px 0 0;padding:18px 24px;border:1px solid var(--rule);font-family:DM Mono,monospace;font-size:.6rem;letter-spacing:.06em;color:var(--faint);line-height:1.8"><strong style="color:var(--muted)">Disclaimer</strong> — This is an independent research and scoping project. It is not affiliated with, endorsed by, or produced with the knowledge of James Fadiman. Content is presented for informational and archival purposes only and does not constitute medical, legal, or professional advice. Consult a qualified healthcare professional before making any health-related decisions. The legal status of psychedelic substances varies by jurisdiction.</div>
 </main>
-<footer>© 2026 Scoped by R.N. Collins &nbsp;·&nbsp; Aloha AI Consulting &nbsp;·&nbsp; <a href="https://rncollins.com" style="color:inherit" target="_blank" rel="noopener">rncollins.com</a> &nbsp;·&nbsp; June 2026</footer>
+<footer>© 2026 Scoped by R.N. Collins &nbsp;·&nbsp; Aloha AI Consulting &nbsp;·&nbsp; <a href="https://rn-selected-work.vercel.app" style="color:inherit" target="_blank" rel="noopener">RN Builds</a> &nbsp;·&nbsp; August 2026</footer>
 
 <script>
 // ═══════════════════════════════════════
@@ -624,11 +632,11 @@ const entries = [
   {n:14,date:"Mar 11, 2025",type:"YouTube",host:"Mayim Bialik",show:"Bialik Breakdown",runtime:"1h 42m",guest:"Jordan Gruber",url:"https://www.youtube.com/watch?v=V7zNoWXGNBQ",status:"live"},
   {n:15,date:"Feb 24, 2025",type:"Podcast",host:"Joe Moe",show:"Depresh Mode (Maximum Fun)",runtime:"47m",guest:"Jordan Gruber",url:"https://podcasts.apple.com/us/podcast/microdosing-with-james-fadiman-and-jordan-gruber/id1557803544?i=1000695490480",status:"live"},
   {n:16,date:"Feb 24, 2025",type:"Podcast",host:"Emily Francis",show:"All About Healing",runtime:"57m",guest:"Jordan Gruber",url:"https://www.youtube.com/watch?v=YF22sUrb7Vc",status:"live"},
-  {n:17,date:"Feb 21, 2025",type:"Podcast",host:"Hein Pijnnaken",show:"Microdosing Institute",runtime:"1h 37m",guest:"Jordan Gruber",url:"https://www.youtube.com/watch?v=lz1jC-CBEqc",status:"live"},
+  {n:17,date:"Feb 21, 2025",type:"Podcast",host:"Hein Pijnnaken",show:"Microdosing Institute",runtime:"1h 37m",guest:"Jordan Gruber",url:"https://www.youtube.com/watch?v=lz1jC-CBEqc",status:"dead"},
   {n:18,date:"Feb 20, 2025",type:"Podcast",host:"Ben Greenfield",show:"Boundless Life",runtime:"1h 14m",guest:"Jordan Gruber",url:"https://omny.fm/shows/ben-greenfield-life/microdosingpodcast",status:"live"},
   {n:19,date:"Feb 16, 2025",type:"Podcast",host:"Dana Harvey",show:"Flourish Academy",runtime:"1h 52m (Jim from 58:00)",guest:"Jordan Gruber",url:"https://open.spotify.com/episode/32i1t9h3Bvs7QtCE088Zyu",status:"live"},
   {n:20,date:"Feb 11, 2025",type:"Podcast",host:"Zach Leary",show:"Psychedelics Then and Now",runtime:"1h",guest:"Jordan Gruber",url:"https://podcasts.apple.com/us/podcast/psychedelics-then-and-now-with-zach-leary/id1217974024",status:"live"},
-  {n:21,date:"Jan 21, 2025",type:"Podcast",host:"Andy Frasco",show:"World Saving Podcast",runtime:"1h (Jim from 6:43)",guest:"Jordan Gruber",url:"https://www.worldsavingpodcast.com/season-8",status:"live"},
+  {n:21,date:"Jan 21, 2025",type:"Podcast",host:"Andy Frasco",show:"World Saving Podcast",runtime:"1h (Jim from 6:43)",guest:"Jordan Gruber",url:"https://www.worldsavingpodcast.com/",status:"show-page-only"},
   {n:22,date:"Nov 17, 2024",type:"Webinar",host:"—",show:"Double Blind — Microdosing Breakthroughs",runtime:"2h 12m (Jim ~20 min from 8:22)",guest:"—",url:"https://www.bigmarker.com/doubleblind-mag/Microdosing-for-Health-Healing-and-Enhanced-Performance",status:"live"},
   {n:23,date:"Jun 14, 2024",type:"YouTube",host:"Dan Riley",show:"Keep Talking (dup of #91)",runtime:"1h 02m",guest:"—",url:"https://www.youtube.com/watch?v=CerX5eV_VLE",status:"live"},
   {n:24,date:"Mar 13, 2024",type:"Podcast",host:"Jon Reiss",show:"Plantscendence (dup of #93)",runtime:"49m",guest:"—",url:"https://podcasts.apple.com/us/podcast/dr-james-fadiman/id1735350324?i=1000649119561",status:"live"},
@@ -638,109 +646,109 @@ const entries = [
   {n:28,date:"2023",type:"Reel",host:"—",show:"Big Think #2",runtime:"6m",guest:"—",url:"https://bigthink.com/perception-box/psychedelics-expanding-consciousness/",status:"live"},
   {n:29,date:"Dec 8, 2022",type:"YouTube",host:"Adam Bramlage",show:"Esalen — Microdosing: Start Low, Go Slow",runtime:"58m",guest:"—",url:"https://www.youtube.com/watch?v=eitIxQRPeQY",status:"live"},
   {n:30,date:"Sep 29, 2022",type:"Podcast",host:"Scott Barry Kaufman",show:"The Psychology Podcast",runtime:"52m",guest:"—",url:"https://the-psychology-podcast-with-scott-barry-kaufman.simplecast.com/episodes/jim-fadiman-orchestrating-your-symphony-of-selves-zbTTYDRl",status:"live"},
-  {n:31,date:"Sep 8, 2022",type:"YouTube",host:"Kyle Buller",show:"Psychedelics Today PT353 — Creativity symposium",runtime:"1h 34m",guest:"Sam Gandy, David Luke",url:"https://www.youtube.com/watch?v=r-XtgDZAzi0",status:"live"},
-  {n:32,date:"Apr 22, 2022",type:"YouTube",host:"—",show:"Harvard Law Petrie-Flom — 'A Macro View of Microdosing' keynote",runtime:"1h 34m",guest:"—",url:"https://www.youtube.com/watch?v=ncX26dju9Yg",status:"live"},
+  {n:31,date:"Sep 8, 2022",type:"YouTube",host:"Kyle Buller",show:"Psychedelics Today PT353 — Creativity symposium",runtime:"1h 34m",guest:"Sam Gandy, David Luke",url:"https://www.youtube.com/watch?v=ncX26dju9Yg",status:"live"},
+  {n:32,date:"Apr 22, 2022",type:"YouTube",host:"—",show:"Harvard Law Petrie-Flom — 'A Macro View of Microdosing' keynote",runtime:"1h 34m",guest:"—",url:"https://www.youtube.com/watch?v=r-XtgDZAzi0",status:"live"},
   {n:33,date:"Mar 6, 2022",type:"YouTube",host:"Susan Guner",show:"Psychedelic Conversations",runtime:"1h 05m",guest:"—",url:"https://www.youtube.com/watch?v=RHefyDqXULQ",status:"live"},
   {n:34,date:"Feb 22, 2022",type:"Podcast",host:"Jake Feinberg",show:"The Jake Feinberg Show",runtime:"1h 24m (starts 1:34)",guest:"—",url:"https://anchor.fm/jake-feinberg/episodes/The-James-Fadiman-Interview-e1ephpp",status:"live"},
   {n:35,date:"Feb 2, 2022",type:"Podcast",host:"David Nutt",show:"Drug Science Podcast",runtime:"1h 02m",guest:"—",url:"https://share.transistor.fm/s/668b40d2",status:"live"},
-  {n:36,date:"May 26, 2021",type:"YouTube",host:"—",show:"Microdosing Institute",runtime:"2h",guest:"—",url:"https://www.youtube.com/watch?v=SZ-Lr1LUfxk",status:"live"},
+  {n:36,date:"May 26, 2021",type:"YouTube",host:"—",show:"Microdosing Institute",runtime:"2h",guest:"—",url:"https://www.youtube.com/watch?v=SZ-Lr1LUfxk",status:"dead"},
   {n:37,date:"May 17, 2021",type:"Podcast",host:"Jim Rutt",show:"Jim Rutt Show",runtime:"1h 32m",guest:"Jordan Gruber",url:"https://www.jimruttshow.com/james-fadiman-jordan-gruber/",status:"live"},
   {n:38,date:"Mar 23, 2021",type:"Podcast",host:"Sam Harris",show:"Making Sense #242",runtime:"1h 03m",guest:"—",url:"https://www.samharris.org/podcasts/making-sense-episodes/242-psychedelics-self",status:"live"},
   {n:39,date:"Feb 18, 2021",type:"Podcast",host:"Ben Greenfield",show:"Ben Greenfield Fitness",runtime:"1h 14m",guest:"—",url:"https://bengreenfieldlife.com/podcast/lifestyle-podcasts/microdosing-psychedelics/",status:"live"},
-  {n:40,date:"Feb 17, 2021",type:"YouTube",host:"Jerry Brown",show:"FIU — Psychedelics and Culture",runtime:"49m",guest:"—",url:"https://www.youtube.com/watch?v=xBqFWmFRFJw",status:"live"},
+  {n:40,date:"Feb 17, 2021",type:"YouTube",host:"Jerry Brown",show:"FIU — Psychedelics and Culture",runtime:"49m",guest:"—",url:"https://www.youtube.com/watch?v=xBqFWmFRFJw",status:"dead"},
   {n:41,date:"Dec 9, 2020",type:"Podcast",host:"Lynn Marie Morski",show:"Plant Medicine",runtime:"58m",guest:"Adam Bramlage",url:"https://www.plantmedicine.org/podcast/microdosing-james-fadiman",status:"live"},
-  {n:42,date:"Nov 17, 2020",type:"YouTube",host:"Adam Bramlage et al.",show:"SF Psychedelic Society — Veterans",runtime:"2h 18m",guest:"—",url:"https://www.youtube.com/watch?v=iYCZLcyBWoA",status:"live"},
-  {n:43,date:"Nov 9, 2020",type:"YouTube",host:"Dr. Matt & Dr. Mike",show:"Wild Health",runtime:"45m",guest:"—",url:"https://www.youtube.com/watch?v=dXO3dWuuEq8",status:"live"},
-  {n:44,date:"Oct 27, 2020",type:"YouTube",host:"Richard Miller",show:"Mind Body Health & Politics",runtime:"2h 03m",guest:"Dr. Nicolas Cozzi",url:"https://www.youtube.com/watch?v=8M5AvFDdMnU",status:"live"},
-  {n:45,date:"Sep 2, 2020",type:"YouTube",host:"Kwasi Adusei",show:"MAPS EntheoGeneration",runtime:"1h 21m",guest:"—",url:"https://www.youtube.com/watch?v=KhgW5GKl4Kg",status:"live"},
-  {n:46,date:"Aug 27, 2020",type:"Podcast",host:"Paul O'Brien",show:"Pathways",runtime:"26m",guest:"—",url:"https://www.youtube.com/watch?v=Lm9W9I5OZGE",status:"live"},
+  {n:42,date:"Nov 17, 2020",type:"YouTube",host:"Adam Bramlage et al.",show:"SF Psychedelic Society — Veterans",runtime:"2h 18m",guest:"—",url:"https://www.youtube.com/watch?v=iYCZLcyBWoA",status:"dead"},
+  {n:43,date:"Nov 9, 2020",type:"YouTube",host:"Dr. Matt & Dr. Mike",show:"Wild Health",runtime:"45m",guest:"—",url:"https://www.youtube.com/watch?v=dXO3dWuuEq8",status:"dead"},
+  {n:44,date:"Oct 27, 2020",type:"YouTube",host:"Richard Miller",show:"Mind Body Health & Politics",runtime:"2h 03m",guest:"Dr. Nicolas Cozzi",url:"https://www.youtube.com/watch?v=8M5AvFDdMnU",status:"dead"},
+  {n:45,date:"Sep 2, 2020",type:"YouTube",host:"Kwasi Adusei",show:"MAPS EntheoGeneration",runtime:"1h 21m",guest:"—",url:"https://www.youtube.com/watch?v=KhgW5GKl4Kg",status:"dead"},
+  {n:46,date:"Aug 27, 2020",type:"Podcast",host:"Paul O'Brien",show:"Pathways",runtime:"26m",guest:"—",url:"https://www.youtube.com/watch?v=Lm9W9I5OZGE",status:"dead"},
   {n:47,date:"Aug 23, 2020",type:"Podcast",host:"—",show:"Tributaries Radio",runtime:"37m",guest:"Jordan Gruber",url:"https://open.spotify.com/episode/2eEAhEJiExCJHGRTPZXFjZ",status:"live"},
   {n:48,date:"Aug 2020",type:"Podcast",host:"Lynn Marie Morski",show:"Plant Medicine",runtime:"1h 32m",guest:"—",url:"https://www.plantmedicine.org/podcast",status:"live"},
-  {n:49,date:"May 26, 2019",type:"YouTube",host:"—",show:"microdosing NL",runtime:"20m 47s",guest:"—",url:"https://youtu.be/y3APDQ8OPEI",status:"live"},
+  {n:49,date:"May 26, 2019",type:"YouTube",host:"—",show:"microdosing NL",runtime:"20m 47s",guest:"—",url:"https://youtu.be/y3APDQ8OPEI",status:"dead"},
   {n:50,date:"Apr 18, 2019",type:"YouTube",host:"—",show:"Science and Nonduality (SAND18)",runtime:"30m 39s",guest:"—",url:"https://www.youtube.com/watch?v=6AfFM8pfy4s",status:"live"},
-  {n:51,date:"Nov 20, 2018",type:"YouTube",host:"Sanne Beijer",show:"—",runtime:"17m 42s",guest:"—",url:"https://www.youtube.com/watch?v=sO6iAMqVMKE",status:"live"},
-  {n:52,date:"Oct 23, 2018",type:"YouTube",host:"—",show:"Psychedelic Seminars",runtime:"1h 44m (Jim from 15:15)",guest:"Ayelet Waldman",url:"https://www.youtube.com/watch?v=4ooY9sAb2tA",status:"live"},
-  {n:53,date:"Jan 20, 2018",type:"Webinar",host:"Sophia Korb",show:"Toronto Psychedelic Society",runtime:"1h 33m (audio dropouts)",guest:"Sophia Korb",url:"https://www.youtube.com/watch?v=FULMqDHSCOE",status:"live"},
-  {n:54,date:"Aug 2017",type:"YouTube",host:"—",show:"Russian Television",runtime:"27m 11s",guest:"—",url:"https://www.youtube.com/watch?v=A2FMcCyO7mA",status:"live"},
-  {n:55,date:"May 2017",type:"Vimeo",host:"Andrea Gilbert & Daniel Cleland",show:"Spirit Hospital (ayahuasca doc)",runtime:"~32m",guest:"—",url:"https://vimeo.com/215867537",status:"live"},
-  {n:56,date:"May 12, 2017",type:"YouTube",host:"—",show:"ReasonTV",runtime:"9m 22s",guest:"—",url:"https://www.youtube.com/watch?v=ySRMOKhBPdY",status:"live"},
-  {n:57,date:"Apr 27, 2017",type:"YouTube",host:"—",show:"MAPS Psychedelic Science 2017",runtime:"1h 02m",guest:"Sophia Korb",url:"https://www.youtube.com/watch?v=IvFoEJEiEFY",status:"live"},
-  {n:58,date:"Feb 27, 2017",type:"YouTube",host:"—",show:"SBCC Extended Learning — Mind SuperMind",runtime:"2h 08m",guest:"—",url:"https://www.youtube.com/watch?v=HmQBbSCFcJk",status:"live"},
-  {n:59,date:"Feb 8, 2017",type:"TV clip",host:"—",show:"The Today Show",runtime:"4m 35s (Jim 2:36–2:59)",guest:"Ayelet Waldman",url:"https://www.today.com/video/",status:"live"},
-  {n:60,date:"Nov 2016",type:"YouTube",host:"—",show:"1997 transpersonal talk (re-upload)",runtime:"16m 48s",guest:"—",url:"https://www.youtube.com/watch?v=l-xr0XCDgdA",status:"live"},
-  {n:61,date:"May 11, 2016",type:"YouTube",host:"Molly Maloof",show:"Peak Performance",runtime:"1h 06m",guest:"Molly Maloof",url:"https://www.youtube.com/watch?v=Tl8RW0GqPdI",status:"live"},
-  {n:62,date:"Apr 17, 2015",type:"YouTube",host:"—",show:"MAPS @ Sofia University",runtime:"~34m (Jim from 28:19)",guest:"—",url:"https://www.youtube.com/watch?v=8i3e7HXZLWY",status:"live"},
-  {n:63,date:"Aug 2014",type:"YouTube",host:"Max Velmans",show:"—",runtime:"1h 31m",guest:"—",url:"https://www.youtube.com/watch?v=5f4I6-YLRhE",status:"live"},
-  {n:64,date:"Apr 21, 2014",type:"YouTube",host:"—",show:"Gaia Media",runtime:"58m 51s",guest:"—",url:"https://www.youtube.com/watch?v=ZyqtXjBsLsc",status:"live"},
-  {n:65,date:"Mar 19, 2014",type:"Podcast",host:"Bret Bernhoft",show:"Being Bipolar",runtime:"9m 41s",guest:"—",url:"https://www.youtube.com/watch?v=vHMiHm-DxaQ",status:"live"},
-  {n:66,date:"Feb 9, 2013",type:"YouTube",host:"—",show:"Global Transpersonal Symposium (keynote)",runtime:"56m 56s",guest:"—",url:"https://www.youtube.com/watch?v=JBbGmVwvmEk",status:"live"},
-  {n:67,date:"Oct 26, 2013",type:"YouTube",host:"—",show:"SAND Conference 2013",runtime:"25m",guest:"—",url:"https://www.youtube.com/watch?v=3bPFrpxJa8Q",status:"live"},
+  {n:51,date:"Nov 20, 2018",type:"YouTube",host:"Sanne Beijer",show:"—",runtime:"17m 42s",guest:"—",url:"https://www.youtube.com/watch?v=sO6iAMqVMKE",status:"dead"},
+  {n:52,date:"Oct 23, 2018",type:"YouTube",host:"—",show:"Psychedelic Seminars",runtime:"1h 44m (Jim from 15:15)",guest:"Ayelet Waldman",url:"https://www.youtube.com/watch?v=4ooY9sAb2tA",status:"dead"},
+  {n:53,date:"Jan 20, 2018",type:"Webinar",host:"Sophia Korb",show:"Toronto Psychedelic Society",runtime:"1h 33m (audio dropouts)",guest:"Sophia Korb",url:"https://www.youtube.com/watch?v=FULMqDHSCOE",status:"dead"},
+  {n:54,date:"Aug 2017",type:"YouTube",host:"—",show:"Russian Television",runtime:"27m 11s",guest:"—",url:"https://www.youtube.com/watch?v=A2FMcCyO7mA",status:"dead"},
+  {n:55,date:"May 2017",type:"Vimeo",host:"Andrea Gilbert & Daniel Cleland",show:"Spirit Hospital (ayahuasca doc)",runtime:"~32m",guest:"—",url:"https://vimeo.com/215867537",status:"dead"},
+  {n:56,date:"May 12, 2017",type:"YouTube",host:"—",show:"ReasonTV",runtime:"9m 22s",guest:"—",url:"https://www.youtube.com/watch?v=ySRMOKhBPdY",status:"dead"},
+  {n:57,date:"Apr 27, 2017",type:"YouTube",host:"—",show:"MAPS Psychedelic Science 2017",runtime:"1h 02m",guest:"Sophia Korb",url:"https://www.youtube.com/watch?v=IvFoEJEiEFY",status:"dead"},
+  {n:58,date:"Feb 27, 2017",type:"YouTube",host:"—",show:"SBCC Extended Learning — Mind SuperMind",runtime:"2h 08m",guest:"—",url:"https://www.youtube.com/watch?v=HmQBbSCFcJk",status:"dead"},
+  {n:59,date:"Feb 8, 2017",type:"TV clip",host:"—",show:"The Today Show",runtime:"4m 35s (Jim 2:36–2:59)",guest:"Ayelet Waldman",url:"https://www.today.com/offsite/lsd-in-microdoses-can-improve-mood-productivity-some-claim-872494659553",status:"live"},
+  {n:60,date:"Nov 2016",type:"YouTube",host:"—",show:"1997 transpersonal talk (re-upload)",runtime:"16m 48s",guest:"—",url:"https://www.youtube.com/watch?v=l-xr0XCDgdA",status:"dead"},
+  {n:61,date:"May 11, 2016",type:"YouTube",host:"Molly Maloof",show:"Peak Performance",runtime:"1h 06m",guest:"Molly Maloof",url:"https://www.youtube.com/watch?v=Tl8RW0GqPdI",status:"dead"},
+  {n:62,date:"Apr 17, 2015",type:"YouTube",host:"—",show:"MAPS @ Sofia University",runtime:"~34m (Jim from 28:19)",guest:"—",url:"https://www.youtube.com/watch?v=8i3e7HXZLWY",status:"dead"},
+  {n:63,date:"Aug 2014",type:"YouTube",host:"Max Velmans",show:"—",runtime:"1h 31m",guest:"—",url:"https://www.youtube.com/watch?v=5f4I6-YLRhE",status:"dead"},
+  {n:64,date:"Apr 21, 2014",type:"YouTube",host:"—",show:"Gaia Media",runtime:"58m 51s",guest:"—",url:"https://www.youtube.com/watch?v=ZyqtXjBsLsc",status:"dead"},
+  {n:65,date:"Mar 19, 2014",type:"Podcast",host:"Bret Bernhoft",show:"Being Bipolar",runtime:"9m 41s",guest:"—",url:"https://www.youtube.com/watch?v=vHMiHm-DxaQ",status:"dead"},
+  {n:66,date:"Feb 9, 2013",type:"YouTube",host:"—",show:"Global Transpersonal Symposium (keynote)",runtime:"56m 56s",guest:"—",url:"https://www.youtube.com/watch?v=JBbGmVwvmEk",status:"dead"},
+  {n:67,date:"Oct 26, 2013",type:"YouTube",host:"—",show:"SAND Conference 2013",runtime:"25m",guest:"—",url:"https://www.youtube.com/watch?v=3bPFrpxJa8Q",status:"dead"},
   {n:68,date:"May 2013",type:"Video",host:"Brad Burge",show:"Sofia University",runtime:"—",guest:"Brad Burge",url:null,status:"dead"},
-  {n:69,date:"Apr 2013",type:"YouTube",host:"—",show:"12th Annual Intl Bioethics Forum (Madison)",runtime:"—",guest:"—",url:"https://www.youtube.com/watch?v=WjxfF9FHrDA",status:"live"},
-  {n:70,date:"Apr 2013",type:"YouTube",host:"—",show:"MAPS Psychedelic Science — Problem Solving",runtime:"—",guest:"—",url:"https://www.youtube.com/watch?v=OMtPEMWE9pU",status:"live"},
-  {n:71,date:"Apr 2013",type:"YouTube",host:"—",show:"Psychedelic Horizons (w/ Thomas B. Roberts)",runtime:"—",guest:"Thomas B. Roberts",url:"https://www.youtube.com/watch?v=LpLDL6hc4Gk",status:"live"},
-  {n:72,date:"Late 1960s",type:"Documentary",host:"—",show:"'Drugs in Our Culture' (KQED/Prelinger)",runtime:"—",guest:"—",url:"https://archive.org/details/DrugsInOurCulture",status:"live"},
-  {n:73,date:"Apr 2013",type:"YouTube",host:"—",show:"MAPS 'Psychedelic Science & Me'",runtime:"2m 25s",guest:"—",url:"https://www.youtube.com/watch?v=Xa_nkAHHMYU",status:"live"},
-  {n:74,date:"Mar 2013",type:"YouTube",host:"—",show:"'Science and Sacraments' documentary extra",runtime:"0:42",guest:"—",url:"https://www.youtube.com/watch?v=F9xmgNiPnXg",status:"live"},
-  {n:75,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 1",runtime:"53m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=qCFHfWRqZRQ",status:"live"},
-  {n:76,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 2",runtime:"49m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=gALcD1VSmhA",status:"live"},
-  {n:77,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 3",runtime:"34m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=7kd5T4kj1Ek",status:"live"},
-  {n:78,date:"Jan 2013 (1998 footage)",type:"YouTube",host:"—",show:"'Pioneers in Research'",runtime:"—",guest:"—",url:"https://www.youtube.com/watch?v=CerX5eV_VLE",status:"live"},
-  {n:79,date:"Sep 2012",type:"YouTube",host:"—",show:"Sane Society",runtime:"30m 22s",guest:"—",url:"https://www.youtube.com/watch?v=k5YbUQTWbGE",status:"live"},
-  {n:80,date:"—",type:"YouTube",host:"—",show:"MAPS office Santa Cruz — early experiences",runtime:"43m",guest:"—",url:"https://www.youtube.com/watch?v=mKgFrmVlE8k",status:"live"},
-  {n:81,date:"—",type:"YouTube",host:"Mel Van Deusen",show:"Present! / KMVT Pt 1",runtime:"28m 16s",guest:"—",url:"https://www.youtube.com/watch?v=MZbdpIDuKYI",status:"live"},
-  {n:82,date:"—",type:"YouTube",host:"Mel Van Deusen",show:"Present! / KMVT Pt 2",runtime:"27m 37s",guest:"—",url:"https://www.youtube.com/watch?v=MZbdpIDuKYI",status:"live"},
+  {n:69,date:"Apr 2013",type:"YouTube",host:"—",show:"12th Annual Intl Bioethics Forum (Madison)",runtime:"—",guest:"—",url:"https://www.youtube.com/watch?v=WjxfF9FHrDA",status:"dead"},
+  {n:70,date:"Apr 2013",type:"YouTube",host:"—",show:"MAPS Psychedelic Science — Problem Solving",runtime:"—",guest:"—",url:"https://www.youtube.com/watch?v=OMtPEMWE9pU",status:"dead"},
+  {n:71,date:"Apr 2013",type:"YouTube",host:"—",show:"Psychedelic Horizons (w/ Thomas B. Roberts)",runtime:"—",guest:"Thomas B. Roberts",url:"https://www.youtube.com/watch?v=LpLDL6hc4Gk",status:"dead"},
+  {n:72,date:"1968",type:"Documentary",host:"—",show:"'Drugs in Our Culture' (KQED/NET) — scripted and introduced by Fadiman; earliest entry in this archive",runtime:"—",guest:"—",url:"https://archive.org/details/0869_Drugs_in_Our_Culture_07_28_34_00",status:"live"},
+  {n:73,date:"Apr 2013",type:"YouTube",host:"—",show:"MAPS 'Psychedelic Science & Me'",runtime:"2m 25s",guest:"—",url:"https://www.youtube.com/watch?v=Xa_nkAHHMYU",status:"dead"},
+  {n:74,date:"Mar 2013",type:"YouTube",host:"—",show:"'Science and Sacraments' documentary extra",runtime:"0:42",guest:"—",url:"https://www.youtube.com/watch?v=F9xmgNiPnXg",status:"dead"},
+  {n:75,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 1",runtime:"53m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=qCFHfWRqZRQ",status:"dead"},
+  {n:76,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 2",runtime:"49m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=gALcD1VSmhA",status:"dead"},
+  {n:77,date:"Oct 20, 2012",type:"YouTube",host:"Rev. Kyoko Henkel",show:"MAPS 'Buddhism & Psychedelics' Pt 3",runtime:"34m",guest:"Rev. Kyoko Henkel",url:"https://www.youtube.com/watch?v=7kd5T4kj1Ek",status:"dead"},
+  {n:78,date:"Jan 2013 (1998 footage)",type:"YouTube",host:"—",show:"'Pioneers in Research' — the URL previously recorded here belongs to a different programme; no copy located",runtime:"—",guest:"—",url:null,status:"no-url"},
+  {n:79,date:"Sep 2012",type:"YouTube",host:"—",show:"Sane Society",runtime:"30m 22s",guest:"—",url:"https://www.youtube.com/watch?v=k5YbUQTWbGE",status:"dead"},
+  {n:80,date:"—",type:"YouTube",host:"—",show:"MAPS office Santa Cruz — early experiences",runtime:"43m",guest:"—",url:"https://www.youtube.com/watch?v=mKgFrmVlE8k",status:"dead"},
+  {n:81,date:"—",type:"YouTube",host:"Mel Van Deusen",show:"Present! / KMVT Pt 1",runtime:"28m 16s",guest:"—",url:"https://www.youtube.com/watch?v=MZbdpIDuKYI",status:"dead"},
+  {n:82,date:"—",type:"YouTube",host:"Mel Van Deusen",show:"Present! / KMVT Pt 2",runtime:"27m 37s",guest:"—",url:"https://www.youtube.com/watch?v=MZbdpIDuKYI",status:"dead"},
   {n:83,date:"2011",type:"Vimeo",host:"—",show:"MAPS/SCRC CE lecture — Psychedelics as Entheogens",runtime:"~0.5 CE hr",guest:"—",url:"https://vimeo.com/38046889",status:"live"},
-  {n:84,date:"~1998",type:"YouTube",host:"Jeffrey Mishlove",show:"Thinking Allowed (excerpt) — transcript linked",runtime:"10m 07s",guest:"—",url:"https://www.youtube.com/watch?v=kIfFQCj5WkA",status:"live"},
-  {n:85,date:"~1997",type:"YouTube",host:"—",show:"'On the Transpersonal' (dup of #60)",runtime:"16m 48s",guest:"—",url:"https://www.youtube.com/watch?v=l-xr0XCDgdA",status:"live"},
-  {n:86,date:"—",type:"YouTube",host:"Magenta",show:"SF Bay Area Evolver",runtime:"24m",guest:"—",url:"https://www.youtube.com/watch?v=BKhMbWcGmBY",status:"live"},
-  {n:87,date:"2011",type:"YouTube",host:"—",show:"SAND 2011 excerpt",runtime:"1m 39s",guest:"—",url:"https://www.youtube.com/watch?v=4OqA50JUVXA",status:"live"},
-  {n:88,date:"Apr 2012",type:"YouTube",host:"—",show:"East West Bookstore reading",runtime:"10m 16s",guest:"—",url:"https://www.youtube.com/watch?v=lV10w39jMQ4",status:"live"},
-  {n:89,date:"Apr 26, 2012",type:"YouTube",host:"—",show:"'Entheo-Visioning' SF Conference",runtime:"1h 02m",guest:"—",url:"https://www.youtube.com/watch?v=4ooY9sAb2tA",status:"live"},
+  {n:84,date:"~1998",type:"YouTube",host:"Jeffrey Mishlove",show:"Thinking Allowed (excerpt) — transcript linked",runtime:"10m 07s",guest:"—",url:"https://www.youtube.com/watch?v=kIfFQCj5WkA",status:"dead"},
+  {n:85,date:"~1997",type:"YouTube",host:"—",show:"'On the Transpersonal' (dup of #60)",runtime:"16m 48s",guest:"—",url:"https://www.youtube.com/watch?v=l-xr0XCDgdA",status:"dead"},
+  {n:86,date:"—",type:"YouTube",host:"Magenta",show:"SF Bay Area Evolver",runtime:"24m",guest:"—",url:"https://www.youtube.com/watch?v=BKhMbWcGmBY",status:"dead"},
+  {n:87,date:"2011",type:"YouTube",host:"—",show:"SAND 2011 excerpt",runtime:"1m 39s",guest:"—",url:"https://www.youtube.com/watch?v=4OqA50JUVXA",status:"dead"},
+  {n:88,date:"Apr 2012",type:"YouTube",host:"—",show:"East West Bookstore reading",runtime:"10m 16s",guest:"—",url:"https://www.youtube.com/watch?v=lV10w39jMQ4",status:"dead"},
+  {n:89,date:"Apr 26, 2012",type:"YouTube",host:"—",show:"'Entheo-Visioning' SF Conference",runtime:"1h 02m",guest:"—",url:"https://www.youtube.com/watch?v=4ooY9sAb2tA",status:"dead"},
   // Audio block
-  {n:90,date:"May 15, 2025",type:"Radio",host:"Angie Coiro",show:"KALW 'Book It'",runtime:"58m",guest:"—",url:"https://www.kalw.org/show/book-it",status:"live"},
+  {n:90,date:"May 15, 2025",type:"Radio",host:"Angie Coiro",show:"KALW 'Book It'",runtime:"58m",guest:"—",url:"https://www.kalw.org/podcast/book-it/2025-05-15/microdosing-for-health-and-healing",status:"live"},
   {n:91,date:"Jun 14, 2024",type:"Podcast",host:"Dan Riley",show:"Keep Talking (dup of #23)",runtime:"1h 01m",guest:"—",url:"https://www.youtube.com/watch?v=CerX5eV_VLE",status:"live"},
-  {n:92,date:"May 16, 2024",type:"Radio",host:"Caroline Casey",show:"KPFA Visionary Activist Show",runtime:"59m",guest:"—",url:"https://kpfa.org/episode/visionary-activist-show-may-16-2024/",status:"live"},
+  {n:92,date:"May 16, 2024",type:"Radio",host:"Caroline Casey",show:"KPFA Visionary Activist Show",runtime:"59m",guest:"—",url:"https://kpfa.org/episode/the-visionary-activist-show-may-16-2024/",status:"live"},
   {n:93,date:"Mar 13, 2024",type:"Podcast",host:"Jon Reiss",show:"Plantscendence (dup of #24)",runtime:"49m",guest:"—",url:"https://podcasts.apple.com/us/podcast/dr-james-fadiman/id1735350324?i=1000649119561",status:"live"},
   {n:94,date:"Oct 2020",type:"Podcast",host:"Sam Stern",show:"Esalen — 'A Psychedelic History Lesson'",runtime:"43m",guest:"—",url:"https://open.spotify.com/episode/6tYs0KGHsLzT8a3pDFl4QL",status:"live"},
   {n:95,date:"May 22, 2018",type:"Podcast",host:"—",show:"illiterateprose (SoundCloud)",runtime:"1h 11m",guest:"—",url:"https://soundcloud.com/illiterateprose/james-fadiman",status:"live"},
-  {n:96,date:"May 27, 2018",type:"Podcast",host:"Christopher Ryan",show:"Tangentially Speaking #323 (Jim from 0:10:49)",runtime:"33m",guest:"—",url:"https://www.stitcher.com/podcast/tangentially-speaking",status:"live"},
+  {n:96,date:"May 27, 2018",type:"Podcast",host:"Christopher Ryan",show:"Tangentially Speaking #323 (Jim from 0:10:49)",runtime:"33m",guest:"—",url:"https://podcasts.apple.com/us/podcast/tangentially-speaking-with-christopher-ryan/id566908883",status:"show-page-only"},
   {n:97,date:"Jan 10, 2018",type:"Podcast",host:"Scott Barry Kaufman",show:"The Psychology Podcast",runtime:"50m 18s",guest:"—",url:"https://scottbarrykaufman.com/podcast/psychedelics-transpersonal-psychology-james-fadiman/",status:"live"},
-  {n:98,date:"Oct 14, 2017",type:"Podcast",host:"Christopher Ryan",show:"Tangentially Speaking (Jim from 25:40)",runtime:"1h 12m",guest:"—",url:"https://www.stitcher.com/podcast/tangentially-speaking",status:"live"},
-  {n:99,date:"Aug 14, 2017",type:"Podcast",host:"Kyle Thiermann",show:"—",runtime:"1h 01m",guest:"—",url:"https://www.youtube.com/watch?v=PJb4z0XQLNU",status:"live"},
-  {n:100,date:"Jun 28, 2017",type:"Podcast",host:"Lisa McDonald",show:"Living Fearlessly",runtime:"56m 22s",guest:"—",url:"https://www.listennotes.com/podcasts/living-fearlessly-with-lisa-mcdonald",status:"live"},
-  {n:101,date:"Jun 7, 2017",type:"Podcast",host:"Daniel Cleland",show:"—",runtime:"37m 25s",guest:"—",url:"https://soundcloud.com/daniel-cleland",status:"live"},
+  {n:98,date:"Oct 14, 2017",type:"Podcast",host:"Christopher Ryan",show:"Tangentially Speaking (Jim from 25:40)",runtime:"1h 12m",guest:"—",url:"https://podcasts.apple.com/us/podcast/tangentially-speaking-with-christopher-ryan/id566908883",status:"show-page-only"},
+  {n:99,date:"Aug 14, 2017",type:"Podcast",host:"Kyle Thiermann",show:"—",runtime:"1h 01m",guest:"—",url:"https://www.youtube.com/watch?v=PJb4z0XQLNU",status:"dead"},
+  {n:100,date:"Jun 28, 2017",type:"Podcast",host:"Lisa McDonald",show:"Living Fearlessly",runtime:"56m 22s",guest:"—",url:"https://player.fm/series/living-fearlessly-with-lisa-mcdonald/james-fadimanlisa-mcdonald-072817",status:"live"},
+  {n:101,date:"Jun 7, 2017",type:"Podcast",host:"Daniel Cleland",show:"—",runtime:"37m 25s",guest:"—",url:"https://www.danielcleland.com/podcasts/11-king-micro-dosing-dr-jim-fadiman/",status:"live"},
   {n:102,date:"Apr 26, 2017",type:"Podcast",host:"Sean Dunne",show:"Very Ape (SoundCloud)",runtime:"24m",guest:"—",url:"https://soundcloud.com/veryapepodcast",status:"live"},
-  {n:103,date:"Nov 22, 2016",type:"Audio",host:"Thom Knoles",show:"Vedic Meditation",runtime:"1h 05m",guest:"—",url:"https://www.tm.org/",status:"live"},
-  {n:104,date:"Nov 4, 2015",type:"Podcast",host:"Zach Leary",show:"It's All Happening",runtime:"1h 06m",guest:"—",url:"https://www.stitcher.com/podcast/its-all-happening-with-zach-leary",status:"live"},
-  {n:105,date:"Sep 21, 2015",type:"Audio",host:"—",show:"UC Davis SSDP (re-upload; original deleted)",runtime:"55m",guest:"—",url:"https://www.youtube.com/watch?v=sTCbf9rSGhU",status:"live"},
+  {n:103,date:"Nov 22, 2016",type:"Audio",host:"Thom Knoles",show:"Vedic Meditation — Fadiman's own archive lists this interview without a link",runtime:"1h 05m",guest:"—",url:null,status:"no-url"},
+  {n:104,date:"Nov 4, 2015",type:"Podcast",host:"Zach Leary",show:"It's All Happening",runtime:"1h 06m",guest:"—",url:"https://podcasts.apple.com/us/podcast/its-all-happening/id1020406537",status:"show-page-only"},
+  {n:105,date:"Sep 21, 2015",type:"Audio",host:"—",show:"UC Davis SSDP (re-upload; original deleted)",runtime:"55m",guest:"—",url:"https://www.youtube.com/watch?v=sTCbf9rSGhU",status:"dead"},
   {n:106,date:"Jun 17, 2015",type:"Podcast",host:"Matt Landis, Chris Conte, Tim King",show:"Tink Tink Club",runtime:"1h 14m",guest:"—",url:null,status:"no-url"},
-  {n:107,date:"Jun 3, 2015",type:"Podcast",host:"—",show:"The Human Experience #35",runtime:"48m",guest:"—",url:"https://the-human-experience.libsyn.com/",status:"live"},
+  {n:107,date:"Jun 3, 2015",type:"Podcast",host:"—",show:"The Human Experience #35",runtime:"48m",guest:"—",url:"https://www.thehumanxp.com/episode-35-dr-james-fadiman/",status:"live"},
   {n:108,date:"Mar 21, 2015",type:"Podcast",host:"Tim Ferriss",show:"The Tim Ferriss Show Ep. 66",runtime:"1h 39m",guest:"—",url:"https://tim.blog/2015/03/21/james-fadiman/",status:"live"},
   {n:109,date:"Aug 20, 2013",type:"Radio",host:"Al Lundell",show:"Dr. Future Show / KSCO 1080AM",runtime:"—",guest:"—",url:null,status:"blog-only"},
   {n:110,date:"May 26, 2013",type:"Radio",host:"Steve Paulson",show:"To the Best of Our Knowledge (PRI)",runtime:"52m",guest:"—",url:"https://www.ttbook.org/interview/james-fadiman",status:"live"},
-  {n:111,date:"Oct 2, 2012",type:"Radio",host:"Dr. Miller",show:"Open Mind Radio",runtime:"50m 18s",guest:"—",url:"https://openmindradio.podbean.com/",status:"live"},
+  {n:111,date:"Oct 2, 2012",type:"Radio",host:"Dr. Miller",show:"Open Mind Radio",runtime:"50m 18s",guest:"—",url:"https://drmiller.com/healing-potential-of-psychedelics/",status:"live"},
   {n:112,date:"Jul 22, 2012",type:"Radio",host:"Terrence McNally",show:"— (Jim from 0:36:12)",runtime:"—",guest:"Charles Grob (preceding)",url:null,status:"show-page-only"},
-  {n:113,date:"Mar 11, 2012",type:"Podcast",host:"Lorenzo Hagerty",show:"Psychedelic Salon #302",runtime:"1h 21m",guest:"Matt Pallmary",url:"https://www.youtube.com/watch?v=qOBYFIeaVlY",status:"live"},
+  {n:113,date:"Mar 11, 2012",type:"Podcast",host:"Lorenzo Hagerty",show:"Psychedelic Salon #302",runtime:"1h 21m",guest:"Matt Pallmary",url:"https://www.youtube.com/watch?v=qOBYFIeaVlY",status:"dead"},
   {n:114,date:"Jan 4, 2012",type:"Radio",host:"Elaine Smitha",show:"Progressive Radio Network",runtime:"—",guest:"—",url:null,status:"dead"},
-  {n:115,date:"Dec 27, 2011",type:"YouTube audio",host:"—",show:"NY Open Center (excerpt)",runtime:"2m 14s",guest:"—",url:"https://www.youtube.com/watch?v=uFZcEwZQ6kA",status:"live"},
-  {n:116,date:"Dec 16, 2011",type:"Radio",host:"Suzanna Axisa",show:"Lanto's Lantern / KRWM (iTunes)",runtime:"1h",guest:"—",url:"https://podcasts.apple.com/us/podcast/lantos-lantern",status:"live"},
+  {n:115,date:"Dec 27, 2011",type:"YouTube audio",host:"—",show:"NY Open Center (excerpt)",runtime:"2m 14s",guest:"—",url:"https://www.youtube.com/watch?v=uFZcEwZQ6kA",status:"dead"},
+  {n:116,date:"Dec 16, 2011",type:"Radio",host:"Suzanna Axisa",show:"Lanto's Lantern / KRWM",runtime:"1h",guest:"—",url:"https://ctrhotspot.com/profile/SuzannaAxisaHOST",status:"show-page-only"},
   {n:117,date:"Dec 3, 2011",type:"Radio",host:"Barb Adams",show:"Radio Amerika Now (mp3 link appears to mismatch)",runtime:"1h 10m",guest:"—",url:null,status:"mismatched"},
-  {n:118,date:"Nov 23, 2011",type:"Radio",host:"Stephanie Potter",show:"Recovery Zone / KBOO",runtime:"57m",guest:"—",url:"https://kboo.fm/program/recovery-zone",status:"live"},
+  {n:118,date:"Nov 23, 2011",type:"Radio",host:"Stephanie Potter",show:"Recovery Zone / KBOO",runtime:"57m",guest:"—",url:"https://kboo.fm/media/13122-james-fadiman-his-psychedelic-explorers-guide-safe-therapeutic-and-sacred-journeys",status:"live"},
   {n:119,date:"Oct 30, 2011",type:"Radio",host:"Robin Claire",show:"Tributaries / KGNU (blog link only — Pt 1 of 3)",runtime:"—",guest:"—",url:null,status:"blog-only"},
   {n:120,date:"Oct 24, 2011",type:"Radio",host:"Barry Farber",show:"CRN Radio (blog link only)",runtime:"—",guest:"—",url:null,status:"blog-only"},
   {n:121,date:"Oct 14, 2011",type:"Radio",host:"Dr. Dave",show:"Shrink Rap Radio",runtime:"1h 09m",guest:"—",url:"https://shrinkrapradio.com/",status:"live"},
   {n:122,date:"Oct 10, 2011",type:"Radio",host:"Lisa Davis",show:"It's Your Health Network",runtime:"—",guest:"—",url:null,status:"no-url"},
   {n:123,date:"Sep 24, 2011",type:"Radio",host:"Ian Punnett",show:"Coast to Coast AM (show page only)",runtime:"—",guest:"—",url:"https://www.coasttocoastam.com/",status:"show-page"},
-  {n:124,date:"Sep 19, 2011",type:"Radio",host:"Anthony Brice",show:"The Six Degrees Show",runtime:"1h 01m",guest:"—",url:"https://www.youtube.com/watch?v=WBZ0pCQJO0Y",status:"live"},
+  {n:124,date:"Sep 19, 2011",type:"Radio",host:"Anthony Brice",show:"The Six Degrees Show",runtime:"1h 01m",guest:"—",url:"https://www.youtube.com/watch?v=WBZ0pCQJO0Y",status:"dead"},
   {n:125,date:"Sep 8, 2011",type:"Radio",host:"Frankie Boyer",show:"The Frankie Boyer Show",runtime:"—",guest:"—",url:null,status:"no-url"},
   {n:126,date:"Aug 2011",type:"TV",host:"Daniel Kottke",show:"The Next Step Show #80 / Midpen Media",runtime:"—",guest:"—",url:null,status:"no-url"},
-  {n:127,date:"Aug 29, 2011",type:"Radio",host:"—",show:"KZSU Stanford Lunch Special",runtime:"1h 03m",guest:"—",url:"https://kzsu.stanford.edu/",status:"live"},
-  {n:128,date:"Aug 22, 2011",type:"Radio",host:"Ajayan Borys",show:"Mind Matters / KKNW (Jim from 17:20)",runtime:"39m",guest:"—",url:"https://www.iheart.com/podcast/",status:"live"},
-  {n:129,date:"Jul 26, 2011",type:"Radio",host:"—",show:"Dr. Future Show / KSCO",runtime:"45m",guest:"—",url:"https://futurehuman.com/",status:"live"},
-  {n:130,date:"Jun 27, 2011",type:"Radio",host:"—",show:"KZSU Stanford Lunch Special",runtime:"59m",guest:"—",url:"https://kzsu.stanford.edu/",status:"live"},
+  {n:127,date:"Aug 29, 2011",type:"Radio",host:"—",show:"KZSU Stanford Lunch Special",runtime:"1h 03m",guest:"—",url:"https://www.radio4all.net/files/blues@kzsu.stanford.edu/4055-1-kzsu-ls-dr-james-fadiman-psychedelic-explorer-29-aug-2011.mp3",status:"live"},
+  {n:128,date:"Aug 22, 2011",type:"Radio",host:"Ajayan Borys",show:"Mind Matters / KKNW (Jim from 17:20)",runtime:"39m",guest:"—",url:"https://www.ajayan.com/",status:"show-page-only"},
+  {n:129,date:"Jul 26, 2011",type:"Radio",host:"—",show:"Dr. Future Show / KSCO",runtime:"45m",guest:"—",url:"https://www.drfutureshow.com/",status:"show-page-only"},
+  {n:130,date:"Jun 27, 2011",type:"Radio",host:"—",show:"KZSU Stanford Lunch Special",runtime:"59m",guest:"—",url:"https://www.radio4all.net/files/blues@kzsu.stanford.edu/4055-1-kzsu-lspecial-james-fadiman-27-jun-2011.mp3",status:"live"},
   {n:131,date:"Jun 23, 2011",type:"Radio",host:"Erik Davis",show:"Progressive Radio Network",runtime:"—",guest:"—",url:null,status:"no-url"},
-  {n:132,date:"Aug 1992",type:"Audio",host:"—",show:"APA Centennial Conference — oldest entry in archive",runtime:"31m",guest:"—",url:"https://www.jamesfadiman.com/audio/fadiman_apa.mp3",status:"live"},
+  {n:132,date:"Aug 1992",type:"Audio",host:"—",show:"APA Centennial Conference — recording withdrawn from jamesfadiman.com; no public copy located",runtime:"31m",guest:"—",url:null,status:"no-url"},
 ];
 
 // ═══════════════════════════════════════
@@ -762,8 +770,13 @@ const colors = years.map(y=>{
   return '#3A3530';
 });
 
-const ctx = document.getElementById('timelineChart').getContext('2d');
-const tlChart = new Chart(ctx,{
+let tlChart = null;
+function initTimelineChart(){
+  if (typeof Chart === 'undefined') return;
+  const el = document.getElementById('timelineChart');
+  if (!el || tlChart) return;
+  const ctx = el.getContext('2d');
+  tlChart = new Chart(ctx,{
   type:'bar',
   data:{labels:years,datasets:[{data:counts,backgroundColor:colors,borderWidth:0}]},
   options:{
@@ -784,7 +797,14 @@ const tlChart = new Chart(ctx,{
       div.innerHTML=`<strong style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);">${yr} — ${matches.length} entries:</strong><br/>`+matches.map(e=>`<span style="display:block;padding:2px 0;border-bottom:1px solid #2A2927;">${e.n}. ${e.host!=='—'?e.host+' / ':''}${e.show} (${e.runtime})</span>`).join('');
     }
   }
-});
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTimelineChart);
+} else {
+  initTimelineChart();
+}
+window.addEventListener('load', initTimelineChart);
 
 // ═══════════════════════════════════════
 // ARCHIVE TABLE (static)
