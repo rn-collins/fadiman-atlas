@@ -29,7 +29,7 @@
   <style>
     :root {
       --bg: #F6F3EC; --ink: #1C1B1F; --muted: #4A4845; --faint: #6E6B66;  /* was #8A8680 at 3.27:1 */
-      --accent: #8A6212; --accent-light: #E8D5B0; --accent-bg: #FDF8F0;  /* accent was #B8842A: 2.97:1 on --bg, and it is used for body-size text and as a button background */
+      --accent: #8A6212; --accent-light: #E8D5B0; --accent-bg: #FDF8F0;  /* accent was #8A6218: 2.97:1 on --bg, and it is used for body-size text and as a button background */
       --rule: #D4CFC8; --tag: #EDE8DF;
       --dead: #A93F26; --dead-bg: #FDF0ED;  /* was #C24A2E at 4.37:1 in the badge */
       --warn: #8B6914; --warn-bg: #FDF4E0;
@@ -765,7 +765,7 @@ const years = Object.keys(yearCounts).filter(y=>y!=='undated'&&y!=='pre-2000').s
 const counts = years.map(y=>yearCounts[y]);
 const colors = years.map(y=>{
   const n = parseInt(y);
-  if(n===2011||n===2025) return '#B8842A';
+  if(n===2011||n===2025) return '#8A6218';
   if(n>=2020) return '#6B5A3A';
   return '#3A3530';
 });
@@ -907,7 +907,7 @@ async function runSearch(){
   btn.disabled=true;btn.textContent='Searching...';result.classList.add('visible');
   var ranked=rankEntries(q);
   result.innerHTML=ranked.length
-    ?'<div style="font-family:DM Mono,monospace;font-size:.64rem;color:#B8842A;margin-bottom:8px">LOCAL CATALOG MATCHES · '+ranked.length+' · no external AI call</div>'+ranked.map(renderSource).join('')
+    ?'<div style="font-family:DM Mono,monospace;font-size:.64rem;color:#8A6218;margin-bottom:8px">LOCAL CATALOG MATCHES · '+ranked.length+' · no external AI call</div>'+ranked.map(renderSource).join('')
     :'<div>No catalog records matched those terms. Try a title, host, year, format, or named guest. A zero-result is not evidence that the topic is absent from the underlying work.</div>';
   btn.disabled=false;btn.textContent='Search';
 }
@@ -935,7 +935,7 @@ async function runAnnotation(){
   var evidence=/\b(study|journal|doi|trial|participants)\b/i.test(input)?'citation cues present; verify source':'no verifiable citation supplied';
   var ranked=rankEntries(input).slice(0,5);
   var refs=ranked.map(function(x){return atlasId(x.e);});
-  result.innerHTML='<div style="font-family:DM Mono,monospace;font-size:.62rem;color:#B8842A;margin-bottom:10px">HEURISTIC AID · deterministic · not medical analysis · no external AI call</div><div class="anno-grid">'+
+  result.innerHTML='<div style="font-family:DM Mono,monospace;font-size:.62rem;color:#8A6218;margin-bottom:10px">HEURISTIC AID · deterministic · not medical analysis · no external AI call</div><div class="anno-grid">'+
     annotationValue('substance terms',substances,'literal term detection')+
     annotationValue('condition / topic terms',conditions,'literal term detection')+
     annotationValue('claim form',claim,'language-pattern flag; human review required')+
@@ -946,7 +946,7 @@ async function runAnnotation(){
   btn.disabled=false;btn.textContent='Annotate this statement';
 }
 </script>
-<div style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999"><button onclick="document.getElementById('ca-modal').style.display='flex'" style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;background:#B8842A;color:#fff;border:none;padding:.55rem 1.1rem;border-radius:2rem;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35)">Contact the Architect</button></div>
+<div style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999"><button onclick="document.getElementById('ca-modal').style.display='flex'" style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;background:#8A6218;color:#fff;border:none;padding:.55rem 1.1rem;border-radius:2rem;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35)">Contact the Architect</button></div>
 <div id="ca-modal" role="dialog" aria-modal="true" aria-labelledby="ca-modal-h" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.8);align-items:center;justify-content:center">
   <div style="background:#fff;max-width:420px;width:90%;padding:2rem;border-radius:4px">
     <h2 id="ca-modal-h" style="margin:0 0 1rem">Contact the Architect</h2>
