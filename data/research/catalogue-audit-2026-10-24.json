@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-24",
+  "method": "Structural audit of the committed catalogue. No automatic inference of current availability.",
+  "catalogue_array_sha256": "715ef88df227acabb73064f2a48804b42dc19fa84ad17c7060a972029da847e2",
+  "entry_count": 132,
+  "date_range": [
+    1968,
+    2026
+  ],
+  "undated_count": 4,
+  "status_counts": {
+    "live": 61,
+    "dead": 50,
+    "show-page-only": 8,
+    "no-url": 8,
+    "blog-only": 3,
+    "mismatched": 1,
+    "show-page": 1
+  },
+  "null_url_count": 15,
+  "dead_with_url_count": 48,
+  "dead_or_null_url_union_count": 63,
+  "not_historically_live_count": 71,
+  "parsed_runtime_seconds": 385859,
+  "parsed_runtime_hours": 107.1831,
+  "runtime_missing_or_non_duration_count": 17,
+  "runtime_caveats": [
+    "Sum is listed full-recording runtime, not Fadiman speaking time.",
+    "Duplicates and shared URLs have not been removed.",
+    "CE credits are not treated as audio duration.",
+    "Approximate listed durations remain approximate.",
+    "Counts are catalogue records, not unique recordings."
+  ],
+  "shared_url_groups": [
+    {
+      "url": "https://www.youtube.com/watch?v=CerX5eV_VLE",
+      "source_ids": [
+        "FKA-023",
+        "FKA-091"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/dr-james-fadiman/id1735350324?i=1000649119561",
+      "source_ids": [
+        "FKA-024",
+        "FKA-093"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://bigthink.com/perception-box/psychedelics-expanding-consciousness/",
+      "source_ids": [
+        "FKA-027",
+        "FKA-028"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4ooY9sAb2tA",
+      "source_ids": [
+        "FKA-052",
+        "FKA-089"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=l-xr0XCDgdA",
+      "source_ids": [
+        "FKA-060",
+        "FKA-085"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MZbdpIDuKYI",
+      "source_ids": [
+        "FKA-081",
+        "FKA-082"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    },
+    {
+      "url": "https://podcasts.apple.com/us/podcast/tangentially-speaking-with-christopher-ryan/id566908883",
+      "source_ids": [
+        "FKA-096",
+        "FKA-098"
+      ],
+      "disposition": "review_required; shared URL does not by itself prove identical works"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const elements=new Map();
+function element(id){if(!elements.has(id))elements.set(id,{value:'',innerHTML:'',textContent:'',children:[],classList:{add(){}},appendChild(child){this.children.push(child)},addEventListener(){}});return elements.get(id);}
+const context=vm.createContext({document:{readyState:'loading',getElementById:element,createElement:()=>({}),addEventListener(){}},window:{addEventListener(){}},console});
+const script=[...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)].find(([,attrs,body])=>body.includes('const entries = ['))[2];
+vm.runInContext(script,context);
+const evaluate=code=>vm.runInContext(code,context);
+assert.equal(evaluate('entries.length'),132);
+assert.equal(evaluate('rankEntries("zzzxxyyunknown").length'),0);
+assert.equal(evaluate('rankEntries("FKA-001").length'),1);
+assert.equal(evaluate('rankEntries("FKA-001")[0].e.n'),1);
+assert.equal(evaluate('rankEntries("").length'),0);
+assert.ok(evaluate('yearCounts["1968"]')>0);
+assert.equal(evaluate('Object.values(yearCounts).reduce((sum,n)=>sum+n,0)'),132);
+assert.ok(element('f-year').children.some(x=>x.value==='1968'));
+assert.ok(element('timeline-year').children.some(x=>x.value==='1968'));
+element('f-status').value='dead';evaluate('filterTable()');
+assert.equal(element('row-count').textContent,'Showing 63 of 132 entries');
+element('f-status').value='non-live';evaluate('filterTable()');assert.equal(element('row-count').textContent,'Showing 71 of 132 entries');
+element('f-status').value='no-url';evaluate('filterTable()');assert.equal(element('row-count').textContent,'Showing 15 of 132 entries');
+element('f-status').value='';element('f-year').value='1968';evaluate('filterTable()');
+assert.ok(element('corpus-tbody').innerHTML.includes('1968'));
+evaluate('showTimelineYear("1968")');assert.ok(element('timeline-entries').innerHTML.includes('href="#record-FKA-'));
+assert.equal(evaluate('detectTerms("painting",{pain:"pain"},"none")'),'none');
+assert.equal(evaluate('detectTerms("chronic pain",{pain:"pain"},"none")'),'pain');
+element('anno-input').value='<img src=x onerror=alert(1)>';evaluate('runAnnotation()');assert.ok(!element('anno-result').innerHTML.includes('<img'));
+assert.match(html,/Local catalogue search — no external AI call/);
+assert.ok(!html.includes('powered by Claude AI'));assert.ok(!html.includes('34-year output timeline'));
+assert.ok(!html.includes("fetch('/api/lead'"));
+assert.ok(!html.includes('role="button" tabindex="0"'));
+console.log('PASS: source-ID/no-match search, all 132 timeline counts, 1968 selection, exact 63 historical dead-or-null filter, literal annotations, escaped input, truthful labels, native chips, contact fallback.');
+
+const recovery=JSON.parse(fs.readFileSync(path.join(__dirname,'..','data/research/link-recovery-2026-10-24.json'),'utf8'));
+context.recoveryFixture=recovery;evaluate('renderRecovery(recoveryFixture)');
+assert.equal((element('recovery-results').innerHTML.match(/<article/g)||[]).length,recovery.findings.length);
+assert.ok(element('recovery-results').innerHTML.includes(recovery.findings[0].candidate_url.replaceAll('&','&amp;')));
+assert.equal(evaluate('evidenceLink("javascript:alert(1)","Unsafe")'),'Unsafe: no URL');
+assert.ok(!html.includes('$0.17'));assert.ok(html.includes('href="passages.html"'));
+console.log('PASS: recovery evidence renders all findings with preserved candidates, blocked unsafe URL, and 71 non-live / 15 null filters.');
+
+const bibliography=JSON.parse(fs.readFileSync(path.join(__dirname,'..','data/bibliography.json'),'utf8'));
+context.bibliographyFixture=bibliography;evaluate('renderBibliography(bibliographyFixture)');
+assert.equal((element('bibliography-results').innerHTML.match(/<article/g)||[]).length,bibliography.records.length);
+assert.match(element('bibliography-results').innerHTML,/Full text ingested: no/);
+const gaps=JSON.parse(fs.readFileSync(path.join(__dirname,'..','data/gap-candidates.json'),'utf8'));
+context.gapFixture=gaps;evaluate('renderGapReviews(gapFixture)');
+assert.equal((element('gap-review-results').innerHTML.match(/<article/g)||[]).length,10);
+console.log('PASS: selected bibliography and all ten dated gap reviews rendered from source JSON.');
+
+assert.match(element('gap-review-results').innerHTML,/duplicate of FKA-048/);
+assert.match(element('gap-review-results').innerHTML,/2025-09-09/);
+assert.match(element('gap-review-results').innerHTML,/2022-08-03/);
+assert.match(element('recovery-summary').textContent,/65 source IDs with findings/);
+console.log('PASS: final gap duplicate/date corrections and 65-record recovery scope displayed.');

@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "description": "Ten preserved historical gap candidates with dated reconciliation. G5 duplicates FKA-048; not ten verified unique additions. Original metadata and claims are preserved for audit, not endorsed.",
+  "records": [
+    {
+      "id": "G1",
+      "title": "How to Change Your Mind \u2014 Chapter 1: \"LSD\"",
+      "host": "Dir. Lucy Walker; Michael Pollan host",
+      "platform": "Netflix (worldwide)",
+      "date": "Jul 12, 2022",
+      "runtime": "~55m",
+      "legacy_verification_claim": "Netflix global release, dubbed into 10 languages. Fadiman credited as \"Self \u2014 Psychologist\" on IMDb. He describes the 1966 creativity study: \"we had 48 problems and 48 satisfactory solutions.\" Almost certainly his highest-viewership appearance. Confirmed via IMDb full cast listing.",
+      "url": "https://www.netflix.com/title/81018547",
+      "review_status": "primary_verification_incomplete",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "primary_verification_incomplete",
+        "evidence_urls": [
+          "https://www.netflix.com/title/81018547"
+        ],
+        "finding": "Netflix title URL could not be retrieved. Search found IMDb credit, but no accessible primary episode credits were inspected in this pass. Highest-viewership and ten-language assertions remain unsupported.",
+        "additional_unique_work": "unresolved"
+      },
+      "review_note": "Netflix title URL could not be retrieved. Search found IMDb credit, but no accessible primary episode credits were inspected in this pass. Highest-viewership and ten-language assertions remain unsupported.",
+      "verified_url": "https://www.netflix.com/title/81018547"
+    },
+    {
+      "id": "G2",
+      "title": "\"The Genesis of Microdosing\" \u2014 Ep. 116 of The Psychedelic Podcast",
+      "host": "Paul Austin / Third Wave",
+      "platform": "YouTube + Apple + Spotify",
+      "date": "Feb 28, 2021",
+      "runtime": "~1h 27m",
+      "legacy_verification_claim": "Third Wave is one of the highest-traffic psychedelic media platforms. Covers origins of the Fadiman Protocol, citizen science methodology, and Your Symphony of Selves . YouTube URL live and confirmed.",
+      "url": "https://www.youtube.com/watch?v=xbUELQt5wI4",
+      "review_status": "publisher_identity_verified",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "publisher_identity_verified",
+        "evidence_urls": [
+          "https://thethirdwave.co/podcast/episode-116-james-fadiman/"
+        ],
+        "finding": "Publisher episode 116 identifies Fadiman and links the same YouTube ID xbUELQt5wI4. This verifies episode identity, not playback or all legacy date/runtime claims.",
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "review_note": "Publisher episode 116 identifies Fadiman and links the same YouTube ID xbUELQt5wI4. This verifies episode identity, not playback or all legacy date/runtime claims.",
+      "verified_url": "https://thethirdwave.co/podcast/episode-116-james-fadiman/"
+    },
+    {
+      "id": "G3",
+      "title": "\"The Power of Less: Microdosing for Mood, Energy, and Clarity\" \u2014 Ep. 318",
+      "host": "Paul Austin / Third Wave (w/ Jordan Gruber)",
+      "platform": "YouTube + Apple + Spotify",
+      "date": "Aug 26, 2025",
+      "runtime": "~1h",
+      "legacy_verification_claim": "2025 book-launch interview. The linked source contains health-related discussion that the Atlas has not independently validated. Published four months after the book; URL confirmed live.",
+      "url": "https://www.youtube.com/watch?v=qQC7nigEfO0",
+      "review_status": "publisher_identity_verified",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "publisher_identity_verified",
+        "evidence_urls": [
+          "https://thethirdwave.co/podcast/episode-318-james-fadiman-phd-jordan-gruber-jd/"
+        ],
+        "finding": "Publisher episode 318 identifies Fadiman and Gruber and links the same YouTube ID qQC7nigEfO0. Episode identity verified; playback untested.",
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "review_note": "Publisher episode 318 identifies Fadiman and Gruber and links the same YouTube ID qQC7nigEfO0. Episode identity verified; playback untested.",
+      "verified_url": "https://thethirdwave.co/podcast/episode-318-james-fadiman-phd-jordan-gruber-jd/"
+    },
+    {
+      "id": "G4",
+      "title": "\"Microdosing (Part 1) \u2014 James Fadiman and the Fundamentals\"",
+      "host": "Greg Kubin & Matias Serebrinsky / Business Trip (PsyMed Ventures)",
+      "platform": "Spotify / Podcast",
+      "date": "~2020\u20132021",
+      "runtime": "\u2014",
+      "legacy_verification_claim": "Episode on a psychedelic-entrepreneurship podcast. Topic descriptions are catalog metadata, not validated health claims. Referenced in the linked episode material.",
+      "url": "https://psymedventures.substack.com/p/microdosing-part-1-james-fadiman",
+      "review_status": "publisher_identity_verified_date_conflict",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "publisher_identity_verified_date_conflict",
+        "evidence_urls": [
+          "https://psymedventures.substack.com/p/microdosing-part-1-james-fadiman"
+        ],
+        "finding": "Producer announcement dated August 3, 2022 identifies the episode. The legacy ~2020\u20132021 date is unsupported. Linked businesstrip.fm episode URL returned 404 through web retrieval. Announcement date is not necessarily recording date.",
+        "reviewed_metadata": {
+          "announcement_date": "2022-08-03"
+        },
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "review_note": "Producer announcement dated August 3, 2022 identifies the episode. The legacy ~2020\u20132021 date is unsupported. Linked businesstrip.fm episode URL returned 404 through web retrieval. Announcement date is not necessarily recording date.",
+      "verified_url": "https://psymedventures.substack.com/p/microdosing-part-1-james-fadiman"
+    },
+    {
+      "id": "G5",
+      "title": "\"Microdosing Q&A with James Fadiman\"",
+      "host": "Lynn Marie Morski / Psychedelic Medicine Podcast",
+      "platform": "Apple Podcasts + Spotify",
+      "date": "Aug 19, 2020",
+      "runtime": "~1h 32m",
+      "legacy_verification_claim": "Listener Q&A format containing health-related historical discussion. The Atlas does not validate or operationalize that discussion. Distinct from the Dec 2020 Morski/Bramlage episode; linked source URL confirmed.",
+      "url": "https://podcasts.apple.com/us/podcast/microdosing-q-a-with-james-fadiman/id1476831468?i=1000488558297",
+      "review_status": "duplicate_of_FKA-048",
+      "review_date": "2026-10-24",
+      "possible_catalogue_duplicate_ids": [
+        "FKA-048"
+      ],
+      "review_note": "Official archive August2020 Q&A and publisher episode page both embed Libsyn episode15663905. This is FKA-048, not a unique additional appearance. Player metadata shows 1:31:57 but displayed a premium-subscription prompt; no playback verified. Publisher also links an existing transcript.",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "duplicate_of_catalogue_record",
+        "evidence_urls": [
+          "https://jamesfadiman.com/watch-hear.html",
+          "https://www.plantmedicine.org/podcast/microdosing-james-fadiman",
+          "https://html5-player.libsyn.com/embed/episode/id/15663905/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/2e5b49/"
+        ],
+        "finding": "Official archive August2020 Q&A and publisher episode page both embed Libsyn episode15663905. This is FKA-048, not a unique additional appearance. Player metadata shows 1:31:57 but displayed a premium-subscription prompt; no playback verified. Publisher also links an existing transcript.",
+        "catalogue_duplicate_ids": [
+          "FKA-048"
+        ],
+        "additional_unique_work": false
+      },
+      "verified_url": "https://jamesfadiman.com/watch-hear.html"
+    },
+    {
+      "id": "G6",
+      "title": "MINDSET Lecture Series: \"Microdosing: Uses, Benefits, and Latest Research\"",
+      "host": "MINDSET Professional Education",
+      "platform": "YouTube",
+      "date": "Jun 8, 2022",
+      "runtime": "~1h",
+      "legacy_verification_claim": "\"Designed for a professional audience of researchers, clinicians, and practitioners.\" Distinct register from general public interviews \u2014 clinical framing throughout. YouTube URL confirmed live.",
+      "url": "https://www.youtube.com/watch?v=bQMa19jJTfo",
+      "review_status": "official_bibliographic_metadata_verified",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "official_bibliographic_metadata_verified",
+        "evidence_urls": [
+          "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf",
+          "https://www.youtube.com/watch?v=bQMa19jJTfo"
+        ],
+        "finding": "Official CV lists MINDSET Lecture Series by Icahn School of Medicine, June 8, 2022, 1h01m, with the same video ID. This is already in the author\u2019s broader bibliography. YouTube retrieval exposed only its shell, not playback.",
+        "reviewed_metadata": {
+          "organization": "Icahn School of Medicine",
+          "listed_date": "2022-06-08",
+          "listed_runtime": "1h 01m"
+        },
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "review_note": "Official CV lists MINDSET Lecture Series by Icahn School of Medicine, June 8, 2022, 1h01m, with the same video ID. This is already in the author\u2019s broader bibliography. YouTube retrieval exposed only its shell, not playback.",
+      "verified_url": "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+    },
+    {
+      "id": "G8",
+      "title": "\"Microdosing: A Conversation with James Fadiman\" \u2014 SAND18 audience Q&A",
+      "host": "Science and Nonduality (SAND)",
+      "platform": "YouTube",
+      "date": "2020 (upload; SAND18 footage)",
+      "runtime": "\u2014",
+      "legacy_verification_claim": "Audience Q&A companion to G7, uploaded separately. \"James Fadiman takes questions from the audience at SAND18 US.\" Neither this nor the main talk appears on the archive.",
+      "url": "https://www.youtube.com/watch?v=lrGXGSf9Vjg",
+      "review_status": "publisher_identity_verified",
+      "review_date": "2026-10-24",
+      "related_catalogue_ids": [
+        "FKA-050"
+      ],
+      "review_note": "SAND publisher identifies audience questions at SAND18. Official CV lists Q&A URL lrGXGSf9Vjg, January 7, 2020, 41m50s; FKA-050 is the separate main talk URL6AfFM8pfy4s. G7 is absent from historical table. The claim that the main talk is absent from the catalogue is false; Q&A candidate remains distinct.",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "publisher_identity_verified",
+        "evidence_urls": [
+          "https://scienceandnonduality.com/videos/sand18-us-conversation-with-james-fadiman/",
+          "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+        ],
+        "finding": "SAND publisher identifies audience questions at SAND18. Official CV lists Q&A URL lrGXGSf9Vjg, January 7, 2020, 41m50s; FKA-050 is the separate main talk URL6AfFM8pfy4s. G7 is absent from historical table. The claim that the main talk is absent from the catalogue is false; Q&A candidate remains distinct.",
+        "reviewed_metadata": {
+          "listed_upload_date": "2020-01-07",
+          "listed_runtime": "41m 50s"
+        },
+        "related_catalogue_ids": [
+          "FKA-050"
+        ],
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "verified_url": "https://scienceandnonduality.com/videos/sand18-us-conversation-with-james-fadiman/"
+    },
+    {
+      "id": "G9",
+      "title": "\"Try Psychedelics. Access Transcendence.\" \u2014 Big Think premium segment",
+      "host": "Big Think",
+      "platform": "YouTube (Big Think Membership)",
+      "date": "Feb 19, 2024",
+      "runtime": "~6m",
+      "legacy_verification_claim": "Premium Big Think content \u2014 distinct from the two 2023 Big Think reels already on archive (entries #27, #28). Produced separately for the membership tier. YouTube URL confirmed live.",
+      "url": "https://www.youtube.com/watch?v=xFRZuh0f9Ys",
+      "review_status": "identity_overlap_requires_review",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "identity_overlap_requires_review",
+        "evidence_urls": [
+          "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf",
+          "https://www.unlikelycollaborators.com/watch-series/the-science-of-perception-box",
+          "https://bigthink.com/perception-box/psychedelics-expanding-consciousness/"
+        ],
+        "finding": "Official CV lists title and video xFRZuh0f9Ys, February19 2024, 5m59s. Series partner lists the same title as six minutes. Potential overlap with FKA027/FKA028 Big Think material remains; legacy membership-only/separately produced claim was not substantiated.",
+        "reviewed_metadata": {
+          "listed_date": "2024-02-19",
+          "listed_runtime": "5m 59s"
+        },
+        "related_catalogue_ids": [
+          "FKA-027",
+          "FKA-028"
+        ],
+        "additional_unique_work": "unresolved"
+      },
+      "review_note": "Official CV lists title and video xFRZuh0f9Ys, February19 2024, 5m59s. Series partner lists the same title as six minutes. Potential overlap with FKA027/FKA028 Big Think material remains; legacy membership-only/separately produced claim was not substantiated.",
+      "verified_url": "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+    },
+    {
+      "id": "G10",
+      "title": "\"Microdosing Results, Limitations, and Emerging Questions\"",
+      "host": "OPEN Foundation (European psychedelic research org)",
+      "platform": "OPEN Foundation website + YouTube",
+      "date": "~2020",
+      "runtime": "\u2014",
+      "legacy_verification_claim": "Europe's leading psychedelic research organization. A dedicated Fadiman webinar for a European research audience \u2014 distinct framing from North American appearances. Event page confirmed on open-foundation.org.",
+      "url": "https://open-foundation.org/events/online/microdosing-a-conversation-with-fadiman/",
+      "review_status": "publisher_event_verified_date_corrected",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "publisher_event_verified_date_corrected",
+        "evidence_urls": [
+          "https://open-foundation.org/events/online/microdosing-a-conversation-with-fadiman/"
+        ],
+        "finding": "Organizer explicitly dates event Tuesday September9 2025, online Zoom, 20:00 CEST. Legacy ~2020 date is wrong. Page advertises community access; a publicly playable recording was not verified.",
+        "reviewed_metadata": {
+          "event_date": "2025-09-09",
+          "event_time": "20:00 CEST",
+          "platform": "Zoom event; recording access unverified"
+        },
+        "additional_unique_work": "candidate_not_in_132_record_catalogue"
+      },
+      "review_note": "Organizer explicitly dates event Tuesday September9 2025, online Zoom, 20:00 CEST. Legacy ~2020 date is wrong. Page advertises community access; a publicly playable recording was not verified.",
+      "verified_url": "https://open-foundation.org/events/online/microdosing-a-conversation-with-fadiman/"
+    },
+    {
+      "id": "G11",
+      "title": "Inside LSD \u2014 National Geographic documentary",
+      "host": "National Geographic",
+      "platform": "Television",
+      "date": "2009",
+      "runtime": "~50m",
+      "legacy_verification_claim": "National Geographic television documentary. Fadiman appears discussing 1960s problem-solving research. Only known pre-2011 mainstream television appearance \u2014 predates the archive's systematic coverage. Referenced in Fadiman's own materials. Not on archive.",
+      "url": null,
+      "review_status": "official_archive_historical_reference_only",
+      "review_date": "2026-10-24",
+      "reconciliation": {
+        "review_date": "2026-10-24",
+        "method": "Primary publisher/organizer/official-archive inspection; availability limits recorded",
+        "playback_verified": false,
+        "status": "official_archive_historical_reference_only",
+        "evidence_urls": [
+          "https://jamesfadiman.com/watch-hear.html"
+        ],
+        "finding": "Official archive HTML contains a commented-out 2009 National Geographic documentary listing with Fadiman appearance intervals and two obsolete YouTube embeds. This supports an historical lead, not playable media. No accessible current National Geographic episode page was found in the targeted search. Legacy only-known-pre2011-mainstream-appearance claim is unsupported and conflicts with 1968 KQED catalogue entry.",
+        "additional_unique_work": "unresolved"
+      },
+      "review_note": "Official archive HTML contains a commented-out 2009 National Geographic documentary listing with Fadiman appearance intervals and two obsolete YouTube embeds. This supports an historical lead, not playable media. No accessible current National Geographic episode page was found in the targeted search. Legacy only-known-pre2011-mainstream-appearance claim is unsupported and conflicts with 1968 KQED catalogue entry.",
+      "verified_url": "https://jamesfadiman.com/watch-hear.html"
+    }
+  ]
+}
