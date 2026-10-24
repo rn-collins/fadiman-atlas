@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-24",
+  "scope": "Selected bibliography: three books and three papers. Not a complete bibliography or the previously claimed 20+ paper inventory. Titles are bibliographic identifiers, not endorsed health claims.",
+  "records": [
+    {
+      "id": "FKA-B001",
+      "kind": "book",
+      "title": "The Psychedelic Explorer’s Guide: Safe, Therapeutic, and Sacred Journeys",
+      "authors": [
+        "James Fadiman"
+      ],
+      "year": 2011,
+      "source_url": "https://www.innertraditions.com/books/the-psychedelic-explorer-s-guide",
+      "additional_source_urls": [
+        "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+      ],
+      "verification": "Publisher search record and author CV p. 5; direct publisher retrieval returned 403.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    },
+    {
+      "id": "FKA-B002",
+      "kind": "book",
+      "title": "Your Symphony of Selves",
+      "authors": [
+        "James Fadiman",
+        "Jordan Gruber"
+      ],
+      "year": 2020,
+      "source_url": "https://www.innertraditions.com/books/your-symphony-of-selves",
+      "additional_source_urls": [
+        "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+      ],
+      "verification": "Publisher search record and author CV p. 5; direct publisher retrieval returned 403.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    },
+    {
+      "id": "FKA-B003",
+      "kind": "book",
+      "title": "Microdosing for Health, Healing, and Enhanced Performance",
+      "authors": [
+        "James Fadiman",
+        "Jordan Gruber"
+      ],
+      "year": 2025,
+      "source_url": "https://us.macmillan.com/books/9781250355584/microdosingforhealthhealingandenhancedperformance/",
+      "additional_source_urls": [
+        "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf"
+      ],
+      "verification": "Publisher book page and author CV p. 5; metadata only, no full-book ingestion.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    },
+    {
+      "id": "FKA-P001",
+      "kind": "paper",
+      "title": "Psychedelic agents in creative problem-solving: a pilot study",
+      "authors": [
+        "W. W. Harman",
+        "R. H. McKim",
+        "R. E. Mogar",
+        "J. Fadiman",
+        "M. J. Stolaroff"
+      ],
+      "year": 1966,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/5942087/",
+      "doi": "10.2466/pr0.1966.19.1.211",
+      "verification": "PubMed bibliographic record; no abstract available in retrieved record.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    },
+    {
+      "id": "FKA-P002",
+      "kind": "paper",
+      "title": "Might Microdosing Psychedelics Be Safe and Beneficial? An Initial Exploration",
+      "authors": [
+        "James Fadiman",
+        "Sophia Korb"
+      ],
+      "year": 2019,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30925850/",
+      "doi": "10.1080/02791072.2019.1593561",
+      "verification": "PubMed bibliographic record and abstract; not full-text ingestion or independent evaluation.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    },
+    {
+      "id": "FKA-P003",
+      "kind": "paper",
+      "title": "Descriptive assemblage of psychedelic microdosing: Netnographic study of Youtube videos and on-going research projects",
+      "authors": [
+        "Aleksi Hupli",
+        "Moritz Berning",
+        "Ahnjili Zhuparris",
+        "James Fadiman"
+      ],
+      "year": 2019,
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S2211266918300136",
+      "doi": "10.1016/j.peh.2019.01.001",
+      "additional_source_urls": [
+        "https://researchportal.tuni.fi/en/publications/descriptive-assemblage-of-psychedelic-microdosing-netnographic-st/"
+      ],
+      "verification": "Journal publisher and author institution bibliographic records; no full-text ingestion.",
+      "checked_date": "2026-10-24",
+      "full_text_ingested": false,
+      "content_review_status": "bibliographic_metadata_only"
+    }
+  ],
+  "expansion_source": "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf",
+  "limitations": [
+    "Publication dates and recording dates are separate; the 1966 paper is outside the 1968–2026 recording catalogue range.",
+    "Author CV has in-press and title variants; verify final publication records individually before expansion.",
+    "Book metadata is not evidence of access to full book text. No books or papers were ingested into passage search."
+  ]
+}

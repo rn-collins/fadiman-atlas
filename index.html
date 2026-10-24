@@ -7,11 +7,11 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Ctext%20y%3D%2728%27%20font-size%3D%2728%27%3EF%3C/text%3E%3C/svg%3E" />
-  <meta name="description" content="A catalogue of James Fadiman's recorded public output: 132 entries from 1968 to 2026, each with a verified link status. Local search, transparent annotation aid, full archive explorer." />
+  <meta name="description" content="A catalogue of James Fadiman's recorded public output: 132 entries from 1968 to 2026, with historical link-status records. Local search, transparent annotation aid, full archive explorer." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fadiman-atlas.vercel.app/" />
   <meta property="og:title" content="The Fadiman Knowledge Atlas" />
-  <meta property="og:description" content="James Fadiman's recorded public output, searchable and indexed: 132 entries, 1968-2026, each with a verified link status." />
+  <meta property="og:description" content="James Fadiman's recorded public output, searchable and indexed: 132 entries, 1968-2026, with historical link-status records." />
   <meta property="og:image" content="https://fadiman-atlas.vercel.app/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://fadiman-atlas.vercel.app/og-image.png" />
   <meta name="twitter:title" content="The Fadiman Knowledge Atlas" />
-  <meta name="twitter:description" content="132 entries of James Fadiman's recorded public output, 1968-2026, searchable and link-checked." />
+  <meta name="twitter:description" content="132 entries of James Fadiman's recorded public output, 1968-2026, searchable with dated availability notes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <title>The Fadiman Knowledge Atlas — James Fadiman Archive &amp; Knowledge Infrastructure</title>
@@ -198,34 +198,20 @@
     .offer p{color:#C8C4BC;font-size:.92rem;margin-bottom:14px;}
     .offer a{color:var(--accent-light);text-decoration:none;border-bottom:1px solid #6A4A10;}
     footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--faint);}
+    :focus-visible{outline:3px solid #C9973A;outline-offset:3px;}
+    .demo-section a{color:var(--accent-light);}
+    .search-input::placeholder,.anno-textarea::placeholder,.anno-conf,.row-count{color:#A8A4A0;}
+    .search-input{min-width:0;}
+    .gap-table,.schema{display:block;overflow-x:auto;}
+    @media(max-width:600px){.demo-section{padding:24px 16px;}.search-wrap{flex-wrap:wrap;}.search-input{width:100%;flex-basis:100%;}.toc{position:relative;}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta name="robots" content="index, follow">
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-<script>
-(function(){
-  var p=new URLSearchParams(location.search),u={};
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))u[k]=p.get(k);});
-  if(Object.keys(u).length)sessionStorage.setItem('rn_utm',JSON.stringify(u));
-  window._getUTM=function(){try{return JSON.parse(sessionStorage.getItem('rn_utm')||'{}')}catch(e){return{}}};
-  window.addEventListener('load',function(){
-    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({event:'page_view',source:'fadiman-atlas',referrer:document.referrer||'direct',utm:window._getUTM()})
-    }).catch(function(){});
-  });
-  var ms=[25,50,75,90],fired={};
-  window.addEventListener('scroll',function(){
-    var h=document.body.scrollHeight-window.innerHeight;if(h<=0)return;
-    var pct=Math.round((window.scrollY/h)*100);
-    ms.forEach(function(m){if(pct>=m&&!fired[m]){fired[m]=1;
-      fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({event:'scroll_depth',source:'fadiman-atlas',depth:m+'%'})}).catch(function(){});
-    }});
-  },{passive:true});
-})();
-</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -241,7 +227,7 @@
     {
       "@type": "WebPage",
       "name": "The Fadiman Knowledge Atlas",
-      "description": "A catalogue of James Fadiman's recorded public output, 1968 to 2026, with a verified link status on every entry.",
+      "description": "A catalogue of James Fadiman's recorded public output, 1968 to 2026, with historical link-status records.",
       "url": "https://fadiman-atlas.vercel.app",
       "author": {"@id": "https://rn-portfolio-khaki.vercel.app/#rn-collins"}
     }
@@ -257,12 +243,15 @@
   <div class="toc-inner">
     <a href="#problem">The Problem</a>
     <a href="#status">Project Status</a>
-    <a href="#demo-search">Live Search Demo</a>
+    <a href="#demo-search">Catalogue Search</a>
+    <a href="passages.html">Passage Explorer</a>
     <a href="#demo-annotate">Annotation Demo</a>
     <a href="#demo-timeline">Timeline</a>
     <a href="#demo-corpus">Archive Explorer</a>
     <a href="#inventory">Full Inventory</a>
-    <a href="#gaps">Gap Analysis</a>
+    <a href="#gaps">Source Candidates</a>
+    <a href="#bibliography">Books &amp; Papers</a>
+    <a href="#source-recovery">Source Recovery</a>
     <a href="#schema">Schema</a>
     <a href="#tech">Tech Spec</a>
     <a href="#builder">Who Built This</a>
@@ -281,66 +270,69 @@
   <div class="stat"><span class="stat-n">132</span><span class="stat-l">Catalogued entries</span></div>
   <div class="stat"><span class="stat-n">58</span><span class="stat-l">Years (1968–2026)</span></div>
   <div class="stat"><span class="stat-n">~107</span><span class="stat-l">Listed hours</span></div>
-  <div class="stat"><span class="stat-n">58</span><span class="stat-l">Dead / missing URLs</span></div>
-  <div class="stat"><span class="stat-n">10</span><span class="stat-l">Verified gaps</span></div>
-  <div class="stat"><span class="stat-n">3</span><span class="stat-l">Trade books</span></div>
+  <div class="stat"><span class="stat-n">63</span><span class="stat-l">Historical dead or no URL</span></div>
+  <div class="stat"><span class="stat-n">10</span><span class="stat-l">Source candidates</span></div>
+  <div class="stat"><span class="stat-n">4</span><span class="stat-l">Undated records</span></div>
 </div>
+
+<p>Scope audit: 24 October 2026. Listed durations total approximately 107.18 hours across 115 records; 17 have no parseable duration. This includes repeated entries and full recording runtimes, not unique media or Fadiman speaking time. Four records are undated. The 63 figure counts historical dead status or a null URL; it does not mean 63 recordings are unavailable today.</p>
 
 <hr id="problem" />
 <h2>The problem this exists to solve</h2>
 <p>James Fadiman has been thinking, speaking, writing, and teaching about psychedelics since 1961. He was a graduate student at Stanford when his former Harvard undergraduate adviser — Richard Alpert, who later became Ram Dass — introduced him to psilocybin in Paris. He guided Stewart Brand's first LSD trip in 1962. He participated in some of the last legal psychedelic research sessions before the government shut the field down. He was there at the beginning. He watched the entire field get buried. And he lived long enough to watch it come back.</p>
-<p>The catalog includes Fadiman's 2011 and 2025 books and his 2019 paper with Sophia Korb. The paper describes an uncontrolled, self-selected reporting project involving more than 1,000 people in 59 countries. It does not establish efficacy, safety, or suitability for any person. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">Primary record: PubMed 30925850 ↗</a></p>
-<p>He is 87 years old. He is doing two to three recorded interviews per month. He is still explaining the same foundational ideas to new audiences, because there is no other mechanism for those audiences to find what he has already said.</p>
-<blockquote>The oldest entry is <em>Drugs in Our Culture</em>, the 1968 KQED documentary he scripted and introduced. The newest is a 61-minute YouTube interview published April 25, 2026. That is 58 years of recorded thought on a single manually maintained page with no search, no topic index and no transcripts — and, as of this link check on 29 August 2026, 50 entries whose recording has been taken down and 8 more with no public URL at all.</blockquote>
-<p>Sources on this page were reviewed on 17 August 2026 and every link was re-checked on 29 August 2026. The public prototype helps people locate where historical topics appear in a catalog of recordings. It does not consolidate clinical answers, evaluate an individual's circumstances, or recommend a substance, dose, schedule, taper, interaction, or treatment. A catalog match is a discovery aid—not evidence that a statement is accurate.</p>
+<p>The scoping page references Fadiman's 2011 and 2025 books and his 2019 paper with Sophia Korb; the 132-record catalogue itself covers recorded appearances. The paper describes an uncontrolled, self-selected reporting project involving more than 1,000 people in 59 countries. It does not establish efficacy, safety, or suitability for any person. <a href="https://pubmed.ncbi.nlm.nih.gov/30925850/" target="_blank" rel="noopener">Primary record: PubMed 30925850 ↗</a></p>
+<p>The Atlas is intended to make connections across recorded appearances easier to explore, while keeping each record tied to its source and date.</p>
+<blockquote>The catalogue spans a 1968 KQED documentary through April 2026. Its historical status snapshot labels 50 records dead, while 15 records have no URL; two records meet both conditions. That produces 63 records to investigate, without establishing that the underlying recordings have been removed.</blockquote>
+<p>The preserved catalogue statuses come from the earlier 29 August 2026 snapshot and are not current availability guarantees. A dated recovery review on 24 October records which source IDs were checked and which remain unreviewed. The source-recovery section records candidate alternatives and the limits of each check. A catalogue match helps locate a source; it does not establish the accuracy of a statement.</p>
 
 <hr id="status" />
 <h2>What has been done — and what has been deliberately held</h2>
 <div class="status-block">
   <div class="sl">Current project status</div>
-  <p>The complete public archive has been catalogued entry by entry, and every link in it has been checked. The gap analysis has been run. The three books have been mapped as a separate evidentiary layer. The annotation schema has been fully designed and specified. The technical infrastructure — Vercel, Supabase pgvector, AssemblyAI, OpenAI embeddings, RAG query interface — is already live and running on other active projects.</p>
+  <p>The reproducible work in this repository is a 132-record catalogue, historical link-status inventory, local search and filters, timeline, annotation demonstration, and proposed schema and technical architecture. Ten additional-source candidates remain subject to identity and source review. Full-archive completeness has not been established.</p>
+  <p>Earlier scoping text described three mapped books and more than twenty inventoried academic papers. The selected bibliography now records three books and three papers with source links. It does not reproduce the earlier claim of more than twenty papers, and no full book or paper text has been ingested. Transcription and a production retrieval system are not running in this Atlas. The <a href="passages.html">passage explorer</a> can locally load user-supplied transcript JSON for passage search and chronological comparison; it does not mean this catalogue has been transcribed.</p>
   <p>The step that has not been taken is ingestion: downloading the audio, running transcription, putting his words into a system. That step has been deliberately withheld. The material is his. Beginning without his awareness felt like the wrong place to start something designed to honor sixty-plus years of work.</p>
 </div>
-<p><strong>What the scope work covered:</strong> 132-entry archive catalogued; 10 verified gaps found; books mapped; 20+ academic papers inventoried; 12-field annotation schema specified; 8-layer technical architecture written with cost estimates; intellectual timeline 1961–2026 reconstructed.</p>
+<p><strong>Inspect the evidence:</strong> <a href="data/catalogue.json" download>Download the catalogue JSON</a> · <a href="data/gap-candidates.json" download>Download source candidates JSON</a> · <a href="data/research/catalogue-audit-2026-10-24.json">Read the dated structural audit</a>. Original source URLs and IDs are preserved; recovery findings are separate records.</p>
 
 <!-- ══════════════════════════════════════ -->
 <!-- LIVE DEMO 1: SEMANTIC SEARCH          -->
 <!-- ══════════════════════════════════════ -->
 <div class="demo-section" id="demo-search">
-  <div class="demo-label">Live demonstration — powered by Claude AI</div>
+  <div class="demo-label">Local catalogue search — no external AI call</div>
   <h2>Corpus search demo</h2>
-  <p>This demonstrates how the Atlas will answer questions about Fadiman's body of work — grounding every answer in the catalogue with source citations. The full build would use transcribed audio and embedded text; this demo uses Claude's knowledge of Fadiman's published statements together with the catalogue entries above.</p>
+  <p>Search the catalogue by host, year, format, title, or source ID. Results match record metadata, not recording transcripts. They help locate sources; they do not establish what Fadiman said within a recording. The catalogue has no bundled transcripts; use the <a href="passages.html">local passage explorer</a> for supplied transcript JSON.</p>
   <div class="search-chips" id="search-chips">
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('Tim Ferriss 2015 interview')">Host + year</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('YouTube 2025')">Format + year</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('Sophia Korb')">Named guest</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What has Jim said about creativity and problem-solving with psychedelics?')">Creativity</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What does Jim say about the difference between LSD and psilocybin for microdosing?')">LSD vs psilocybin</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('How does Jim describe the Fadiman Protocol?')">The Protocol</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What has Jim said about microdosing and long COVID?')">Long COVID</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setQuery('What does Jim say about evidence quality in his citizen science data?')">Evidence quality</span>
+    <button type="button" class="chip" onclick="setQuery('Tim Ferriss 2015 interview')">Host + year</button>
+    <button type="button" class="chip" onclick="setQuery('YouTube 2025')">Format + year</button>
+    <button type="button" class="chip" onclick="setQuery('Sophia Korb')">Named guest</button>
+    <button type="button" class="chip" onclick="setQuery('creativity problem-solving')">Creativity</button>
+    <button type="button" class="chip" onclick="setQuery('LSD psilocybin')">LSD vs psilocybin</button>
+    <button type="button" class="chip" onclick="setQuery('Fadiman Protocol')">The Protocol</button>
+    <button type="button" class="chip" onclick="setQuery('long COVID')">Long COVID</button>
+    <button type="button" class="chip" onclick="setQuery('citizen science')">Evidence quality</button>
   </div>
   <div class="search-wrap">
-    <label for="search-input" class="sr-only">Search Fadiman's body of work</label><input class="search-input" id="search-input" aria-label="Search Fadiman's body of work" type="text" placeholder="Ask anything about Fadiman's recorded body of work..." />
+    <label for="search-input" class="sr-only">Search Fadiman's body of work</label><input class="search-input" id="search-input" aria-label="Search Fadiman's body of work" type="text" placeholder="Search a host, year, title, or FKA source ID..." />
     <button class="btn" id="search-btn" onclick="runSearch()">Search</button>
   </div>
-  <div class="search-result" id="search-result"></div>
+  <div class="search-result" id="search-result" aria-live="polite"></div>
 </div>
 
 <!-- ══════════════════════════════════════ -->
 <!-- LIVE DEMO 2: ANNOTATION               -->
 <!-- ══════════════════════════════════════ -->
 <div class="demo-section" id="demo-annotate">
-  <div class="demo-label">Live demonstration — 12-field annotation schema</div>
+  <div class="demo-label">Local demonstration — six heuristic fields</div>
   <h2>Live annotation demo</h2>
   <p>Paste an archival excerpt below. Local, deterministic heuristics flag literal terms and return matching catalog source IDs. This aid does not infer biological mechanisms, verify evidence, assess risk, or provide medical analysis.</p>
-  <label for="anno-input" class="sr-only">Paste a Fadiman quote to annotate</label><textarea class="anno-textarea" id="anno-input" aria-label="Paste a Fadiman quote to annotate" placeholder='Paste a Fadiman quote here. Example: "We had 48 problems and 48 satisfactory solutions. The LSD had worked for every single one of them."'></textarea>
+  <label for="anno-input" class="sr-only">Paste a Fadiman quote to annotate</label><textarea class="anno-textarea" id="anno-input" aria-label="Paste a Fadiman quote to annotate" placeholder="Paste an excerpt and retain its source information."></textarea>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
     <button class="btn" id="anno-btn" onclick="runAnnotation()">Annotate this statement</button>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('This interview discusses citizen-science reports, uncertainty, and the limits of the archive.')">Load archival example</span>
-    <span class="chip" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){this.onclick(event)}" onclick="setAnno('The recording was published in 2015 and hosted by Tim Ferriss.')">Load metadata example</span>
+    <button type="button" class="chip" onclick="setAnno('This interview discusses citizen-science reports, uncertainty, and the limits of the archive.')">Load illustrative example</button>
+    <button type="button" class="chip" onclick="setAnno('The recording was published in 2015 and hosted by Tim Ferriss.')">Load metadata example</button>
   </div>
-  <div id="anno-result"></div>
+  <div id="anno-result" aria-live="polite"></div>
 </div>
 
 <!-- ══════════════════════════════════════ -->
@@ -348,10 +340,12 @@
 <!-- ══════════════════════════════════════ -->
 <div class="demo-section" id="demo-timeline">
   <div class="demo-label">Live visualization — entries by year</div>
-  <h2>34-year output timeline</h2>
-  <p>Every catalogued entry plotted by year. The two surge periods — 2011 (<em>The Psychedelic Explorer's Guide</em> launch) and 2025 (<em>Microdosing for Health</em> launch) — are visible. Click any bar to see entries from that year.</p>
+  <h2>1968–2026 catalogue timeline</h2>
+  <p>Dated catalogue entries plotted by year; four undated records are excluded from the bars. The two surge periods — 2011 (<em>The Psychedelic Explorer's Guide</em> launch) and 2025 (<em>Microdosing for Health</em> launch) — are visible. Choose a year below or click a bar to see its entries. The year selector works even if the chart library cannot load.</p>
   <canvas id="timelineChart" height="120" role="img" aria-label="Bar chart: Fadiman catalogued entries by year, 1968-2026"></canvas>
-  <div id="timeline-entries" style="margin-top:14px;font-size:.8rem;color:#C8C4BC;"></div>
+  <label for="timeline-year">Explore a year</label>
+  <select class="filter-select" id="timeline-year" onchange="showTimelineYear(this.value)"><option value="">Choose a year</option></select>
+  <div id="timeline-entries" aria-live="polite" style="margin-top:14px;font-size:.8rem;color:#C8C4BC;"></div>
 </div>
 
 <!-- ══════════════════════════════════════ -->
@@ -360,7 +354,7 @@
 <div class="demo-section" id="demo-corpus">
   <div class="demo-label">Live tool — filterable archive</div>
   <h2>Corpus explorer</h2>
-  <p>Filter, search, and sort all 132 catalogued entries. This is the data layer the Atlas indexes.</p>
+  <p>Filter and search all 132 catalogued entries. Status labels are the historical 29 August 2026 snapshot. “Live” is a stored classification, not a present-day playback guarantee.</p>
   <div class="filter-row">
     <label for="f-type" class="sr-only">Filter by media type</label><select class="filter-select" id="f-type" aria-label="Filter by media type" onchange="filterTable()">
       <option value="">All media types</option>
@@ -381,8 +375,11 @@
     </select>
     <label for="f-status" class="sr-only">Filter by status</label><select class="filter-select" id="f-status" aria-label="Filter by status" onchange="filterTable()">
       <option value="">All statuses</option>
-      <option value="live">Live URL</option>
-      <option value="dead">Dead / Missing</option>
+      <option value="live">Historically live</option>
+      <option value="dead">Historical dead or no URL</option>
+      <option value="non-live">All historical non-live statuses</option>
+      <option value="no-url">No recorded URL</option>
+      <option value="other">Other historical statuses</option>
     </select>
     <label for="f-search" class="sr-only">Search entries</label><input class="filter-search" id="f-search" aria-label="Search entries" type="text" placeholder="Search host, show, topic..." oninput="filterTable()" />
   </div>
@@ -403,13 +400,13 @@
       <tbody id="corpus-tbody"></tbody>
     </table>
   </div>
-  <p class="row-count" id="row-count"></p>
+  <p class="row-count" id="row-count" aria-live="polite"></p>
 </div>
 
 <hr id="inventory" />
 <!-- STATIC FULL ARCHIVE TABLE -->
-<h2>The complete archive inventory — all 132 entries</h2>
-<p>Every entry from jamesfadiman.com/watch-hear.html, catalogued in full. Entries are linked where a URL was confirmed. Dead and missing links are flagged. This table is the inventory receipt — proof that the scoping work was done at the level of individual entries.</p>
+<h2>The preserved catalogue — 132 entries</h2>
+<p>These records preserve the earlier catalogue derived from jamesfadiman.com/watch-hear.html. IDs, original URLs, dates and historical statuses are retained. They are not a verified inventory of every public appearance. Seven shared-URL groups need review before any deduplication.</p>
 <div class="archive-wrap">
   <table class="archive-table" id="archive-table">
     <thead>
@@ -422,14 +419,17 @@
 </div>
 
 <hr id="gaps" />
-<h2>Gap analysis — verified appearances not on the archive</h2>
-<p>The archive is curator-maintained, lags publication by months, and structurally omits third-party uploads, conference re-uploads, and premium/gated content. Cross-referencing against YouTube, Spotify, Apple Podcasts, IMDb, and Netflix confirmed the following. Each entry has been individually verified.</p>
+<h2>Additional-source candidates — identity review pending</h2>
+<p>The ten historical candidates below are not ten verified unique additions. The last column preserves earlier research notes, including claims of verification that have not been re-established in this review. Current reconciliation notes appear below; earlier assertions in the expandable table are retained as historical notes only. Original candidate numbering is preserved.</p>
 
 
 
+<p><a href="data/gap-candidates.json" download>Download dated candidate reviews</a></p>
+<div id="gap-review-results" aria-live="polite"><p>Loading candidate reconciliation notes. If unavailable, read the candidate JSON above.</p></div>
+<details><summary>Earlier candidate table — historical, unverified notes</summary>
 <table class="gap-table">
   <thead>
-    <tr><th>#</th><th>Title / Episode</th><th>Host / Channel</th><th>Platform</th><th>Date</th><th>Runtime</th><th>Reach & Verification</th></tr>
+    <tr><th>#</th><th>Title / Episode</th><th>Host / Channel</th><th>Platform</th><th>Date</th><th>Runtime</th><th>Historical notes — unverified claims</th></tr>
   </thead>
   <tbody>
     <tr>
@@ -525,6 +525,20 @@
     </tr>
   </tbody>
 </table>
+</details>
+
+<hr id="bibliography" />
+<h2>Books and papers — selected bibliography</h2>
+<p>Three books and three papers are recorded as bibliographic metadata with source links. This is not a complete bibliography or the previously claimed inventory of more than twenty papers. No full book or paper text has been ingested into passage search. Publication titles identify sources and are not endorsements of their claims.</p>
+<p><a href="data/bibliography.json" download>Download bibliography JSON</a></p>
+<div id="bibliography-results" aria-live="polite"><p>Loading the selected bibliography. If unavailable, use the bibliography download above.</p></div>
+
+<hr id="source-recovery" />
+<h2>Source recovery — dated checks and candidate alternatives</h2>
+<p>The evidence file below records the 24 October 2026 review scope, checked source IDs and remaining unreviewed records. Alternative links do not replace the historical URLs. No finding is playback-verified. A successful page or media-header request does not prove complete media access or identity equivalence.</p>
+<p><a href="data/research/link-recovery-2026-10-24.json" download>Download recovery evidence JSON</a> · <a href="data/research/README.md">Read scope and limitations</a></p>
+<p id="recovery-summary" aria-live="polite"></p>
+<div id="recovery-results" aria-live="polite"><p>Loading dated source-recovery records. If this page is opened as a local file or the data cannot load, use the recovery evidence download above.</p></div>
 
 <hr id="schema" />
 <h2>The annotation schema — evidence-boundary specification</h2>
@@ -548,23 +562,24 @@
 </table>
 
 <hr id="tech" />
-<h2>Technical architecture — 8-layer specification</h2>
-<h3>Layer 1 — Ingestion</h3>
-<p><strong>YouTube/Vimeo (bulk, idempotent):</strong> <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">yt-dlp -x --audio-format mp3 --audio-quality 0 --write-info-json --embed-metadata --download-archive archive.txt -o "%(upload_date)s_%(uploader)s_%(title).80s_%(id)s.%(ext)s"</code> — <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">--download-archive</code> makes re-runs idempotent, critical for CI/CD. <strong>Podcast RSS:</strong> Python <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">feedparser</code>, deduplicate on guid. <strong>Books:</strong> EPUB → <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">ebooklib</code> + <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">BeautifulSoup</code>. <strong>Diarization:</strong> AssemblyAI <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">speaker_labels=True</code> as primary — bundles diarization + transcription + word-level timestamps in one API call.</p>
+<h2>Proposed technical architecture — eight layers</h2>
+<p>This is a design outline, not deployed infrastructure. Vendor selections, costs and performance assumptions require fresh evaluation. The current Atlas runs as a static catalogue with local search; it does not automatically download, transcribe or continuously ingest recordings.</p>
+<h3>Layer 1 — Source intake</h3>
+<p>Record stable source IDs, original URLs, acquisition dates and a clear basis for processing. Preserve original media metadata and checksums. Repeated intake should detect existing assets without overwriting their evidence history.</p>
 <h3>Layer 2 — Transcription</h3>
-<p>Whisper large-v3 via <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">faster-whisper</code> (CTranslate2, ~4× speed) — required for period audio (1992 APA recording, 1997 transpersonal, Russian TV overdub, documented audio dropouts in the 2018 Toronto webinar). AssemblyAI API alternative: $0.17/hr (base + diarization) → ~$20–21 for full corpus. Modal A10G GPU for Whisper: ~$15–20. Speaker ID: longest-cumulative-talk-time rule + pyannote voiceprint reference from 3–4 known-Fadiman clips.</p>
-<h3>Layer 3 — Chunking</h3>
-<p>Hybrid semantic-within-speaker-turn. Target: ~400 tokens (300–500 band), 15% overlap. MinHash/SimHash deduplication for repeated stories (the "48 problems, 48 solutions" session appears across dozens of interviews). <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">story_cluster_id</code> links instances for evolution-layer comparison.</p>
-<h3>Layer 4 — Vector Database</h3>
-<p>OpenAI <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">text-embedding-3-large</code> (3072-dim, $0.13/1M tokens, &lt;$5 one-time for full corpus). Supabase pgvector — keeps vectors, annotation metadata, and auth in one Postgres instance, enabling SQL <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">WHERE</code> filters combined with vector search. HNSW index: <code style="background:var(--tag);padding:2px 6px;font-family:'DM Mono',monospace;font-size:.8em;">m=16, ef_construction=64</code>.</p>
-<h3>Layer 5 — Annotation Pipeline</h3>
-<p>A future annotation pipeline may propose structured metadata, but no generated health or scientific interpretation may be auto-accepted. Source identity, date, quotation span, reviewer, limitations, and review status are required; health-related interpretation requires appropriately qualified independent review.</p>
-<h3>Layer 6 — Query Interface</h3>
-<p><strong>Proposed retrieval:</strong> hybrid keyword and vector search with metadata filters, source IDs, timestamps, and an extractive-only result mode. Health-related queries return source passages and limitations—not generated answers. Topic maps may aid discovery but must expose source coverage, uncertainty, and review status. Rate limits, audit logs, and abuse monitoring are required before any inference endpoint ships.</p>
-<h3>Layer 7 — Evolution Layer</h3>
-<p>Every chunk carries a source date. "How has Jim's thinking on X changed from 2011 to 2025?" → filtered retrieval bucketed by year, structured timeline with inflection points and confidence trajectory. Topic emergence detection: first-occurrence by source_date per topic cluster. All driven by SQL aggregations over the same chunks table.</p>
-<h3>Layer 8 — Infrastructure & Deployment</h3>
-<p>Next.js on Vercel · Supabase pgvector · Upstash Redis (query caching TTL 24h, rate-limiting) · OpenAI · AssemblyAI · Modal (GPU transcription) · Cohere (reranking). Daily Vercel Cron re-scrapes watch-hear.html + runs yt-dlp --download-archive + checks RSS; new GUIDs auto-enqueue full pipeline.</p>
+<p>Import supplied transcripts or process appropriately sourced audio through a selected transcription service or local model. Preserve timestamps and speaker labels as provisional until checked against the recording. Do not identify a speaker solely from how long they speak.</p>
+<h3>Layer 3 — Passages</h3>
+<p>Divide transcripts into passages that retain source IDs, exact text spans, dates and available time offsets. Review repeated stories as related passages without silently deleting distinct appearances.</p>
+<h3>Layer 4 — Storage</h3>
+<p>Store versioned source, transcript and passage records separately. Keyword indexing can support initial discovery. A future vector index would need evaluation against known source passages before being described as verified semantic retrieval.</p>
+<h3>Layer 5 — Annotation</h3>
+<p>Keep source wording separate from proposed labels and interpretation. Source identity, date, quotation span, reviewer, limitations and review status should accompany annotations. Generated labels remain proposals until reviewed.</p>
+<h3>Layer 6 — Query interface</h3>
+<p>Return attributable passages with source IDs and available timestamps. The local <a href="passages.html">passage explorer</a> supports user-supplied transcript records; it ships without a transcribed Fadiman corpus. Catalogue matches alone cannot substantiate quotations or clinical conclusions.</p>
+<h3>Layer 7 — Tracing ideas over time</h3>
+<p>Compare dated passages and show where a topic appears in the supplied material. Differences in wording, audience or recording date do not automatically establish a change of position. Any claimed evolution requires source-level review.</p>
+<h3>Layer 8 — Deployment and operations</h3>
+<p>A production service would need durable storage, access controls, recovery procedures and monitored ingestion jobs. No daily transcription cron or external model inference endpoint is active in this prototype. These operational choices remain future implementation work.</p>
 
 <div class="status-block" id="evidence">
   <div class="sl">What the cited research can and cannot show</div>
@@ -607,7 +622,7 @@
   <p style="margin-top:22px;color:#9A9590;font-size:.84rem;">R.N. Collins &nbsp;·&nbsp; <a href="https://linkedin.com/in/rn-collins" target="_blank">linkedin.com/in/rn-collins</a> &nbsp;·&nbsp; Honolulu, HI</p>
 </div>
 
-<div style="margin:40px 0 0;padding:18px 24px;border:1px solid var(--rule);font-family:DM Mono,monospace;font-size:.6rem;letter-spacing:.06em;color:var(--faint);line-height:1.8"><strong style="color:var(--muted)">Disclaimer</strong> — This is an independent research and scoping project. It is not affiliated with, endorsed by, or produced with the knowledge of James Fadiman. Content is presented for informational and archival purposes only and does not constitute medical, legal, or professional advice. Consult a qualified healthcare professional before making any health-related decisions. The legal status of psychedelic substances varies by jurisdiction.</div>
+<div style="margin:40px 0 0;padding:18px 24px;border:1px solid var(--rule);font-family:DM Mono,monospace;font-size:.6rem;letter-spacing:.06em;color:var(--faint);line-height:1.8"><strong style="color:var(--muted)">Disclaimer</strong> — This is an independent research prototype. No affiliation or formal endorsement is represented. Content is presented for informational and archival purposes only and does not constitute medical, legal, or professional advice. Consult a qualified healthcare professional before making any health-related decisions. The legal status of psychedelic substances varies by jurisdiction.</div>
 </main>
 <footer>© 2026 Scoped by R.N. Collins &nbsp;·&nbsp; Aloha AI Consulting &nbsp;·&nbsp; <a href="https://rn-selected-work.vercel.app" style="color:inherit" target="_blank" rel="noopener">RN Builds</a> &nbsp;·&nbsp; August 2026<p><a href="https://github.com/rn-collins/fadiman-atlas" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></p></footer>
 
@@ -756,12 +771,12 @@ const entries = [
 // ═══════════════════════════════════════
 const yearCounts = {};
 entries.forEach(e => {
-  const y = e.date.match(/\b(199\d|200\d|201\d|202\d)\b/);
-  const yr = y ? y[1] : (e.date.includes('—') ? 'undated' : 'pre-2000');
+  const y = e.date.match(/\b(19\d{2}|20\d{2})\b/);
+  const yr = y ? y[1] : 'undated';
   yearCounts[yr] = (yearCounts[yr]||0)+1;
 });
 
-const years = Object.keys(yearCounts).filter(y=>y!=='undated'&&y!=='pre-2000').sort();
+const years = Object.keys(yearCounts).filter(y=>y!=='undated').sort();
 const counts = years.map(y=>yearCounts[y]);
 const colors = years.map(y=>{
   const n = parseInt(y);
@@ -770,6 +785,14 @@ const colors = years.map(y=>{
   return '#3A3530';
 });
 
+const timelineYear=document.getElementById('timeline-year');
+years.forEach(year=>{const option=document.createElement('option');option.value=year;option.textContent=year+' — '+yearCounts[year]+' entries';timelineYear.appendChild(option);});
+function showTimelineYear(year){
+  const matches=entries.filter(e=>e.date.match(/\b(19\d{2}|20\d{2})\b/)?.[1]===year);
+  document.getElementById('timeline-entries').innerHTML=year
+    ? '<strong>'+safeText(year)+' — '+matches.length+' entries</strong>'+matches.map(e=>'<p><a href="#record-'+atlasId(e)+'">'+atlasId(e)+'</a> · '+safeText(e.show)+' ('+safeText(e.runtime)+')</p>').join('')
+    : '';
+}
 let tlChart = null;
 function initTimelineChart(){
   if (typeof Chart === 'undefined') return;
@@ -792,9 +815,8 @@ function initTimelineChart(){
     onClick:(_,els)=>{
       if(!els.length)return;
       const yr=years[els[0].index];
-      const matches=entries.filter(e=>e.date.includes(yr));
-      const div=document.getElementById('timeline-entries');
-      div.innerHTML=`<strong style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);">${yr} — ${matches.length} entries:</strong><br/>`+matches.map(e=>`<span style="display:block;padding:2px 0;border-bottom:1px solid #2A2927;">${e.n}. ${e.host!=='—'?e.host+' / ':''}${e.show} (${e.runtime})</span>`).join('');
+      document.getElementById('timeline-year').value=yr;
+      showTimelineYear(yr);
     }
   }
   });
@@ -811,6 +833,7 @@ window.addEventListener('load', initTimelineChart);
 // ═══════════════════════════════════════
 function buildArchiveTable(){
   const tbody=document.getElementById('archive-tbody');
+  tbody.innerHTML='';
   // Video section header
   tbody.innerHTML+='<tr class="sec"><td colspan="8">Video / Mixed-Media Block — entries 1–89, newest first</td></tr>';
   entries.slice(0,89).forEach(e=>tbody.innerHTML+=archiveRow(e));
@@ -819,7 +842,7 @@ function buildArchiveTable(){
 }
 
 function archiveRow(e){
-  const link=e.url?`<a href="${e.url}" target="_blank" rel="noopener">↗</a>`:'';
+  const link=e.url?`<a href="${e.url}" target="_blank" rel="noopener" aria-label="Open source ${atlasId(e)}">↗</a>`:'';
   let badge='';
   if(e.status==='live') badge='<span class="badge bl">Live</span>';
   else if(e.status==='dead') badge='<span class="badge bd">Dead</span>';
@@ -828,8 +851,8 @@ function archiveRow(e){
   else if(e.status==='mismatched') badge='<span class="badge bm">Mismatched</span>';
   else if(e.status==='show-page'||e.status==='show-page-only') badge='<span class="badge bb">Show page</span>';
   else badge=`<span class="badge bb">${e.status}</span>`;
-  return `<tr>
-    <td class="num">${e.n}</td>
+  return `<tr id="record-${atlasId(e)}">
+    <td class="num">${atlasId(e)}</td>
     <td class="date">${e.date}</td>
     <td class="type">${e.type}</td>
     <td>${e.host}</td>
@@ -846,7 +869,7 @@ buildArchiveTable();
 // ═══════════════════════════════════════
 // Populate year filter
 const yearSel=document.getElementById('f-year');
-const uniqueYears=[...new Set(entries.map(e=>{const y=e.date.match(/\b(199\d|200\d|201\d|202\d)\b/);return y?y[1]:null}).filter(Boolean))].sort();
+const uniqueYears=[...new Set(entries.map(e=>{const y=e.date.match(/\b(19\d{2}|20\d{2})\b/);return y?y[1]:null}).filter(Boolean))].sort();
 uniqueYears.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;yearSel.appendChild(o);});
 
 function filterTable(){
@@ -861,7 +884,10 @@ function filterTable(){
     if(guest==='Gruber'&&!e.guest.includes('Gruber'))return false;
     if(guest==='solo'&&e.guest!=='—')return false;
     if(status==='live'&&e.status!=='live')return false;
-    if(status==='dead'&&e.status==='live')return false;
+    if(status==='dead'&&e.status!=='dead'&&e.url!==null)return false;
+    if(status==='non-live'&&e.status==='live')return false;
+    if(status==='no-url'&&e.url!==null)return false;
+    if(status==='other'&&(e.status==='live'||e.status==='dead'||e.url===null))return false;
     if(search&&!`${e.host} ${e.show} ${e.guest}`.toLowerCase().includes(search))return false;
     return true;
   });
@@ -874,7 +900,7 @@ function filterTable(){
     <td>${e.url?`<a href="${e.url}" target="_blank" rel="noopener">${e.show}</a>`:e.show}</td>
     <td class="runtime">${e.runtime}</td>
     <td style="font-size:.72rem;font-style:italic;">${e.guest}</td>
-    <td>${e.url?`<a href="${e.url}" target="_blank" rel="noopener"><span class="badge bl">↗</span></a>`:`<span class="badge ${e.status==='dead'?'bd':'bm'}">${e.status}</span>`}</td>
+    <td>${e.url?`<a href="${e.url}" target="_blank" rel="noopener"><span class="badge ${e.status==='live'?'bl':e.status==='dead'?'bd':'bm'}">${safeText(e.status)} ↗</span></a>`:`<span class="badge ${e.status==='dead'?'bd':'bm'}">${e.status}</span>`}</td>
   </tr>`).join('');
   document.getElementById('row-count').textContent=`Showing ${filtered.length} of ${entries.length} entries`;
 }
@@ -883,9 +909,9 @@ filterTable();
 // ═══════════════════════════════════════
 // GROUNDED LOCAL CORPUS SEARCH
 // ═══════════════════════════════════════
-function setQuery(q){document.getElementById('search-input').value=q;}
+function setQuery(q){document.getElementById('search-input').value=q;runSearch();}
 
-function atlasText(e){return [e.date,e.type,e.host,e.show,e.guest,e.status].join(' ').toLowerCase();}
+function atlasText(e){return [atlasId(e),e.date,e.type,e.host,e.show,e.guest,e.status].join(' ').toLowerCase();}
 function atlasId(e){return 'FKA-'+String(e.n).padStart(3,'0');}
 function safeText(v){return String(v||'').replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
 function tokenize(q){return [...new Set(q.toLowerCase().match(/[a-z0-9µ-]+/g)||[])].filter(function(x){return x.length>2;});}
@@ -893,7 +919,7 @@ function rankEntries(q){
   var terms=tokenize(q);
   return entries.map(function(e){
     var hay=atlasText(e),score=terms.reduce(function(n,t){return n+(hay.includes(t)?1:0);},0);
-    if(e.status==='live')score+=.1;
+    if(score>0&&e.status==='live')score+=.1;
     return {e:e,score:score};
   }).filter(function(x){return x.score>0;}).sort(function(a,b){return b.score-a.score||a.e.n-b.e.n;}).slice(0,8);
 }
@@ -907,7 +933,7 @@ async function runSearch(){
   btn.disabled=true;btn.textContent='Searching...';result.classList.add('visible');
   var ranked=rankEntries(q);
   result.innerHTML=ranked.length
-    ?'<div style="font-family:DM Mono,monospace;font-size:.64rem;color:#8A6218;margin-bottom:8px">LOCAL CATALOG MATCHES · '+ranked.length+' · no external AI call</div>'+ranked.map(renderSource).join('')
+    ?'<div style="font-family:DM Mono,monospace;font-size:.64rem;color:#E8D5B0;margin-bottom:8px">LOCAL CATALOG MATCHES · '+ranked.length+' · no external AI call</div>'+ranked.map(renderSource).join('')
     :'<div>No catalog records matched those terms. Try a title, host, year, format, or named guest. A zero-result is not evidence that the topic is absent from the underlying work.</div>';
   btn.disabled=false;btn.textContent='Search';
 }
@@ -922,43 +948,82 @@ function annotationValue(name,value,note){
   return '<div class="anno-field"><div class="anno-field-name">'+safeText(name)+'</div><div class="anno-field-value">'+safeText(value||'—')+'</div>'+(note?'<div class="anno-conf" style="color:#888">'+safeText(note)+'</div>':'')+'</div>';
 }
 function detectTerms(text,map,fallback){
-  var lower=text.toLowerCase(),hits=Object.keys(map).filter(function(k){return lower.includes(k);}).map(function(k){return map[k];});
+  var lower=text.toLowerCase(),hits=Object.keys(map).filter(function(k){return new RegExp('(?:^|[^a-z0-9])'+k+'(?:$|[^a-z0-9])','i').test(lower);}).map(function(k){return map[k];});
   return [...new Set(hits)].join(', ')||fallback;
 }
 async function runAnnotation(){
   var input=document.getElementById('anno-input').value.trim(),btn=document.getElementById('anno-btn'),result=document.getElementById('anno-result');
   if(!input)return;
   btn.disabled=true;btn.textContent='Annotating...';
-  var substances=detectTerms(input,{lsd:'LSD',psilocybin:'psilocybin',mushroom:'psilocybin',mdma:'MDMA',ibogaine:'ibogaine',cannabis:'cannabis',ketamine:'ketamine',dmt:'DMT',mescaline:'mescaline'},'general / unspecified');
-  var conditions=detectTerms(input,{depression:'depression',anxiety:'anxiety',adhd:'ADHD',pain:'chronic pain',ptsd:'PTSD',addiction:'addiction','long covid':'long COVID',autism:'autism',creative:'creativity',performance:'performance'},'none identified');
+  var substances=detectTerms(input,{lsd:'LSD',psilocybin:'psilocybin',mushroom:'mushroom (compound unspecified)',mdma:'MDMA',ibogaine:'ibogaine',cannabis:'cannabis',ketamine:'ketamine',dmt:'DMT',mescaline:'mescaline'},'general / unspecified');
+  var conditions=detectTerms(input,{depression:'depression',anxiety:'anxiety',adhd:'ADHD',pain:'pain',ptsd:'PTSD',addiction:'addiction','long covid':'long COVID',autism:'autism',creative:'creative',creativity:'creativity',performance:'performance'},'none identified');
   var claim=/\b(should|recommend|protocol|take|dose|use)\b/i.test(input)?'recommendation-like statement':/\b(study|participants|results|found)\b/i.test(input)?'empirical-like statement':/\b(may|might|perhaps|unclear|unknown)\b/i.test(input)?'hedged / uncertain statement':'descriptive statement';
   var evidence=/\b(study|journal|doi|trial|participants)\b/i.test(input)?'citation cues present; verify source':'no verifiable citation supplied';
   var ranked=rankEntries(input).slice(0,5);
   var refs=ranked.map(function(x){return atlasId(x.e);});
-  result.innerHTML='<div style="font-family:DM Mono,monospace;font-size:.62rem;color:#8A6218;margin-bottom:10px">HEURISTIC AID · deterministic · not medical analysis · no external AI call</div><div class="anno-grid">'+
+  result.innerHTML='<div style="font-family:DM Mono,monospace;font-size:.62rem;color:#E8D5B0;margin-bottom:10px">HEURISTIC AID · deterministic · not medical analysis · no external AI call</div><div class="anno-grid">'+
     annotationValue('substance terms',substances,'literal term detection')+
     annotationValue('condition / topic terms',conditions,'literal term detection')+
     annotationValue('claim form',claim,'language-pattern flag; human review required')+
     annotationValue('evidence signal',evidence,'does not verify a citation')+
-    annotationValue('matched Atlas source IDs',refs.join(', ')||'no catalog match','IDs point to the catalog records below')+
+    annotationValue('matched Atlas source IDs',refs.join(', ')||'no catalog match','Metadata matches only; these sources do not verify the pasted wording')+
     annotationValue('confidence boundary','not scored','heuristics do not establish scientific or clinical confidence')+
     '</div><div style="margin-top:12px">'+(ranked.length?ranked.map(renderSource).join(''):'No catalog record matched the supplied wording.')+'</div>';
   btn.disabled=false;btn.textContent='Annotate this statement';
 }
+function evidenceLink(url,label){
+  if(typeof url!=='string'||!/^https?:\/\//i.test(url))return safeText(label)+': no URL';
+  return '<a href="'+safeText(url)+'" target="_blank" rel="noopener">'+safeText(label)+' ↗</a>';
+}
+function renderRecovery(data){
+  if(!data||!Array.isArray(data.findings))throw new Error('Invalid recovery evidence');
+  document.getElementById('recovery-summary').textContent='Review date: '+data.review_date+' · '+new Set(data.findings.map(f=>f.source_id)).size+' source IDs with findings · '+(data.not_reviewed_source_ids||[]).length+' source IDs not reviewed. No playback verification is implied.';
+  document.getElementById('recovery-results').innerHTML=data.findings.map(f=>
+    '<article class="status-block"><h3><a href="#record-'+safeText(f.source_id)+'">'+safeText(f.source_id)+'</a> · '+safeText(f.checked_date)+'</h3>'+
+    '<p><strong>'+safeText(f.finding_status.replaceAll('_',' '))+'</strong> · Playback '+(f.playback_verified===true?'verified':'not verified')+'</p>'+
+    '<p>'+safeText(f.notes)+'</p><p>'+evidenceLink(f.candidate_url,'Candidate source')+' · '+evidenceLink(f.evidence_url,'Evidence page')+
+    (f.media_candidate_url?' · '+evidenceLink(f.media_candidate_url,'Candidate media'):'')+'</p><p>Historical status: '+safeText(f.historical_status)+' · '+evidenceLink(f.original_url,'Original URL')+'</p></article>'
+  ).join('');
+}
+async function loadRecovery(){
+  try{
+    const response=await fetch('data/research/link-recovery-2026-10-24.json');
+    if(!response.ok)throw new Error('Recovery data unavailable');
+    renderRecovery(await response.json());
+  }catch(error){
+    document.getElementById('recovery-results').innerHTML='<p>The recovery records could not load here. Open the <a href="data/research/link-recovery-2026-10-24.json">dated recovery evidence JSON</a> above; no current availability is inferred from this loading failure.</p>';
+  }
+}
+function renderBibliography(data){
+  if(!data||!Array.isArray(data.records))throw new Error('Invalid bibliography');
+  document.getElementById('bibliography-results').innerHTML=data.records.map(record=>
+    '<article class="status-block"><h3>'+safeText(record.id)+' · '+safeText(record.kind)+' · '+safeText(record.year)+'</h3><p><strong>'+safeText(record.title)+'</strong><br>'+safeText((record.authors||[]).join(', '))+'</p><p>'+evidenceLink(record.source_url,'Publication source')+'</p><p>'+safeText(record.verification)+' Checked '+safeText(record.checked_date)+'. Full text ingested: '+(record.full_text_ingested===true?'yes':'no')+'.</p></article>'
+  ).join('');
+}
+function renderGapReviews(data){
+  if(!data||!Array.isArray(data.records))throw new Error('Invalid candidate reviews');
+  document.getElementById('gap-review-results').innerHTML=data.records.map(record=>
+    '<article class="status-block"><h3>'+safeText(record.id)+' · '+safeText(record.title)+'</h3><p>'+safeText(record.review_status.replaceAll('_',' '))+' · Reviewed '+safeText(record.review_date)+'</p><p>'+safeText(record.review_note||'Identity, uniqueness and current availability require source review.')+'</p>'+Object.entries(record.reconciliation?.reviewed_metadata||{}).map(([key,value])=>'<p><strong>'+safeText(key.replaceAll('_',' '))+':</strong> '+safeText(value)+'</p>').join('')+'<p>'+evidenceLink(record.verified_url||record.candidate_url||record.url,'Reviewed source')+'</p></article>'
+  ).join('');
+}
+async function loadEvidencePanel(path,id,render){
+  try{
+    const response=await fetch(path);
+    if(!response.ok)throw new Error('Evidence unavailable');
+    render(await response.json());
+  }catch(error){
+    document.getElementById(id).innerHTML='<p>These records could not load here. Use the JSON download immediately above this panel.</p>';
+  }
+}
+if(typeof fetch==='function'){
+  loadRecovery();
+  loadEvidencePanel('data/bibliography.json','bibliography-results',renderBibliography);
+  loadEvidencePanel('data/gap-candidates.json','gap-review-results',renderGapReviews);
+}
+
+
 </script>
-<div style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999"><button onclick="document.getElementById('ca-modal').style.display='flex'" style="font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;background:#8A6218;color:#fff;border:none;padding:.55rem 1.1rem;border-radius:2rem;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.35)">Contact the Architect</button></div>
-<div id="ca-modal" role="dialog" aria-modal="true" aria-labelledby="ca-modal-h" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.8);align-items:center;justify-content:center">
-  <div style="background:#fff;max-width:420px;width:90%;padding:2rem;border-radius:4px">
-    <h2 id="ca-modal-h" style="margin:0 0 1rem">Contact the Architect</h2>
-    <input id="ca-name" placeholder="Name (optional)" aria-label="Name" style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box">
-    <input id="ca-email" type="email" placeholder="Email (required)" aria-label="Email" style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box">
-    <textarea id="ca-msg" rows="3" placeholder="Message" aria-label="Message" style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box;resize:vertical"></textarea>
-    <div style="display:flex;gap:.75rem;justify-content:flex-end">
-      <button onclick="document.getElementById('ca-modal').style.display='none'" style="background:none;border:1px solid #ccc;padding:.5rem 1rem;cursor:pointer">Cancel</button>
-      <button onclick="(function(){var e=document.getElementById('ca-email').value;if(!e){alert('Email is required');return;}fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('ca-name').value,email:e,message:document.getElementById('ca-msg').value,source:'contact-architect-fadiman-atlas'})})).then(function(){document.getElementById('ca-modal').style.display='none';alert('Sent!');}).catch(function(){alert('Error. Please try again.');});})()" style="background:#1B7A68;color:#fff;border:none;padding:.5rem 1rem;cursor:pointer">Send</button>
-    </div>
-  </div>
-</div>
+<div style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999"><a id="ca-contact" href="https://www.linkedin.com/in/rn-collins/" target="_blank" rel="noopener" style="font-size:.75rem;background:#8A6218;color:#fff;padding:.7rem 1.1rem;border-radius:2rem;box-shadow:0 2px 12px rgba(0,0,0,.35)">Contact RN on LinkedIn ↗</a></div>
 <div style="text-align:center;padding:.75rem 1rem;font-size:.7rem;border-top:1px solid rgba(0,0,0,.1);margin-top:2rem">Built by <a href="https://rn-portfolio-khaki.vercel.app" target="_blank" rel="noopener" style="color:#1B7A68;text-decoration:none">RN Builds</a> — explore all AI tools and projects.</div>
 </body>
 </html>

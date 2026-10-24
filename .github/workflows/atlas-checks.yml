@@ -1,0 +1,25 @@
+name: Atlas integrity and passage tools
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Catalogue extraction and evidence integrity
+        run: |
+          node scripts/catalogue-audit.cjs --check
+          python3 scripts/check-integrity.py
+      - name: Catalogue UI logic
+        run: node tests/prototype-core.cjs
+      - name: Transcript importer and browser validation contract
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python3 -m unittest discover -s tests -p '*_test.py' -v
+          node --test tests/transcripts-viewer.test.cjs

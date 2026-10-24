@@ -1,0 +1,1225 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-24",
+  "scope": "All 63 historical dead-or-null-URL records reconciled against current official archive rows; plus FKA-021 and FKA-121. This is source-metadata review, not exhaustive internet recovery or playback verification.",
+  "official_archive_http_status": 200,
+  "official_archive_sha256": "ddda076295968b34f569ed7ff87577f9241c120354ddf53611638247c9627ddb",
+  "findings": [
+    {
+      "source_id": "FKA-017",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=lz1jC-CBEqc",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=lz1jC-CBEqc",
+      "finding_status": "official_archive_same_url",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive retains the same embedded video ID. This neither validates the historical dead label nor establishes availability; independent platform check is still needed.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 521,
+        "match_marker": "lz1jC-CBEqc"
+      }
+    },
+    {
+      "source_id": "FKA-021",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.worldsavingpodcast.com/",
+      "historical_status": "show-page-only",
+      "candidate_url": "https://www.worldsavingpodcast.com/ep-304-james-fadiman-phd-jordan-gruber-phd-psychedelic-specialists/",
+      "finding_status": "publisher_episode_link_fetch_failed",
+      "evidence_url": "https://www.worldsavingpodcast.com/season-8",
+      "method": "Primary source page inspection",
+      "notes": "Publisher season page lists episode 304 with Fadiman and Gruber. Following its episode link returned 404 via search; no recovery claimed.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-036",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=SZ-Lr1LUfxk",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=GEUubZrg02M",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-040",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=xBqFWmFRFJw",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=Hg9fRBc4IjQ",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-042",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=iYCZLcyBWoA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=jgxit5sZIOA",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 851,
+        "match_marker": "jgxit5sZIOA"
+      }
+    },
+    {
+      "source_id": "FKA-043",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=dXO3dWuuEq8",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=TT_G403Jlhk",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-044",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=8M5AvFDdMnU",
+      "historical_status": "dead",
+      "candidate_url": "https://www.spreaker.com/user/12969398/dr-jim-fadiman-dr-nicolas-cozzi",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official October 27, 2020 row embeds Spreaker episode 41666165. An older different YouTube ID (0qquZ1Bcj94) appears only in an HTML comment. Spreaker identified as candidate; no playback check.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 879,
+        "match_marker": "episode_id=41666165"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://www.spreaker.com/user/12969398/dr-jim-fadiman-dr-nicolas-cozzi",
+        "error": "HTTP Error 404: Not Found",
+        "http_status": 404
+      }
+    },
+    {
+      "source_id": "FKA-045",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=KhgW5GKl4Kg",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=tV_B1LyqUBc",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 892,
+        "match_marker": "tV_B1LyqUBc"
+      }
+    },
+    {
+      "source_id": "FKA-046",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=Lm9W9I5OZGE",
+      "historical_status": "dead",
+      "candidate_url": "https://divination.com/pathways-podcast/your-symphony-of-selves/",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official August 27, 2020 Paul O\u2019Brien/Pathways row links this publisher episode page, not the stored YouTube ID.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 901,
+        "match_marker": "divination.com/pathways-podcast/your-symphony-of-selves/"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://divination.com/pathways-podcast/your-symphony-of-selves/",
+        "error": "HTTP Error 403: Forbidden",
+        "http_status": 403
+      }
+    },
+    {
+      "source_id": "FKA-049",
+      "checked_date": "2026-10-24",
+      "original_url": "https://youtu.be/y3APDQ8OPEI",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=r7rdbG6xBVA",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-051",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=sO6iAMqVMKE",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=rkF3tpOz56I",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-052",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=4ooY9sAb2tA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=4fjV82MojVk",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-053",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=FULMqDHSCOE",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=cmfW25doED4",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-054",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=A2FMcCyO7mA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=HwQJc7HUGXw",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1017,
+        "match_marker": "HwQJc7HUGXw"
+      }
+    },
+    {
+      "source_id": "FKA-055",
+      "checked_date": "2026-10-24",
+      "original_url": "https://vimeo.com/215867537",
+      "historical_status": "dead",
+      "candidate_url": "https://vimeo.com/212831110",
+      "finding_status": "official_archive_alternate_with_duration_conflict",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official May 2017 Andrea Gilbert/Daniel Cleland row currently embeds Vimeo 212831110 and lists 1m08s; text discusses a 32-minute interview. Commented-out YouTube -ZS6-hTGF2Q lists 32m06s. Do not treat trailer/full interview as equivalent.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1034,
+        "match_marker": "vimeo.com/212831110"
+      }
+    },
+    {
+      "source_id": "FKA-056",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=ySRMOKhBPdY",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=RdHCfq2jn_c",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-057",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=IvFoEJEiEFY",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=JBgKRyRCVFM",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this different YouTube ID beside matching event/date/host metadata. Candidate is not a verified playable replacement; preserve both URLs pending playback/identity review.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-058",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=HmQBbSCFcJk",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=s1XK4lHS4dQ",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1086,
+        "match_marker": "s1XK4lHS4dQ"
+      }
+    },
+    {
+      "source_id": "FKA-060",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=l-xr0XCDgdA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=V_gz7qJz4sE",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Both official rows point to the same video; archive distinguishes 1997 recording from November 2016 posting.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1111,
+        "match_marker": "V_gz7qJz4sE"
+      }
+    },
+    {
+      "source_id": "FKA-061",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=Tl8RW0GqPdI",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=mJpko5WBF78",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1122,
+        "match_marker": "mJpko5WBF78"
+      }
+    },
+    {
+      "source_id": "FKA-062",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=8i3e7HXZLWY",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=1K0v9p4UDFs",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1131,
+        "match_marker": "1K0v9p4UDFs"
+      }
+    },
+    {
+      "source_id": "FKA-063",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=5f4I6-YLRhE",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=vDCAWD9oG44",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1142,
+        "match_marker": "vDCAWD9oG44"
+      }
+    },
+    {
+      "source_id": "FKA-064",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=ZyqtXjBsLsc",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=jybuGQquA28",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1157,
+        "match_marker": "jybuGQquA28"
+      }
+    },
+    {
+      "source_id": "FKA-065",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=vHMiHm-DxaQ",
+      "historical_status": "dead",
+      "candidate_url": "https://bipolarness.com/being-bipolar-ep-215-extreme-states-james-fadiman/",
+      "finding_status": "commented_out_archive_candidate",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "The Being Bipolar March 19, 2014 row and episode URL occur only in an HTML comment, not as a visible active listing. This is a historical recovery lead only.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1168,
+        "match_marker": "bipolarness.com/being-bipolar-ep-215-extreme-states-james-fadiman/"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://bipolarness.com/being-bipolar-ep-215-extreme-states-james-fadiman/",
+        "error": "HTTP Error 503: Service Unavailable",
+        "http_status": 503
+      }
+    },
+    {
+      "source_id": "FKA-066",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=JBbGmVwvmEk",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=mUsGnnz8dJE",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1177,
+        "match_marker": "mUsGnnz8dJE"
+      }
+    },
+    {
+      "source_id": "FKA-067",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=3bPFrpxJa8Q",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=62AA4F40RNc",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1187,
+        "match_marker": "62AA4F40RNc"
+      }
+    },
+    {
+      "source_id": "FKA-068",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "dead",
+      "candidate_url": "https://jamesfadiman.com/dr-james-fadiman-brad-burge-psych-experience-2-may-2013.html",
+      "finding_status": "official_archive_reports_unavailable",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Visible archive row identifies May 2013 discussion and links this detail page; it explicitly says video no longer available. Old Livestream embed is commented out. Publisher/detail-page recovery still required.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1194,
+        "match_marker": "dr-james-fadiman-brad-burge-psych-experience-2-may-2013.html"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://jamesfadiman.com/dr-james-fadiman-brad-burge-psych-experience-2-may-2013.html",
+        "http_status": 200,
+        "content_type": "text/html",
+        "content_length": null,
+        "final_url": "https://jamesfadiman.com/dr-james-fadiman-brad-burge-psych-experience-2-may-2013.html"
+      }
+    },
+    {
+      "source_id": "FKA-069",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=WjxfF9FHrDA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=bww739CxA7c",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1210,
+        "match_marker": "bww739CxA7c"
+      }
+    },
+    {
+      "source_id": "FKA-070",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=OMtPEMWE9pU",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=KtL5fafpRKc",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1221,
+        "match_marker": "KtL5fafpRKc"
+      }
+    },
+    {
+      "source_id": "FKA-071",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=LpLDL6hc4Gk",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=mwAL8O76ICI",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1228,
+        "match_marker": "mwAL8O76ICI"
+      }
+    },
+    {
+      "source_id": "FKA-073",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=Xa_nkAHHMYU",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=u8LmsHBv3x8",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1257,
+        "match_marker": "u8LmsHBv3x8"
+      }
+    },
+    {
+      "source_id": "FKA-074",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=F9xmgNiPnXg",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=dwPjt-AqH60",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1266,
+        "match_marker": "dwPjt-AqH60"
+      }
+    },
+    {
+      "source_id": "FKA-075",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=qCFHfWRqZRQ",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=RYnheKnpmGs",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1279,
+        "match_marker": "RYnheKnpmGs"
+      }
+    },
+    {
+      "source_id": "FKA-076",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=gALcD1VSmhA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=ZyeYH4xKoaY",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1288,
+        "match_marker": "ZyeYH4xKoaY"
+      }
+    },
+    {
+      "source_id": "FKA-077",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=7kd5T4kj1Ek",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=pcmwZdHA-iE",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1297,
+        "match_marker": "pcmwZdHA-iE"
+      }
+    },
+    {
+      "source_id": "FKA-078",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": "https://www.youtube.com/watch?v=zDh4Vi82KVs",
+      "finding_status": "official_archive_candidate_identity_disputed",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive embeds this ID under 1998 Pioneers in Research interview published January 2013. Existing catalogue says a prior URL belonged to another programme but does not preserve that rejected URL. Do not reactivate without identity review; candidate may be the already rejected link.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1306,
+        "match_marker": "zDh4Vi82KVs"
+      }
+    },
+    {
+      "source_id": "FKA-079",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=k5YbUQTWbGE",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=A34x6W-3lJI",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1313,
+        "match_marker": "A34x6W-3lJI"
+      }
+    },
+    {
+      "source_id": "FKA-080",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=mKgFrmVlE8k",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=CoVEJtVo1go",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1319,
+        "match_marker": "CoVEJtVo1go"
+      }
+    },
+    {
+      "source_id": "FKA-081",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=MZbdpIDuKYI",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=4WiYqTPsxhk",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Official archive has separate Part 1 and Part 2 IDs, unlike the catalogue shared URL.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1353,
+        "match_marker": "4WiYqTPsxhk"
+      }
+    },
+    {
+      "source_id": "FKA-082",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=MZbdpIDuKYI",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=YqSqwOai2K4",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Official archive has separate Part 1 and Part 2 IDs, unlike the catalogue shared URL.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1358,
+        "match_marker": "YqSqwOai2K4"
+      }
+    },
+    {
+      "source_id": "FKA-084",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=kIfFQCj5WkA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=vvumVNsyXSU",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Official archive also links a transcript at https://williamjames.com/transcripts/fadiman.htm; transcript availability not yet verified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1374,
+        "match_marker": "vvumVNsyXSU"
+      }
+    },
+    {
+      "source_id": "FKA-085",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=l-xr0XCDgdA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=V_gz7qJz4sE",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Both official rows point to the same video; archive distinguishes 1997 recording from November 2016 posting.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1111,
+        "match_marker": "V_gz7qJz4sE"
+      }
+    },
+    {
+      "source_id": "FKA-086",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=BKhMbWcGmBY",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=sQGc1WpNhUg",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1388,
+        "match_marker": "sQGc1WpNhUg"
+      }
+    },
+    {
+      "source_id": "FKA-087",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=4OqA50JUVXA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=zsas_9n1Yus",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1393,
+        "match_marker": "zsas_9n1Yus"
+      }
+    },
+    {
+      "source_id": "FKA-088",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=lV10w39jMQ4",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=6t8jMZjbjoM",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1399,
+        "match_marker": "6t8jMZjbjoM"
+      }
+    },
+    {
+      "source_id": "FKA-089",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=4ooY9sAb2tA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=cSI6lm8WP3M",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified. Distinct official episode ID resolves the catalogue shared-link ambiguity at metadata level only.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1404,
+        "match_marker": "cSI6lm8WP3M"
+      }
+    },
+    {
+      "source_id": "FKA-099",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=PJb4z0XQLNU",
+      "historical_status": "dead",
+      "candidate_url": "https://thiermann.substack.com/p/57-can-psychedelics-treat-depression-440#details",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "Official archive links this episode for the August 14, 2017 Kyle Thiermann interview. Search fetch of the Substack page was unavailable; playback remains unchecked.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-103",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": "https://jamesfadiman.com/assets/audio/Thom_Knoles-Jim_Fadiman-Psychedelic-Drugs-And-Spiritual-Growth.mp3",
+      "finding_status": "media_http_available",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Primary source page inspection",
+      "notes": "The official archive embeds this MP3 for the November 22, 2016 Thom Knoles interview. HEAD returned HTTP 200, Content-Type audio/mpeg, Content-Length 62619417 on 2026-10-24. Full file and playback not examined.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-105",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=sTCbf9rSGhU",
+      "historical_status": "dead",
+      "candidate_url": "https://jamesfadiman.com/audio/uc_davis_students4sensible_drug_policy_21-sep-2015.mp3",
+      "finding_status": "media_http_available",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official September 21, 2015 UC Davis SSDP row embeds a primary-host replacement MP3 and describes a louder version of the deleted original. HEAD check returned HTTP 200 audio/mpeg; this does not verify media identity or playback.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1598,
+        "match_marker": "uc_davis_students4sensible_drug_policy_21-sep-2015.mp3"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://jamesfadiman.com/audio/uc_davis_students4sensible_drug_policy_21-sep-2015.mp3",
+        "http_status": 200,
+        "content_type": "audio/mpeg",
+        "content_length": "53187583",
+        "final_url": "https://jamesfadiman.com/audio/uc_davis_students4sensible_drug_policy_21-sep-2015.mp3"
+      }
+    },
+    {
+      "source_id": "FKA-106",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": null,
+      "finding_status": "official_archive_no_episode_url",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official June 17, 2015 Tink Tink Club listing gives hosts and 74 minutes but no episode/media URL.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1618,
+        "match_marker": "Tink Tink Club Podcast"
+      },
+      "secondary_search": {
+        "checked_date": "2026-10-24",
+        "query": "\"James Fadiman\" \"Tink Tink\"",
+        "result": "Search surfaced syndicated listing with James Fadiman and June 17, 2015; no publisher-owned media verified.",
+        "candidate_listing_url": "https://tunein.com/podcasts/Film/The-Tink-Tink-Club-p625912/"
+      }
+    },
+    {
+      "source_id": "FKA-109",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "blog-only",
+      "candidate_url": "https://www.drfutureshow.com/drfutureblog/2013/8/18/dr-james-fadiman-on-beyond-the-medical-model-of-psychedelics.html",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official August 20, 2013 row links a dated publisher blog post. Old audio URL is commented out; recording availability unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1648,
+        "match_marker": "dr-james-fadiman-on-beyond-the-medical-model-of-psychedelics.html"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://www.drfutureshow.com/drfutureblog/2013/8/18/dr-james-fadiman-on-beyond-the-medical-model-of-psychedelics.html",
+        "http_status": 200,
+        "content_type": "text/html;charset=UTF-8",
+        "content_length": null,
+        "final_url": "https://www.drfutureshow.com/drfutureblog/2013/8/18/dr-james-fadiman-on-beyond-the-medical-model-of-psychedelics.html"
+      }
+    },
+    {
+      "source_id": "FKA-112",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "show-page-only",
+      "candidate_url": "https://temcnally.podomatic.com/entry/2012-07-24T12_32_35-07_00",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official July 22, 2012 row links this episode and embeds its mp3 enclosure; Fadiman starts after Grob. Do not conflate posting date in URL with interview date.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1693,
+        "match_marker": "temcnally.podomatic.com/entry/2012-07-24T12_32_35-07_00"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://temcnally.podomatic.com/entry/2012-07-24T12_32_35-07_00",
+        "error": "HTTP Error 403: Forbidden",
+        "http_status": 403
+      }
+    },
+    {
+      "source_id": "FKA-113",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=qOBYFIeaVlY",
+      "historical_status": "dead",
+      "candidate_url": "https://psychedelicsalon.com/podcast-302-the-psychedelic-explorers-guide/",
+      "finding_status": "publisher_episode_page_verified",
+      "evidence_url": "https://psychedelicsalon.com/podcast-302-the-psychedelic-explorers-guide/",
+      "method": "Primary source page inspection",
+      "notes": "Publisher identifies episode 302 and James Fadiman, with a download link. Publisher posting date is March 12, 2012; catalogue date March 11 is retained pending date-role review. Media fetch redirected to a host unavailable to the search tool; not classified dead.",
+      "playback_verified": false,
+      "media_candidate_url": "https://archive.org/download/302FadimanBook01/302-FadimanBook01.mp3"
+    },
+    {
+      "source_id": "FKA-114",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "dead",
+      "candidate_url": null,
+      "finding_status": "official_archive_no_episode_url",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official January 4, 2012 Elaine Smitha listing links guest/network pages only; a PRN powerpress player occurs only in commented HTML.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1711,
+        "match_marker": "January 4, 2012."
+      },
+      "secondary_search": {
+        "checked_date": "2026-10-24",
+        "query": "\"James Fadiman\" \"Elaine Smitha\" \"2012\"",
+        "result": "Official CV page 27 lists Evolving Ideas, January 4, 2012, 53 minutes and this historical episode URL. HTTPS fetch did not resolve usable episode content; no playable recording verified.",
+        "evidence_url": "https://www.jamesfadiman.com/pdf/JamesFadimanVitae.pdf",
+        "candidate_url": "http://prn.fm/2012/01/04/evolving-ideas-010412/#axzz2Jn7EMTNZ"
+      }
+    },
+    {
+      "source_id": "FKA-115",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=uFZcEwZQ6kA",
+      "historical_status": "dead",
+      "candidate_url": "https://www.youtube.com/watch?v=WvtTKdeURkc",
+      "finding_status": "official_archive_url_differs",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official archive row embeds this different YouTube ID beside matching event/host/runtime metadata. Metadata reconciliation only; media identity and playback remain unverified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1720,
+        "match_marker": "WvtTKdeURkc"
+      }
+    },
+    {
+      "source_id": "FKA-117",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "mismatched",
+      "candidate_url": "https://jamesfadiman.com/audio/radioamerikanow-barb-adams-3-dec-2011.mp3",
+      "finding_status": "official_archive_candidate_identity_disputed",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official December 3, 2011 row links a primary-host Radio Amerika file but its embedded player points to Shrink Rap Radio #283. This confirms an internal source mismatch. Neither candidate is promoted without audio identity review. HEAD check returned HTTP 200 audio/mpeg; this does not verify media identity or playback.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1735,
+        "match_marker": "radioamerikanow-barb-adams-3-dec-2011.mp3"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://jamesfadiman.com/audio/radioamerikanow-barb-adams-3-dec-2011.mp3",
+        "http_status": 200,
+        "content_type": "audio/mpeg",
+        "content_length": "67995761",
+        "final_url": "https://jamesfadiman.com/audio/radioamerikanow-barb-adams-3-dec-2011.mp3"
+      }
+    },
+    {
+      "source_id": "FKA-119",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "blog-only",
+      "candidate_url": "https://tributariesradio.wordpress.com/2011/10/30/dr-james-fadiman-author-the-psychedlic-explorers-guide-part-1-of-3/",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official October 30, 2011 row links the publisher Part 1 page. Three KGNU MP3 URLs occur only in comments; retain part distinction.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1756,
+        "match_marker": "dr-james-fadiman-author-the-psychedlic-explorers-guide-part-1-of-3/"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://tributariesradio.wordpress.com/2011/10/30/dr-james-fadiman-author-the-psychedlic-explorers-guide-part-1-of-3/",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "content_length": null,
+        "final_url": "https://tributariesradio.com/2011/10/30/dr-james-fadiman-author-the-psychedlic-explorers-guide-part-1-of-3/"
+      }
+    },
+    {
+      "source_id": "FKA-120",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "blog-only",
+      "candidate_url": "https://barryfarbershow.blogspot.com/2011/10/1024-say-what-you-mean-lsd-is-in-again.html",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official October 24, 2011 row links this episode-specific publisher blog page. Direct mp3 occurs only in an HTML comment.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1766,
+        "match_marker": "1024-say-what-you-mean-lsd-is-in-again.html"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://barryfarbershow.blogspot.com/2011/10/1024-say-what-you-mean-lsd-is-in-again.html",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "content_length": "0",
+        "final_url": "https://barryfarbershow.blogspot.com/2011/10/1024-say-what-you-mean-lsd-is-in-again.html"
+      }
+    },
+    {
+      "source_id": "FKA-121",
+      "checked_date": "2026-10-24",
+      "original_url": "https://shrinkrapradio.com/",
+      "historical_status": "live",
+      "candidate_url": "https://shrinkrapradio.com/283-an-update-on-the-positive-potential-of-psychedelics-with-james-fadiman-phd/",
+      "finding_status": "publisher_episode_and_transcript_verified",
+      "evidence_url": "https://shrinkrapradio.com/283-an-update-on-the-positive-potential-of-psychedelics-with-james-fadiman-phd/",
+      "method": "Primary source page inspection",
+      "notes": "Publisher page identifies episode 283, James Fadiman, October 14, 2011 and links a transcript. The linked 16-page PDF https://www.shrinkrapradio.com/283.pdf was readable; it is publisher-supplied text, not newly generated transcription. Direct shell HEAD of page returned 406 although web retrieval succeeded.",
+      "playback_verified": false
+    },
+    {
+      "source_id": "FKA-122",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": "https://audio.itsyourhealthnetwork.com/media/emspir101011fadiman37min00s.mp3",
+      "finding_status": "commented_out_archive_candidate",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official October 10, 2011 Lisa Davis listing is visible, but the episode MP3 occurs only in an HTML comment. Historical recovery lead, not available-media evidence.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1785,
+        "match_marker": "emspir101011fadiman37min00s.mp3"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://audio.itsyourhealthnetwork.com/media/emspir101011fadiman37min00s.mp3",
+        "error": "HTTP Error 503: Service Unavailable",
+        "http_status": 503
+      }
+    },
+    {
+      "source_id": "FKA-124",
+      "checked_date": "2026-10-24",
+      "original_url": "https://www.youtube.com/watch?v=WBZ0pCQJO0Y",
+      "historical_status": "dead",
+      "candidate_url": "https://recordings.talkshoe.com/TC-84174/TS-537813.mp3",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official September 19, 2011 Six Degrees Show row links and embeds this MP3; catalogue points instead to a YouTube ID.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1801,
+        "match_marker": "TC-84174/TS-537813.mp3"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://recordings.talkshoe.com/TC-84174/TS-537813.mp3",
+        "error": "HTTP Error 503: Service Unavailable",
+        "http_status": 503
+      }
+    },
+    {
+      "source_id": "FKA-125",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": null,
+      "finding_status": "official_archive_no_episode_url",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official September 8, 2011 Frankie Boyer listing links the show homepage only; no episode-specific media identified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1810,
+        "match_marker": "September 8, 2011."
+      },
+      "secondary_search": {
+        "checked_date": "2026-10-24",
+        "query": "\"James Fadiman\" \"Frankie Boyer\" \"2011\"",
+        "result": "Official archive/CV corroboration searched; no verified playable episode recovered."
+      }
+    },
+    {
+      "source_id": "FKA-126",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": "https://midpenmedia.org/the-next-step/",
+      "finding_status": "official_archive_alternate_found",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official August 2011 row identifies episode 80 and links this publisher series page. This is not yet an exact episode/media recovery.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1818,
+        "match_marker": "midpenmedia.org/the-next-step/"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://midpenmedia.org/the-next-step/",
+        "error": "HTTP Error 403: Forbidden",
+        "http_status": 403
+      }
+    },
+    {
+      "source_id": "FKA-131",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": null,
+      "finding_status": "official_archive_no_episode_url",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Official June 23, 2011 Erik Davis listing links PRN homepage only; no episode-specific media identified.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1859,
+        "match_marker": "June 23, 2011"
+      },
+      "secondary_search": {
+        "checked_date": "2026-10-24",
+        "query": "\"James Fadiman\" \"Erik Davis\" \"2011\"",
+        "result": "Official archive/CV corroboration searched; no verified playable episode recovered."
+      }
+    },
+    {
+      "source_id": "FKA-132",
+      "checked_date": "2026-10-24",
+      "original_url": null,
+      "historical_status": "no-url",
+      "candidate_url": "https://jamesfadiman.com/audio/james-fadiman-american-psych-association-washington-dc-aug-1992.mp3",
+      "finding_status": "media_http_available",
+      "evidence_url": "https://jamesfadiman.com/watch-hear.html",
+      "method": "Direct HTTP 200 retrieval of official archive; matching event/host/date row and embedded href/src inspected",
+      "notes": "Current visible official archive embeds this MP3 beside August 1992 APA Centennial metadata and 31-minute duration. Catalogue statement withdrawn/no public copy is not supported by this current listing. Availability and identity need checking. HEAD check returned HTTP 200 audio/mpeg; this does not verify media identity or playback.",
+      "playback_verified": false,
+      "evidence_locator": {
+        "source_html_line": 1868,
+        "match_marker": "james-fadiman-american-psych-association-washington-dc-aug-1992.mp3"
+      },
+      "http_observation": {
+        "method": "HEAD",
+        "checked_date": "2026-10-24",
+        "requested_url": "https://jamesfadiman.com/audio/james-fadiman-american-psych-association-washington-dc-aug-1992.mp3",
+        "http_status": 200,
+        "content_type": "audio/mpeg",
+        "content_length": "30430922",
+        "final_url": "https://jamesfadiman.com/audio/james-fadiman-american-psych-association-washington-dc-aug-1992.mp3"
+      }
+    }
+  ],
+  "not_reviewed_source_ids": [
+    "FKA-001",
+    "FKA-002",
+    "FKA-003",
+    "FKA-004",
+    "FKA-005",
+    "FKA-006",
+    "FKA-007",
+    "FKA-008",
+    "FKA-009",
+    "FKA-010",
+    "FKA-011",
+    "FKA-012",
+    "FKA-013",
+    "FKA-014",
+    "FKA-015",
+    "FKA-016",
+    "FKA-018",
+    "FKA-019",
+    "FKA-020",
+    "FKA-022",
+    "FKA-023",
+    "FKA-024",
+    "FKA-025",
+    "FKA-026",
+    "FKA-027",
+    "FKA-028",
+    "FKA-029",
+    "FKA-030",
+    "FKA-031",
+    "FKA-032",
+    "FKA-033",
+    "FKA-034",
+    "FKA-035",
+    "FKA-037",
+    "FKA-038",
+    "FKA-039",
+    "FKA-041",
+    "FKA-047",
+    "FKA-048",
+    "FKA-050",
+    "FKA-059",
+    "FKA-072",
+    "FKA-083",
+    "FKA-090",
+    "FKA-091",
+    "FKA-092",
+    "FKA-093",
+    "FKA-094",
+    "FKA-095",
+    "FKA-096",
+    "FKA-097",
+    "FKA-098",
+    "FKA-100",
+    "FKA-101",
+    "FKA-102",
+    "FKA-104",
+    "FKA-107",
+    "FKA-108",
+    "FKA-110",
+    "FKA-111",
+    "FKA-116",
+    "FKA-118",
+    "FKA-123",
+    "FKA-127",
+    "FKA-128",
+    "FKA-129",
+    "FKA-130"
+  ],
+  "limitations": [
+    "A page or HEAD success does not establish playable media or complete identity equivalence.",
+    "Official archive supplies many media IDs different from stored catalogue; archive reconciliation does not establish playable replacements.",
+    "No material downloaded for transcription in this pass.",
+    "Shared URLs, episode publication dates, recording dates and archive dates need separate review.",
+    "All 63 problem entries received official-archive metadata reconciliation; this does not mean all missing media were recovered. Direct HTTP observations are separate and include failures."
+  ],
+  "problem_record_coverage": {
+    "definition": "historical status dead OR original URL null",
+    "total": 63,
+    "reviewed": 63,
+    "remaining_unreviewed": 0
+  },
+  "finding_status_counts": {
+    "official_archive_same_url": 1,
+    "publisher_episode_link_fetch_failed": 1,
+    "official_archive_url_differs": 39,
+    "official_archive_alternate_found": 9,
+    "official_archive_alternate_with_duration_conflict": 1,
+    "commented_out_archive_candidate": 2,
+    "official_archive_reports_unavailable": 1,
+    "official_archive_candidate_identity_disputed": 2,
+    "media_http_available": 3,
+    "official_archive_no_episode_url": 4,
+    "publisher_episode_page_verified": 1,
+    "publisher_episode_and_transcript_verified": 1
+  }
+}
